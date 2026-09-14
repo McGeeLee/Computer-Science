@@ -4,7 +4,7 @@
 - 原书名：*Introduction to Programming Using Python*
 - 中文版出版时间：2015 年
 
-本目录保存仓库压缩版 PDF、OCR 全文和按章整理的学习总结。原始扫描件约 188MB，超过 GitHub 普通文件的大小限制，因此仓库中使用页数相同、文字仍清晰的约 60MB 压缩版；原文件没有被修改。
+本目录保存仓库压缩版 PDF、OCR 全文、按章学习总结，以及第 1～15 章共 451 道章末编程题的 Python 解答和测试。原始扫描件约 188MB，超过 GitHub 普通文件的大小限制，因此仓库中使用页数相同、文字仍清晰的约 60MB 压缩版；原文件没有被修改。
 
 > 本仓库保持私有，仅用于个人学习。书籍正文、扫描文件和 OCR 文本的著作权仍归原权利人所有，本仓库不授予重新发布或商业使用这些材料的权利。
 
@@ -30,10 +30,16 @@ Python语言程序设计_梁勇/
 ├── text/
 │   ├── Python语言程序设计_OCR.txt
 │   └── OCR_页码报告.tsv
-└── summaries/
-    ├── 00_全书导读.md
-    └── 01～15_逐章总结.md
+├── summaries/
+│   ├── 00_全书导读.md
+│   └── 01～15_逐章总结.md
+└── exercises/
+    ├── README.md
+    ├── solutions/chapter01.py … chapter15.py
+    └── tests/test_chapter01.py … test_chapter15.py
 ```
+
+章末编程题的题号范围、运行方法和已知版本差异见 [习题解答说明](exercises/README.md)。
 
 ## 章节索引
 
