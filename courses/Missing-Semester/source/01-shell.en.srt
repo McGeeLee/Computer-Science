@@ -1,0 +1,6149 @@
+1
+00:00:01,344 --> 00:00:01,705
+Yes,
+
+2
+00:00:01,705 --> 00:00:02,425
+you're in the right place.
+
+3
+00:00:07,427 --> 00:00:08,227
+I have a fix for that.
+
+4
+00:00:11,148 --> 00:00:11,648
+Success
+
+5
+00:00:12,269 --> 00:00:13,569
+It is now on the screen.
+
+6
+00:00:14,830 --> 00:00:15,551
+Yeah,
+exactly.
+
+7
+00:00:16,571 --> 00:00:17,071
+Perfect.
+
+8
+00:00:17,451 --> 00:00:17,951
+I love that.
+
+9
+00:00:18,551 --> 00:00:19,051
+Even better.
+
+10
+00:00:20,072 --> 00:00:21,294
+Cool.
+I guess we might as well start.
+
+11
+00:00:21,314 --> 00:00:22,316
+It's 1:37,
+
+12
+00:00:22,317 --> 00:00:24,500
+which is an optimal start time for first class.
+
+13
+00:00:25,682 --> 00:00:29,689
+So welcome to the first class of Missing Semester IAP
+
+14
+00:00:30,690 --> 00:00:31,612
+2026.
+
+15
+00:00:31,652 --> 00:00:35,775
+This is a class that we originally ran in 2019,
+
+16
+00:00:35,776 --> 00:00:36,896
+and then we ran it again in 2020.
+
+17
+00:00:36,976 --> 00:00:39,437
+And then we all kind of moved on to other things,
+
+18
+00:00:39,597 --> 00:00:41,779
+but enough people seem to find this class useful.
+
+19
+00:00:42,059 --> 00:00:45,682
+And there are enough things that have changed since last time that we decided to run another iteration.
+
+20
+00:00:46,062 --> 00:00:47,023
+That's what we're here for.
+
+21
+00:00:48,083 --> 00:00:50,245
+We were sort of co-lecturing the class together,
+
+22
+00:00:50,365 --> 00:00:52,907
+same as we did back in 2020 and 2019.
+
+23
+00:00:52,908 --> 00:00:53,408
+I'm John.
+
+24
+00:00:54,308 --> 00:00:54,928
+I am Anish.
+
+25
+00:00:55,048 --> 00:00:56,729
+Not much left to say.
+
+26
+00:00:56,730 --> 00:00:57,230
+Oh yeah,
+
+27
+00:00:57,270 --> 00:00:57,770
+that's a good idea.
+
+28
+00:00:57,771 --> 00:00:58,290
+Is this thing on?
+
+29
+00:00:58,430 --> 00:00:58,831
+Yeah.
+
+30
+00:00:58,831 --> 00:00:59,331
+Yeah.
+
+31
+00:00:59,331 --> 00:00:59,831
+I am Anish.
+
+32
+00:01:00,964 --> 00:01:01,565
+My name is Jose.
+
+33
+00:01:02,927 --> 00:01:09,555
+All three of us are ex-MIT students who did this class while we were doing our PhD here.
+
+34
+00:01:09,996 --> 00:01:11,778
+We've since sort of moved on to other things.
+
+35
+00:01:12,319 --> 00:01:13,680
+The other things are not particularly relevant,
+
+36
+00:01:13,700 --> 00:01:14,402
+I think,
+for this class.
+
+37
+00:01:14,402 --> 00:01:16,344
+So we're not going to do a whole what else are we doing?
+
+38
+00:01:17,365 --> 00:01:19,408
+But enough to say that like--
+
+39
+00:01:19,944 --> 00:01:21,986
+We all took a bunch of classes at MIT,
+
+40
+00:01:22,446 --> 00:01:28,051
+and all of us sort of fell through this pain of all of the things that you're supposed to know in some way.
+
+41
+00:01:28,351 --> 00:01:34,316
+Or at least the classes sort of assume that you know like Git and editors and how to get around on the terminal and what the terminal even is.
+
+42
+00:01:34,956 --> 00:01:40,401
+And we felt like there's sort of a superpower here in that if you know how to use these environments well,
+
+43
+00:01:40,821 --> 00:01:45,165
+then it makes a lot of other things in these classes easier.
+
+44
+00:01:45,765 --> 00:01:47,266
+The problem is no one teaches it to you,
+
+45
+00:01:47,567 --> 00:01:49,008
+hence the name "The Missing Semester."
+
+46
+00:01:50,069 --> 00:01:56,074
+And so the goal of this class in all past instantiations and in this one is for us to go over all of those things,
+
+47
+00:01:56,075 --> 00:01:57,896
+or at least as many as we can fit into the time.
+
+48
+00:01:57,916 --> 00:01:58,776
+All the tools,
+
+49
+00:01:58,836 --> 00:01:59,336
+techniques,
+
+50
+00:01:59,337 --> 00:01:59,857
+concepts,
+
+51
+00:01:59,957 --> 00:02:05,062
+ideas that sort of make up the bulk of the behind-the-scenes knowledge.
+
+52
+00:02:05,063 --> 00:02:09,486
+I don't know if you have other things you want to add before we dive into the first topic.
+
+53
+00:02:11,904 --> 00:02:14,485
+Yeah,
+just a little bit more on the inspiration for this class.
+
+54
+00:02:14,525 --> 00:02:16,867
+So all three of us while we were grad students here,
+
+55
+00:02:17,487 --> 00:02:25,111
+teed a bunch of classes and we often found that while in office hours we'd be teaching students topics that were actually not the subject matter for the course we were teaching,
+
+56
+00:02:25,351 --> 00:02:26,832
+but just things like how to use the shell,
+
+57
+00:02:26,912 --> 00:02:29,814
+how to make most effective use of the text editor,
+
+58
+00:02:30,054 --> 00:02:30,734
+and things like that.
+
+59
+00:02:30,934 --> 00:02:37,738
+And so we thought let's factor out all those topics and teach a dedicated course on it so you can focus on the course material in office hours.
+
+60
+00:02:38,038 --> 00:02:38,538
+Yeah,
+
+61
+00:02:38,598 --> 00:02:40,219
+I think some of it is also like repetition,
+
+62
+00:02:40,259 --> 00:02:41,200
+like there's a lot of things
+
+63
+00:02:41,460 --> 00:02:44,442
+We think about computers like we can write programs that automate things,
+
+64
+00:02:44,482 --> 00:02:48,705
+but we don't think about the fact that the computer can automate our tasks working with the computer as well.
+
+65
+00:02:49,125 --> 00:02:50,006
+Like you have a,
+
+66
+00:02:50,066 --> 00:02:50,566
+I don't know,
+
+67
+00:02:50,727 --> 00:02:56,811
+you're running the tests for some lab and you want to run them until they fail because you know that they fail if you stress test them enough.
+
+68
+00:02:57,231 --> 00:02:59,052
+And instead of you pressing like arrow up enter,
+
+69
+00:02:59,173 --> 00:03:01,074
+arrow up enter to run it multiple times,
+
+70
+00:03:01,274 --> 00:03:02,655
+how can you automate this task?
+
+71
+00:03:02,995 --> 00:03:09,460
+And so those kinds of things are things that students don't even know to ask questions about because they don't necessarily know that it's possible.
+
+72
+00:03:09,996 --> 00:03:12,497
+And those are the kinds of things we want to give the insight to in this class.
+
+73
+00:03:13,397 --> 00:03:14,838
+Yeah,
+just to add to that,
+
+74
+00:03:14,958 --> 00:03:17,799
+I feel like a bit of it is unknown unknowns.
+
+75
+00:03:18,620 --> 00:03:27,223
+You might not know that a lot of smart programmers have come before you already faced these frustrations and already have solved these problems.
+
+76
+00:03:28,424 --> 00:03:33,746
+Since these solutions are not taught in your compilers class or in your algorithms class,
+
+77
+00:03:33,806 --> 00:03:35,266
+you might not know about them,
+
+78
+00:03:35,346 --> 00:03:38,888
+and I think part that we're trying to cover here is giving
+
+79
+00:03:39,468 --> 00:03:48,951
+awareness of the types of tools that are out there and that you should know about and reach out when the time comes.
+
+80
+00:03:49,511 --> 00:03:51,852
+And this relates a little bit to the logistics of the class,
+
+81
+00:03:51,892 --> 00:03:54,412
+so they're going to be nine one-hour lectures.
+
+82
+00:03:55,113 --> 00:03:57,573
+That's not a lot of time even though it might sound like it.
+
+83
+00:03:57,833 --> 00:04:00,954
+There are so many just areas to focus on,
+
+84
+00:04:01,514 --> 00:04:02,815
+not to mention individual tools.
+
+85
+00:04:03,035 --> 00:04:06,936
+We will not be able to go into all of the tools in detail or all the techniques in detail.
+
+86
+00:04:07,320 --> 00:04:08,100
+For a lot of this,
+
+87
+00:04:08,280 --> 00:04:11,142
+almost what we're doing is like exposure therapy.
+
+88
+00:04:11,562 --> 00:04:15,604
+Right?
+Like we're like showing you what is possible and some of the tools that you should know about.
+
+89
+00:04:15,784 --> 00:04:23,767
+But we might not go into detail about how they work or exactly how to use them or even like example usages of them.
+
+90
+00:04:23,827 --> 00:04:30,490
+The idea is that we tell you about the tools that you should then go read more about yourself or you should go experiment with on your own.
+
+91
+00:04:31,210 --> 00:04:35,572
+You'll find that we have exercises included with all of the lectures and
+
+92
+00:04:35,712 --> 00:04:40,594
+And all of those exercises are intended to give you more hands-on experience with the stuff we teach in the class.
+
+93
+00:04:40,854 --> 00:04:46,015
+So I highly recommend that you go in and do those because that is the way that you will learn the most out of this class.
+
+94
+00:04:46,255 --> 00:04:48,256
+The lectures are only part of the outcome.
+
+95
+00:04:50,297 --> 00:04:52,337
+Should we mention logistics real quick?
+
+96
+00:04:52,498 --> 00:04:54,458
+Like what time?
+
+97
+00:04:54,638 --> 00:04:54,958
+Oh yeah,
+
+98
+00:04:54,958 --> 00:04:56,959
+sure.
+The different time for Friday?
+
+99
+00:04:56,979 --> 00:04:57,739
+Yeah,
+let's do that.
+
+100
+00:04:57,839 --> 00:04:59,920
+So the lectures are going to be here.
+
+101
+00:05:00,260 --> 00:05:00,880
+at this time,
+
+102
+00:05:00,900 --> 00:05:05,201
+so starting at 1:30 to 2:30 every day for the next two weeks,
+
+103
+00:05:05,341 --> 00:05:07,002
+except for on Friday.
+
+104
+00:05:07,322 --> 00:05:10,383
+We'll be in the same room but we'll be here starting at 3 p.m.
+
+105
+00:05:10,483 --> 00:05:11,883
+because the room is taken at this time.
+
+106
+00:05:12,483 --> 00:05:13,524
+And on Monday,
+
+107
+00:05:13,704 --> 00:05:14,204
+the day's off,
+
+108
+00:05:14,244 --> 00:05:15,664
+so we're not going to be here on Monday.
+
+109
+00:05:16,885 --> 00:05:17,885
+The last class,
+
+110
+00:05:17,925 --> 00:05:20,366
+so not this coming Friday but the Friday after,
+
+111
+00:05:20,646 --> 00:05:23,026
+is going to be a class dedicated entirely to Q&A.
+
+112
+00:05:23,466 --> 00:05:26,967
+So the idea is that over the course of the previous two weeks,
+
+113
+00:05:27,167 --> 00:05:28,768
+hopefully you'll have accumulated a bunch of
+
+114
+00:05:29,028 --> 00:05:30,029
+"Hey,
+but how does this work?"
+
+115
+00:05:30,109 --> 00:05:32,411
+Or,
+"Can you tell us more about this kind of stuff?"
+
+116
+00:05:33,132 --> 00:05:36,715
+Then we're happy to use all of the time there to cover whatever you can think of.
+
+117
+00:05:37,455 --> 00:05:40,238
+We're also gonna record all of these lectures and put them online.
+
+118
+00:05:40,239 --> 00:05:42,600
+They're gonna go on Panopto first and then on YouTube,
+
+119
+00:05:42,840 --> 00:05:48,084
+which means that this will be intended for sort of the general public to consume as well to learn these techniques.
+
+120
+00:05:48,545 --> 00:05:55,811
+That is also why it is so important that you ask questions both during these lectures and in the Q&A session at the end because you are,
+
+121
+00:05:55,871 --> 00:05:56,371
+in a sense,
+
+122
+00:05:56,812 --> 00:05:58,774
+the voice of the people who are watching this later.
+
+123
+00:05:59,254 --> 00:06:00,835
+The questions you have when watching this,
+
+124
+00:06:01,116 --> 00:06:02,417
+other people will also have.
+
+125
+00:06:02,717 --> 00:06:07,241
+And ideally we can capture the responses so that those people get to benefit from the answers as well.
+
+126
+00:06:09,483 --> 00:06:09,983
+Cool
+
+127
+00:06:10,003 --> 00:06:11,565
+I think we're ready to dive into the first class.
+
+128
+00:06:13,286 --> 00:06:16,689
+If you find that you have questions about...oh yeah,
+
+129
+00:06:16,749 --> 00:06:17,610
+like that.
+
+130
+00:06:18,250 --> 00:06:19,471
+If you find that you have
+
+131
+00:06:24,224 --> 00:06:32,289
+Questions about the course or even about individual topics that you forget to ask in class.
+
+132
+00:06:33,029 --> 00:06:34,930
+There is a way to ask questions after the fact,
+
+133
+00:06:35,250 --> 00:06:35,871
+there are two really.
+
+134
+00:06:36,271 --> 00:06:38,432
+One of them is there is a Discord channel,
+
+135
+00:06:38,552 --> 00:06:47,037
+it's linked on the website and this is part of the open source university that is specifically like a Discord for people who are learning using open source materials.
+
+136
+00:06:47,577 --> 00:06:48,738
+We're missing semester as a channel.
+
+137
+00:06:48,998 --> 00:06:52,700
+There's also a forum channel there where you can ask questions and then they will show up as like
+
+138
+00:06:53,024 --> 00:06:54,446
+questions like forum threads,
+
+139
+00:06:54,906 --> 00:06:57,489
+where we can sort of give official answers in there as well.
+
+140
+00:06:58,330 --> 00:07:00,633
+Or if you want to ask your question more privately,
+
+141
+00:07:00,713 --> 00:07:04,497
+you can also email the instructors using the email that's on the website.
+
+142
+00:07:06,139 --> 00:07:06,639
+Cool
+
+143
+00:07:06,700 --> 00:07:09,743
+Let's dive into the first topic,
+
+144
+00:07:10,344 --> 00:07:13,708
+which is dramatic effect.
+
+145
+00:07:14,176 --> 00:07:14,836
+The terminal,
+
+146
+00:07:16,437 --> 00:07:18,837
+or more specifically the shell.
+
+147
+00:07:19,818 --> 00:07:20,598
+What is the shell?
+
+148
+00:07:20,958 --> 00:07:35,862
+Well computers have a bunch of different interfaces you can use to interact with them right we're all familiar with graphical user interfaces or GUIs those are the ones where you move your mouse around and you click things and those are fine they work really well if they're well designed graphical user interfaces.
+
+149
+00:07:36,182 --> 00:07:40,143
+We have other things more recently as well we have things like agentic interfaces,
+
+150
+00:07:40,263 --> 00:07:42,144
+we have voice interfaces,
+
+151
+00:07:42,224 --> 00:07:42,724
+we have
+
+152
+00:07:43,872 --> 00:07:45,313
+like virtual reality,
+
+153
+00:07:45,493 --> 00:07:47,094
+augmented reality type interfaces.
+
+154
+00:07:47,214 --> 00:07:49,595
+Maybe we'll get neural interfaces at some point.
+
+155
+00:07:49,615 --> 00:07:51,376
+We have all of these ways to interact with the computer.
+
+156
+00:07:51,836 --> 00:07:56,998
+But the reality is that a lot of those interfaces are sort of specialized.
+
+157
+00:07:57,098 --> 00:08:03,001
+They're specialized to what the author of that interface had in mind when they created the interface.
+
+158
+00:08:03,301 --> 00:08:03,822
+So for a GUI,
+
+159
+00:08:03,862 --> 00:08:04,362
+for example,
+
+160
+00:08:04,382 --> 00:08:08,564
+the only things you can do are the things that are programmed into that program to do.
+
+161
+00:08:09,876 --> 00:08:10,376
+Similarly,
+
+162
+00:08:10,476 --> 00:08:14,778
+it's pretty hard to take two different programs that are doing maybe related tasks and you wish you can combine them.
+
+163
+00:08:14,998 --> 00:08:17,178
+To try and actually combine them is often pretty hard.
+
+164
+00:08:17,678 --> 00:08:25,881
+It requires there to be some custom implementation of software A from vendor A with software B from vendor B so that those two can interoperate.
+
+165
+00:08:27,161 --> 00:08:33,443
+And sometimes you really just want to drop into one level lower where everything is just you can write whatever commands you want,
+
+166
+00:08:33,444 --> 00:08:34,883
+you can chain them together however you want,
+
+167
+00:08:35,063 --> 00:08:36,143
+and that is what the shell is.
+
+168
+00:08:36,163 --> 00:08:38,424
+It is the textual interface to the computer.
+
+169
+00:08:38,924 --> 00:08:41,425
+This is the thing that we sort of had from the very beginning.
+
+170
+00:08:42,145 --> 00:08:44,666
+This is what preceded all the GUIs,
+
+171
+00:08:44,686 --> 00:08:46,126
+it preceded all the other interfaces,
+
+172
+00:08:46,406 --> 00:08:50,347
+and it is in a way the sort of core language for interacting with the computer.
+
+173
+00:08:51,968 --> 00:08:59,129
+The shell is really a program on your computer that lets you give inputs commands and prints the outputs of those commands,
+
+174
+00:08:59,269 --> 00:09:00,530
+and that's how you interface with it.
+
+175
+00:09:01,230 --> 00:09:03,251
+The shell runs in the context of a terminal.
+
+176
+00:09:03,471 --> 00:09:06,892
+A terminal you can think of as like the GUI window that is around it.
+
+177
+00:09:07,692 --> 00:09:08,472
+So in this case
+
+178
+00:09:08,732 --> 00:09:10,813
+you can see that there's sort of a border around this thing.
+
+179
+00:09:10,913 --> 00:09:11,753
+That is my terminal.
+
+180
+00:09:11,993 --> 00:09:13,114
+It doesn't have any UI.
+
+181
+00:09:13,634 --> 00:09:14,334
+Some terminals do,
+
+182
+00:09:14,514 --> 00:09:15,095
+mine does not.
+
+183
+00:09:15,555 --> 00:09:17,736
+And inside of that terminal runs a shell.
+
+184
+00:09:18,696 --> 00:09:20,677
+You can open a terminal on your computer.
+
+185
+00:09:21,457 --> 00:09:24,699
+Most computers these days ship with some kind of terminal,
+
+186
+00:09:24,799 --> 00:09:25,919
+with some kind of shell.
+
+187
+00:09:26,579 --> 00:09:26,960
+On Linux,
+
+188
+00:09:26,960 --> 00:09:29,300
+you can usually open this with like Ctrl + Alt + T,
+
+189
+00:09:29,541 --> 00:09:30,761
+tends to work on most distros,
+
+190
+00:09:31,041 --> 00:09:33,422
+or you can open your application launcher and just search for terminal,
+
+191
+00:09:33,462 --> 00:09:34,523
+you should probably find something.
+
+192
+00:09:35,263 --> 00:09:35,843
+On Windows,
+
+193
+00:09:35,844 --> 00:09:37,724
+you type the Windows key + R
+
+194
+00:09:37,988 --> 00:09:39,209
+And then you can type either
+
+195
+00:09:39,929 --> 00:09:41,410
+cmd or powershell.
+
+196
+00:09:41,750 --> 00:09:43,831
+Those will open the same terminal,
+
+197
+00:09:43,832 --> 00:09:44,772
+but with different shells.
+
+198
+00:09:45,272 --> 00:09:45,932
+And on Mac OS,
+
+199
+00:09:46,473 --> 00:09:48,033
+Command + Space to open Spotlight,
+
+200
+00:09:48,053 --> 00:09:48,954
+and you search for Terminal,
+
+201
+00:09:49,094 --> 00:09:49,674
+you get a terminal.
+
+202
+00:09:50,555 --> 00:09:51,055
+Now,
+
+203
+00:09:51,615 --> 00:09:52,176
+the terminal,
+
+204
+00:09:52,376 --> 00:09:54,177
+you usually don't need to worry too much about.
+
+205
+00:09:55,037 --> 00:10:00,000
+It gives you things like interactions with operating system things like copy-paste or mouse-paste
+
+206
+00:10:00,140 --> 00:10:01,061
+movement and selection.
+
+207
+00:10:01,681 --> 00:10:02,361
+But apart from that,
+
+208
+00:10:02,742 --> 00:10:05,523
+most of the interesting stuff here is going to happen in the shell.
+
+209
+00:10:06,744 --> 00:10:11,867
+The shell that is most commonly used across the board is the Bourne Again SHell or bash.
+
+210
+00:10:12,467 --> 00:10:15,909
+Bash is what you're going to get on Linux usually when you start a terminal.
+
+211
+00:10:16,790 --> 00:10:18,391
+On Mac OS it also used to be bash,
+
+212
+00:10:18,551 --> 00:10:21,012
+these days it's something called Zsh or ZSH.
+
+213
+00:10:21,712 --> 00:10:24,174
+This is also now the default on some
+
+214
+00:10:24,514 --> 00:10:25,555
+Linux distributions as well.
+
+215
+00:10:25,995 --> 00:10:27,696
+Zsh is a bash compatible shell.
+
+216
+00:10:28,016 --> 00:10:31,139
+So things that are valid in Bash are usually valid in Zsh,
+
+217
+00:10:31,419 --> 00:10:36,463
+and Zsh has a bunch of other ergonomic improvements and feature improvements that make it easier to interface with.
+
+218
+00:10:37,424 --> 00:10:40,927
+You'll find that there are actually a lot of different shells that are often built for different purposes.
+
+219
+00:10:41,287 --> 00:10:41,787
+And in fact,
+
+220
+00:10:42,328 --> 00:10:42,969
+there are some that,
+
+221
+00:10:43,149 --> 00:10:49,174
+like,
+Bash is pretty old and has not seen significant new feature expansion since then.
+
+222
+00:10:50,215 --> 00:10:52,117
+Zsh does have a lot of ergonomics improvements,
+
+223
+00:10:52,118 --> 00:10:55,680
+but there are also shells like fish that are intended to be...
+
+224
+00:10:56,200 --> 00:11:00,942
+written by humans on the command line rather than by programs or in programs.
+
+225
+00:11:01,822 --> 00:11:03,383
+And you'll find that if you talk to the instructors,
+
+226
+00:11:03,423 --> 00:11:06,064
+like all of us use different shells for different reasons.
+
+227
+00:11:06,884 --> 00:11:10,446
+And this is also something where you could choose to explore your own shell down the line.
+
+228
+00:11:10,706 --> 00:11:14,047
+But for the initial sort of investigation and for everything we cover in this class,
+
+229
+00:11:14,247 --> 00:11:17,669
+we're going to be focusing on bash and sort of by extension also Zsh.
+
+230
+00:11:19,650 --> 00:11:20,250
+On Windows,
+
+231
+00:11:20,410 --> 00:11:22,451
+you will not get a bash compatible prompt.
+
+232
+00:11:22,471 --> 00:11:23,691
+You will get either batch,
+
+233
+00:11:24,231 --> 00:11:25,352
+B-A-T-C-H
+
+234
+00:11:26,236 --> 00:11:27,417
+or you will get PowerShell,
+
+235
+00:11:27,457 --> 00:11:29,057
+the newer version of the shell for Windows.
+
+236
+00:11:29,597 --> 00:11:32,478
+These have similar concepts,
+
+237
+00:11:32,578 --> 00:11:34,579
+so what you find in Bash and similar shells,
+
+238
+00:11:35,119 --> 00:11:36,079
+but they are kind of different.
+
+239
+00:11:36,099 --> 00:11:37,219
+Their syntax is kind of different,
+
+240
+00:11:37,220 --> 00:11:39,000
+the way you invoke programs is kind of different.
+
+241
+00:11:39,300 --> 00:11:41,280
+We will not cover those in this class.
+
+242
+00:11:41,861 --> 00:11:46,042
+If you're on Windows I recommend you install either the Windows subsystem for Linux,
+
+243
+00:11:46,502 --> 00:11:47,002
+WSL,
+
+244
+00:11:47,282 --> 00:11:51,443
+or you install a Linux virtual machine that lets you get access to a proper shell.
+
+245
+00:11:51,863 --> 00:11:52,804
+PowerShell is also very good,
+
+246
+00:11:52,824 --> 00:11:53,844
+but for very different reasons.
+
+247
+00:11:54,604 --> 00:11:55,264
+But in this class,
+
+248
+00:11:55,324 --> 00:11:57,926
+we'll focus entirely on Bash and its derivatives.
+
+249
+00:11:59,246 --> 00:11:59,726
+Now,
+
+250
+00:11:59,726 --> 00:12:01,167
+why should you care about the shell?
+
+251
+00:12:01,927 --> 00:12:02,287
+Well,
+
+252
+00:12:02,287 --> 00:12:04,568
+it's usually much faster than clicking around.
+
+253
+00:12:04,908 --> 00:12:06,029
+Once you get used to the shell,
+
+254
+00:12:06,189 --> 00:12:09,210
+you can do quite a lot of things with very few keystrokes.
+
+255
+00:12:09,530 --> 00:12:10,171
+Whereas in a GUI,
+
+256
+00:12:10,551 --> 00:12:12,212
+it tends to become more laborious,
+
+257
+00:12:12,252 --> 00:12:14,052
+especially the more complicated your task is.
+
+258
+00:12:14,432 --> 00:12:15,873
+And part of this is because in the shell,
+
+259
+00:12:16,133 --> 00:12:16,974
+you can automate.
+
+260
+00:12:17,334 --> 00:12:19,895
+The shell is essentially a programming language that,
+
+261
+00:12:20,175 --> 00:12:21,055
+you know,
+the command line,
+
+262
+00:12:21,095 --> 00:12:22,596
+the prompt that you see up here
+
+263
+00:12:22,836 --> 00:12:24,396
+where I get to type things and they appear,
+
+264
+00:12:24,897 --> 00:12:31,999
+that prompt is essentially the start of a file that I get to write.
+
+265
+00:12:32,079 --> 00:12:34,560
+That is a bash program that gets executed.
+
+266
+00:12:34,980 --> 00:12:36,400
+Most of those programs are very simple.
+
+267
+00:12:36,401 --> 00:12:38,081
+They're just start a program of some kind.
+
+268
+00:12:38,321 --> 00:12:41,662
+But you can write fairly complicated expressions here as we'll get into later.
+
+269
+00:12:42,842 --> 00:12:45,483
+There are a couple of other reasons why the shell is useful.
+
+270
+00:12:45,743 --> 00:12:47,824
+One of them is this ability to combine programs.
+
+271
+00:12:47,844 --> 00:12:48,644
+We'll see that as well.
+
+272
+00:12:48,884 --> 00:12:52,486
+how you can take the output of one program and feed it into another program that does something else,
+
+273
+00:12:52,487 --> 00:12:54,287
+and then feed it into a third program that does something else.
+
+274
+00:12:54,487 --> 00:12:58,769
+The shell is very much built for that kind of combinatorial thinking if you will.
+
+275
+00:13:00,370 --> 00:13:04,332
+Knowing your way around the shell is also useful for interacting with the open source community.
+
+276
+00:13:04,713 --> 00:13:07,634
+You'll find that for almost any open source tool you find,
+
+277
+00:13:07,934 --> 00:13:09,375
+the instructions for building it,
+
+278
+00:13:09,635 --> 00:13:10,236
+installing it,
+
+279
+00:13:10,356 --> 00:13:10,856
+running it,
+
+280
+00:13:10,976 --> 00:13:13,438
+are all going to be things that happen in your shell.
+
+281
+00:13:13,718 --> 00:13:15,239
+You also increasingly find things like,
+
+282
+00:13:15,459 --> 00:13:16,620
+"How do I do this on my computer?"
+
+283
+00:13:16,720 --> 00:13:19,342
+and you'll be told to open a terminal and type something in there.
+
+284
+00:13:20,042 --> 00:13:26,107
+And usually it's useful to know roughly what that command does rather than just blindly copy-pasting things from Stack Overflow and going,
+
+285
+00:13:26,108 --> 00:13:27,067
+"Yeah,
+it's probably fine."
+
+286
+00:13:27,588 --> 00:13:34,392
+So hopefully this gives you a bit more sort of intuition and insight into what those things actually do and which things you should be worried about and which things are not.
+
+287
+00:13:35,213 --> 00:13:38,895
+There's also increasingly use of shell in
+
+288
+00:13:39,776 --> 00:13:40,717
+and Bash in particular,
+
+289
+00:13:40,937 --> 00:13:44,359
+in configuring continuous integrations for projects.
+
+290
+00:13:44,660 --> 00:13:50,063
+You'll find this both in the open source community and also in the closed source community if you end up taking a job at a company.
+
+291
+00:13:50,524 --> 00:13:54,306
+You'll find that a lot of the configuration for how the software is built behind the scenes,
+
+292
+00:13:55,007 --> 00:13:55,988
+how it is tested,
+
+293
+00:13:56,068 --> 00:13:57,709
+how all of those pipelines flow together,
+
+294
+00:13:58,029 --> 00:14:00,491
+is also all done using shell commands.
+
+295
+00:14:01,832 --> 00:14:04,314
+So let's then look into what is the shell?
+
+296
+00:14:04,654 --> 00:14:07,316
+Well so as I already explained here we have the prompt.
+
+297
+00:14:07,696 --> 00:14:10,639
+The prompt is the main interface you have to your shell.
+
+298
+00:14:11,739 --> 00:14:13,141
+And it tells you,
+
+299
+00:14:13,321 --> 00:14:16,023
+this sort of start of the shell prompt over here,
+
+300
+00:14:16,503 --> 00:14:19,686
+tells you that my username is John.
+
+301
+00:14:20,066 --> 00:14:22,949
+It tells you that the host name of the machine I'm on is XOS.
+
+302
+00:14:23,950 --> 00:14:26,292
+The colon is the separator just like the ampersand.
+
+303
+00:14:26,592 --> 00:14:28,213
+And the thing after the squiggly line,
+
+304
+00:14:28,214 --> 00:14:28,714
+the tilde,
+
+305
+00:14:29,094 --> 00:14:31,556
+is the location I am at in my file system.
+
+306
+00:14:31,936 --> 00:14:33,858
+Tilde is short for my home directory.
+
+307
+00:14:34,138 --> 00:14:35,940
+So currently I'm in my home directory.
+
+308
+00:14:36,848 --> 00:14:44,011
+Is what this prompt is telling me the dollar is telling me that I'm not the root user I'm not the admin user in this shell usually you'll just see dollar here,
+
+309
+00:14:44,012 --> 00:14:52,974
+and you don't have to worry too much about it And then it's just sort of friendly waiting for me to run a command now when you run a command Why is it why does it sound double when I'm standing over here?
+
+310
+00:14:53,414 --> 00:14:54,054
+It's disturbing
+
+311
+00:14:57,215 --> 00:14:58,156
+That's still on maybe
+
+312
+00:15:00,576 --> 00:15:01,076
+No?
+
+313
+00:15:01,496 --> 00:15:01,996
+Weird.
+
+314
+00:15:02,217 --> 00:15:03,377
+Is there a secret microphone?
+
+315
+00:15:04,017 --> 00:15:04,678
+Oh,
+well.
+
+316
+00:15:04,818 --> 00:15:05,318
+It'll be OK.
+
+317
+00:15:07,699 --> 00:15:12,361
+So on the prompt you can type commands that you want to be executed.
+
+318
+00:15:12,362 --> 00:15:15,682
+And the simplest kind of command you can type is just the name of a program.
+
+319
+00:15:15,962 --> 00:15:16,563
+So for example,
+
+320
+00:15:17,183 --> 00:15:18,123
+there's a program called date.
+
+321
+00:15:18,483 --> 00:15:22,725
+And perhaps unsurprisingly when I run the date program,
+
+322
+00:15:23,065 --> 00:15:24,786
+it prints the current date to my terminal.
+
+323
+00:15:25,186 --> 00:15:28,848
+And then I'm dropped back in a prompt where I can now type more things.
+
+324
+00:15:29,968 --> 00:15:32,550
+We can also execute commands with arguments.
+
+325
+00:15:32,750 --> 00:15:33,250
+So,
+
+326
+00:15:33,250 --> 00:15:37,413
+arguments here are things that follow the program name in the command.
+
+327
+00:15:37,773 --> 00:15:38,354
+So for example,
+
+328
+00:15:38,355 --> 00:15:44,078
+the echo program is one that will take the arguments we pass to it and print them back out.
+
+329
+00:15:44,578 --> 00:15:46,500
+So for example if I type "hello world"
+
+330
+00:15:46,560 --> 00:15:47,060
+here,
+
+331
+00:15:47,100 --> 00:15:48,241
+it prints out "hello world".
+
+332
+00:15:48,741 --> 00:15:52,564
+So hello and world here are arguments to the echo program.
+
+333
+00:15:54,245 --> 00:15:58,208
+It's worth spending a few seconds here on what argument parsing is.
+
+334
+00:15:58,824 --> 00:16:02,906
+Argument parsing in Bash is that you take the string,
+
+335
+00:16:03,006 --> 00:16:04,467
+the text that the user gave you,
+
+336
+00:16:04,867 --> 00:16:07,188
+and you split it at white space boundaries.
+
+337
+00:16:08,168 --> 00:16:12,490
+And each white space separated word is one argument,
+
+338
+00:16:12,810 --> 00:16:15,992
+and the first argument is the command of the program to execute.
+
+339
+00:16:16,812 --> 00:16:21,054
+Now there are ways to say that I want an argument that has white space in it.
+
+340
+00:16:21,374 --> 00:16:24,015
+So you can do quoting just like you can in most other programming languages.
+
+341
+00:16:25,852 --> 00:16:27,633
+echo prints all of its arguments,
+
+342
+00:16:27,634 --> 00:16:29,153
+so it's not going to be particularly useful there.
+
+343
+00:16:29,453 --> 00:16:30,814
+But I could for example say
+
+344
+00:16:31,874 --> 00:16:32,474
+"hello world"
+
+345
+00:16:32,774 --> 00:16:40,536
+like this and it will print the same thing because echo defaults to printing space separated of its arguments which is the same thing I'm providing here.
+
+346
+00:16:40,976 --> 00:16:48,359
+But for example if I put more spaces in here you'll see that now this gets treated as one argument so it gets printed as a single thing.
+
+347
+00:16:48,739 --> 00:16:53,340
+If on the other hand I typed hello and then a bunch of spaces in world
+
+348
+00:16:53,728 --> 00:16:55,510
+These are just two arguments to echo.
+
+349
+00:16:55,890 --> 00:16:57,311
+They get separated as two arguments.
+
+350
+00:16:57,391 --> 00:16:58,572
+The white space is ignored,
+
+351
+00:16:58,592 --> 00:16:59,453
+it's just a separator.
+
+352
+00:17:00,113 --> 00:17:02,635
+And then those two arguments are provided to echo and it prints them back out.
+
+353
+00:17:04,036 --> 00:17:11,743
+Argument parsing is something you're going to run into a lot when you start writing command lines yourself because sometimes getting the quoting right can be quite annoying.
+
+354
+00:17:14,084 --> 00:17:14,504
+Okay,
+
+355
+00:17:14,504 --> 00:17:15,745
+first of all,
+
+356
+00:17:15,746 --> 00:17:17,385
+why don't the programmings have like
+
+357
+00:17:17,745 --> 00:17:18,786
+.java or something?
+
+358
+00:17:19,146 --> 00:17:21,766
+Or do they normally have .java or do they not normally have .java or .py or something like that?
+
+359
+00:17:24,387 --> 00:17:28,789
+So these programs-- I'll get into where we find these programs later and where they're located.
+
+360
+00:17:28,989 --> 00:17:31,830
+A lot of these are pre-compiled programs that are installed on your computer.
+
+361
+00:17:32,130 --> 00:17:33,430
+So they're not source files.
+
+362
+00:17:34,090 --> 00:17:37,671
+They are programs that are built into your computer or that you've installed after the fact.
+
+363
+00:17:38,332 --> 00:17:38,832
+Okay.
+
+364
+00:17:38,912 --> 00:17:39,412
+And...
+
+365
+00:17:40,496 --> 00:17:42,217
+And the strings you write afterwards,
+
+366
+00:17:42,477 --> 00:17:46,659
+if you write Java with the public static void main string args,
+
+367
+00:17:46,759 --> 00:17:48,800
+this is the string array?
+
+368
+00:17:48,801 --> 00:17:50,780
+Right.
+So the question here is if you write,
+
+369
+00:17:50,781 --> 00:17:51,182
+for example,
+
+370
+00:17:51,182 --> 00:17:56,723
+a Java program and you write a sort of static main function and the args argument you get to that function,
+
+371
+00:17:57,003 --> 00:17:59,584
+those are exactly what these arguments turn into.
+
+372
+00:18:00,464 --> 00:18:01,685
+And the same thing for Python.
+
+373
+00:18:01,765 --> 00:18:05,508
+If you want to access the argv thing that you get in Python,
+
+374
+00:18:05,729 --> 00:18:07,550
+there is a list of arguments provided through the program.
+
+375
+00:18:07,871 --> 00:18:09,432
+This is where those arguments come from.
+
+376
+00:18:10,773 --> 00:18:15,557
+You'll find that you end up running into quoting issues here once you start getting more complicated things.
+
+377
+00:18:15,577 --> 00:18:20,702
+Like maybe you have a path that has a single quote in the name of a file.
+
+378
+00:18:21,062 --> 00:18:23,825
+Well now you need to use double quotes around it or you need to escape it.
+
+379
+00:18:24,145 --> 00:18:27,308
+And escaping is simply,
+
+380
+00:18:28,504 --> 00:18:30,125
+Putting a backslash in front of a character,
+
+381
+00:18:30,365 --> 00:18:32,506
+you can do this multiple times to escape multiple characters.
+
+382
+00:18:33,227 --> 00:18:35,068
+Now you see it has the same effect as though I quoted it.
+
+383
+00:18:35,928 --> 00:18:41,611
+But doing this once you have a path that includes spaces and also single quotes and also double quotes,
+
+384
+00:18:41,971 --> 00:18:48,075
+then you might need to get creative with the quoting that you do so that the arguments end up being split in the correct way.
+
+385
+00:18:48,915 --> 00:18:50,616
+You will run into annoyances around this.
+
+386
+00:18:50,656 --> 00:18:57,660
+It takes a little while to get used to but there are ways to sanely quote any argument to a command in Bash.
+
+387
+00:18:58,876 --> 00:18:59,117
+Semi-same.
+Yep?
+
+388
+00:18:59,117 --> 00:19:05,600
+So backslashes separate the same as whitespaces?
+
+389
+00:19:05,601 --> 00:19:05,941
+No,
+
+390
+00:19:05,941 --> 00:19:11,504
+backslash is an escape character that says don't treat the next character as special.
+
+391
+00:19:12,064 --> 00:19:13,745
+So in the case of argument parsing,
+
+392
+00:19:14,146 --> 00:19:16,367
+backslash space means a literal space.
+
+393
+00:19:16,447 --> 00:19:17,808
+Do not split on this.
+
+394
+00:19:17,848 --> 00:19:19,129
+This is not a word boundary.
+
+395
+00:19:19,549 --> 00:19:22,050
+It is a literal space that's part of an argument.
+
+396
+00:19:25,728 --> 00:19:26,228
+Cool.
+
+397
+00:19:26,388 --> 00:19:26,888
+Now,
+
+398
+00:19:27,048 --> 00:19:30,970
+perhaps the most important command or program you will find to use in...
+
+399
+00:19:31,130 --> 00:19:31,771
+Yeah,
+you had a question?
+
+400
+00:19:41,113 --> 00:19:41,573
+Yeah,
+
+401
+00:19:41,573 --> 00:19:52,156
+so if I wanted to say this would not work because it would think that this is one string
+
+402
+00:19:53,140 --> 00:19:58,014
+And then it would say there's a trailing single quote here that doesn't get terminated.
+
+403
+00:19:58,415 --> 00:19:59,158
+So it just tells me,
+
+404
+00:19:59,298 --> 00:20:00,019
+oh,
+it drops
+
+405
+00:20:00,088 --> 00:20:01,509
+Back in a continuation prompt,
+
+406
+00:20:01,529 --> 00:20:02,709
+which is the thing you see at the bottom,
+
+407
+00:20:02,729 --> 00:20:04,450
+we're just expecting more input.
+
+408
+00:20:04,730 --> 00:20:05,750
+If I put a single quote here,
+
+409
+00:20:06,070 --> 00:20:07,030
+then if we get confused,
+
+410
+00:20:07,031 --> 00:20:08,051
+then all the single quotes are gone.
+
+411
+00:20:08,671 --> 00:20:13,793
+And so what you could do here is either say this,
+
+412
+00:20:14,993 --> 00:20:16,734
+or you could double quote the whole string.
+
+413
+00:20:18,955 --> 00:20:21,956
+And so that way you would end up with the expected output.
+
+414
+00:20:23,688 --> 00:20:24,068
+Now,
+
+415
+00:20:24,068 --> 00:20:26,950
+one of the most useful programs you'll find on here is a program called MAN,
+
+416
+00:20:27,110 --> 00:20:27,991
+short for manual.
+
+417
+00:20:28,411 --> 00:20:34,215
+The manual allows you to pass in the name of another program and it explains how to use that program.
+
+418
+00:20:34,555 --> 00:20:36,136
+So for example if I type "man echo",
+
+419
+00:20:36,497 --> 00:20:38,018
+so echo is the argument here to man,
+
+420
+00:20:38,478 --> 00:20:39,759
+I get a manual page.
+
+421
+00:20:40,159 --> 00:20:42,040
+And this says "echo displays a line of text"
+
+422
+00:20:42,080 --> 00:20:44,562
+and then it shows me all of the options,
+
+423
+00:20:44,682 --> 00:20:47,264
+all of the arguments that I can pass to echo.
+
+424
+00:20:48,136 --> 00:20:50,477
+And usually some of them will have version information at the bottom,
+
+425
+00:20:50,777 --> 00:20:52,478
+some of them will also have usage examples.
+
+426
+00:20:52,678 --> 00:20:54,139
+So if I look up the manual page for date,
+
+427
+00:20:54,439 --> 00:20:55,820
+you'll see it prints a date.
+
+428
+00:20:56,340 --> 00:20:56,860
+And it also...
+
+429
+00:20:57,541 --> 00:20:58,701
+Oh,
+this doesn't have that either.
+
+430
+00:20:59,241 --> 00:21:00,182
+If I do bash maybe.
+
+431
+00:21:01,082 --> 00:21:06,445
+So the bash one is pretty extensive and it has bug reports and authors and files and restricted...
+
+432
+00:21:06,465 --> 00:21:11,507
+Like it has a huge manual page that explains all the various things you might want to do in bash.
+
+433
+00:21:12,248 --> 00:21:12,768
+So the man...
+
+434
+00:21:13,440 --> 00:21:19,622
+program is one you will find you can use a lot in order to understand more about the commands you have and what things they can do.
+
+435
+00:21:21,322 --> 00:21:26,904
+Usually,
+you can get a short version of the manual page for a program by simply passing --help as an argument.
+
+436
+00:21:27,464 --> 00:21:28,124
+So in this case,
+
+437
+00:21:28,604 --> 00:21:30,025
+when I run date with --help,
+
+438
+00:21:30,205 --> 00:21:32,646
+it prints out the help string for date,
+
+439
+00:21:32,686 --> 00:21:34,846
+which is usually slightly shorter than the man page.
+
+440
+00:21:35,446 --> 00:21:38,167
+Some commands also allow just -h as a similar thing.
+
+441
+00:21:40,368 --> 00:21:40,968
+After man
+
+442
+00:21:41,208 --> 00:21:44,909
+the most important program to know about is cd for Change Directory.
+
+443
+00:21:45,689 --> 00:21:49,650
+Change Directory allows you to change where you currently are in the file system.
+
+444
+00:21:51,211 --> 00:21:52,711
+And in this case,
+
+445
+00:21:52,951 --> 00:21:54,712
+I am currently in my home directory,
+
+446
+00:21:55,472 --> 00:21:58,973
+and so in my home directory there are a bunch of files,
+
+447
+00:21:58,993 --> 00:22:01,594
+but if I wanted to operate somewhere else in the file system,
+
+448
+00:22:01,814 --> 00:22:04,394
+I could change to be in that directory instead.
+
+449
+00:22:05,595 --> 00:22:07,175
+So what does that look like?
+
+450
+00:22:07,695 --> 00:22:08,175
+Well,
+
+451
+00:22:08,175 --> 00:22:08,896
+I type "cd"
+
+452
+00:22:09,496 --> 00:22:10,236
+for Change Directory,
+
+453
+00:22:11,132 --> 00:22:12,233
+And then I type a path.
+
+454
+00:22:12,693 --> 00:22:13,414
+So a path,
+
+455
+00:22:13,794 --> 00:22:15,716
+in this case it's a path that starts with a slash,
+
+456
+00:22:15,756 --> 00:22:17,177
+so it makes it an absolute path.
+
+457
+00:22:17,237 --> 00:22:18,698
+We'll get into other kinds of paths later.
+
+458
+00:22:19,178 --> 00:22:23,061
+So I want to go into the bin directory under the root of my file system.
+
+459
+00:22:23,242 --> 00:22:25,243
+So I want to change directory into there.
+
+460
+00:22:26,204 --> 00:22:28,586
+When I do that you'll see that my prompt has now changed.
+
+461
+00:22:28,587 --> 00:22:31,208
+It now says I'm in /bin instead of being in /home.
+
+462
+00:22:31,868 --> 00:22:34,790
+I can also cd directly into the root and so on.
+
+463
+00:22:36,980 --> 00:22:42,702
+You'll find that there are a lot of commands that will operate in the current working directory by default,
+
+464
+00:22:42,982 --> 00:22:44,442
+unless you tell it something else.
+
+465
+00:22:44,722 --> 00:22:47,503
+So that's why it is usually useful to know where you are,
+
+466
+00:22:47,563 --> 00:22:48,463
+hence why it's in the prompt,
+
+467
+00:22:48,743 --> 00:22:50,464
+and to potentially change where you are.
+
+468
+00:22:51,904 --> 00:22:56,265
+And it's particularly useful because it allows you to use relative paths.
+
+469
+00:22:56,685 --> 00:22:58,026
+So here I did
+
+470
+00:22:58,506 --> 00:23:01,967
+/bin, but imagine that I have some path that's deep under my home directory.
+
+471
+00:23:02,207 --> 00:23:02,707
+So it's like
+
+472
+00:23:03,107 --> 00:23:05,728
+/home/john/dev/project/
+
+473
+00:23:06,428 --> 00:23:06,928
+you know,
+
+474
+00:23:08,430 --> 00:23:12,433
+6824/version1/ and it becomes a really long thing for me to type all the time.
+
+475
+00:23:12,913 --> 00:23:19,319
+So instead I can change directory into the folder that I want to be operating in and then use relative paths.
+
+476
+00:23:19,939 --> 00:23:23,002
+Relative paths are any path that does not start with a slash,
+
+477
+00:23:24,263 --> 00:23:29,387
+and the resolution for a relative path is in the current working directory,
+
+478
+00:23:29,908 --> 00:23:31,749
+look up the first path component,
+
+479
+00:23:32,009 --> 00:23:35,172
+path component or the slash separated parts of the path,
+
+480
+00:23:35,584 --> 00:23:36,485
+look up the first one,
+
+481
+00:23:37,505 --> 00:23:39,686
+and then from there traverse using slashes,
+
+482
+00:23:39,947 --> 00:23:42,048
+rather than starting at the root of the file system.
+
+483
+00:23:42,648 --> 00:23:44,209
+So for example I'm now in
+
+484
+00:23:45,430 --> 00:23:46,590
+I can type cd bin,
+
+485
+00:23:46,790 --> 00:23:48,191
+note the lack of a slash,
+
+486
+00:23:48,591 --> 00:23:55,075
+to say I want to change directory into the bin folder of what are inside of the current directory.
+
+487
+00:23:56,096 --> 00:23:57,336
+If I'm now in bin,
+
+488
+00:23:57,616 --> 00:24:02,999
+and I try to cd to bin again it would tell me there's no such directory because it looks for a folder called bin in
+
+489
+00:24:03,580 --> 00:24:04,080
+/bin.
+
+490
+00:24:05,904 --> 00:24:10,007
+If I go back to slash and then try to cd to slash,
+
+491
+00:24:10,087 --> 00:24:10,647
+well that's fine.
+
+492
+00:24:10,648 --> 00:24:11,527
+That's an absolute path.
+
+493
+00:24:12,208 --> 00:24:16,550
+But there are a couple of other special kind of path components you can use in relative paths.
+
+494
+00:24:16,610 --> 00:24:19,772
+You can use them in absolute paths too but they're more common in relative paths.
+
+495
+00:24:20,292 --> 00:24:21,813
+Which is dot and dot dot.
+
+496
+00:24:22,313 --> 00:24:23,954
+So dot is the current directory.
+
+497
+00:24:24,775 --> 00:24:30,038
+It might seem weird but I can cd into dot and it cds me back into the same place I already was.
+
+498
+00:24:30,438 --> 00:24:32,539
+So if I cd into bin and then cd dot,
+
+499
+00:24:32,799 --> 00:24:33,860
+I'm back into slash bin.
+
+500
+00:24:34,468 --> 00:24:36,989
+So it's just a way to refer to where you currently are.
+
+501
+00:24:38,270 --> 00:24:39,110
+This can be useful,
+
+502
+00:24:39,170 --> 00:24:40,391
+we'll see some examples of that later.
+
+503
+00:24:41,391 --> 00:24:46,494
+The other special path is .dot and .dot refers to the parent directory of wherever we are.
+
+504
+00:24:47,014 --> 00:24:48,495
+So if I do cd .dot,
+
+505
+00:24:48,755 --> 00:24:49,695
+I end up in slash.
+
+506
+00:24:49,715 --> 00:24:51,596
+I end up one level up in my file system.
+
+507
+00:24:52,336 --> 00:24:53,737
+If I try .dot from slash,
+
+508
+00:24:54,157 --> 00:24:55,998
+slash like the root of my file system is special,
+
+509
+00:24:56,278 --> 00:24:57,859
+where .dot just goes back into slash.
+
+510
+00:24:58,899 --> 00:24:59,999
+But what I can do is I can change
+
+511
+00:25:00,200 --> 00:25:00,700
+So I can say,
+
+512
+00:25:00,701 --> 00:25:01,902
+I want to go into bin,
+
+513
+00:25:02,262 --> 00:25:03,443
+and then I want to go back out,
+
+514
+00:25:03,764 --> 00:25:05,065
+and then I want to go back into bin,
+
+515
+00:25:05,466 --> 00:25:07,548
+and then I want to go into itself,
+
+516
+00:25:07,608 --> 00:25:08,669
+and then into itself again,
+
+517
+00:25:08,769 --> 00:25:10,030
+and then I want to go back to the root,
+
+518
+00:25:10,031 --> 00:25:10,851
+and then back into bin,
+
+519
+00:25:11,111 --> 00:25:12,312
+and I end up in /bin.
+
+520
+00:25:13,013 --> 00:25:16,997
+You can combine these to create paths that navigate the file system however you see fit.
+
+521
+00:25:20,428 --> 00:25:21,268
+What's the use case of this?
+
+522
+00:25:21,909 --> 00:25:23,089
+The use case of this is,
+
+523
+00:25:23,469 --> 00:25:24,810
+imagine you're operating in,
+
+524
+00:25:25,850 --> 00:25:26,551
+I don't know a,
+
+525
+00:25:26,651 --> 00:25:28,692
+you're working on a 6824 project.
+
+526
+00:25:29,472 --> 00:25:31,213
+And now you want to move to working in a,
+
+527
+00:25:31,773 --> 00:25:33,494
+on a 6858 project.
+
+528
+00:25:33,754 --> 00:25:34,134
+Well then,
+
+529
+00:25:34,134 --> 00:25:34,975
+instead of typing,
+
+530
+00:25:35,235 --> 00:25:36,455
+okay,
+I'm in 824,
+
+531
+00:25:36,775 --> 00:25:39,296
+instead of now having to use an absolute path to say,
+
+532
+00:25:39,577 --> 00:25:42,478
+now I want to see it into home John dev 6858,
+
+533
+00:25:42,798 --> 00:25:47,080
+I can just do cd dot dot slash 6858 so go one up
+
+534
+00:25:47,468 --> 00:25:49,070
+and then one down into a different directory.
+
+535
+00:25:49,590 --> 00:25:51,512
+This particular path you probably wouldn't use,
+
+536
+00:25:51,513 --> 00:25:52,573
+because this is pretty useless.
+
+537
+00:25:53,394 --> 00:25:56,036
+But you don't have to say the same path again.
+
+538
+00:25:56,537 --> 00:25:58,979
+You could easily-- because once you've done the dot dot,
+
+539
+00:25:58,999 --> 00:26:03,564
+you are now in-- the reference point is one level up in the fuller hierarchy.
+
+540
+00:26:03,565 --> 00:26:04,065
+Tilde?
+
+541
+00:26:07,067 --> 00:26:07,528
+Yes.
+
+542
+00:26:07,528 --> 00:26:09,149
+So if I do cd tilde,
+
+543
+00:26:09,510 --> 00:26:11,231
+you'll see I end up back in my home directory.
+
+544
+00:26:12,816 --> 00:26:15,158
+Slash is the path's component separator.
+
+545
+00:26:15,518 --> 00:26:20,523
+It is the thing that separates each recursive step of resolving the path.
+
+546
+00:26:21,063 --> 00:26:23,485
+So if I go to cd a slash b slash d,
+
+547
+00:26:24,306 --> 00:26:25,487
+a slash b slash c,
+
+548
+00:26:26,288 --> 00:26:28,310
+what that means is change directory into a,
+
+549
+00:26:29,170 --> 00:26:30,051
+after doing that,
+
+550
+00:26:30,271 --> 00:26:30,832
+change it to b,
+
+551
+00:26:31,492 --> 00:26:32,133
+after doing that,
+
+552
+00:26:32,173 --> 00:26:32,713
+change it to c.
+
+553
+00:26:33,554 --> 00:26:40,060
+So that would go into the folder c that's inside the folder b that's inside the folder a.
+
+554
+00:26:43,220 --> 00:26:45,843
+And these paths also work with tilde,
+
+555
+00:26:45,943 --> 00:26:49,988
+so I could do tilde slash dot dot and I end up in slash home.
+
+556
+00:26:49,989 --> 00:26:54,112
+Because it's one directory up from my home directory which is slash home slash john.
+
+557
+00:27:01,380 --> 00:27:03,762
+There are more efficient ways to navigate the shell as well.
+
+558
+00:27:03,763 --> 00:27:04,303
+So you'll find,
+
+559
+00:27:04,343 --> 00:27:04,804
+for example,
+
+560
+00:27:04,804 --> 00:27:05,484
+in the lecture notes,
+
+561
+00:27:05,524 --> 00:27:10,828
+there's a reference to a tool called ZOxide that remembers all the paths you've ever CD'd into,
+
+562
+00:27:11,209 --> 00:27:16,793
+and then gives you a more rapid way to cd into arbitrary of them rather than navigating the whole file system.
+
+563
+00:27:17,854 --> 00:27:21,237
+So there are tools people have built to more efficiently navigate the shell,
+
+564
+00:27:21,458 --> 00:27:23,179
+but this will already get you there pretty quickly.
+
+565
+00:27:23,419 --> 00:27:26,222
+There's one more trick that's useful to know here which is tab.
+
+566
+00:27:26,662 --> 00:27:28,704
+Tab in Bash gives you autocomplete.
+
+567
+00:27:29,452 --> 00:27:30,153
+And so for example,
+
+568
+00:27:30,173 --> 00:27:33,836
+if I do CDB and then press Tab-- well,
+
+569
+00:27:33,837 --> 00:27:34,337
+in this case,
+
+570
+00:27:34,777 --> 00:27:35,537
+B is ambiguous.
+
+571
+00:27:35,858 --> 00:27:37,119
+Oh,
+that's because I'm in the wrong place.
+
+572
+00:27:37,739 --> 00:27:39,000
+CDB and then press Tab.
+
+573
+00:27:39,401 --> 00:27:40,922
+You'll see if I double-press Tab,
+
+574
+00:27:40,923 --> 00:27:42,603
+it gives me all the possible options.
+
+575
+00:27:43,024 --> 00:27:43,524
+In this case,
+
+576
+00:27:43,885 --> 00:27:46,066
+/bin and /boot are both directories I could go into.
+
+577
+00:27:46,447 --> 00:27:46,947
+But if I do
+
+578
+00:27:47,227 --> 00:27:49,549
+CDBI and then press Tab,
+
+579
+00:27:49,830 --> 00:27:50,910
+it auto completes the bin.
+
+580
+00:27:51,471 --> 00:27:54,333
+And so this is one way to more rapidly navigate through folders,
+
+581
+00:27:54,574 --> 00:27:57,276
+is just type the first few letters and then type Tab.
+
+582
+00:27:57,728 --> 00:27:58,649
+And if those are ambiguous,
+
+583
+00:27:58,809 --> 00:28:00,490
+TabTab will show you the options.
+
+584
+00:28:03,913 --> 00:28:06,556
+So what kind of things can we execute in the shell?
+
+585
+00:28:06,896 --> 00:28:08,477
+So we've already talked about echo,
+
+586
+00:28:08,697 --> 00:28:09,158
+date,
+
+587
+00:28:09,158 --> 00:28:09,918
+man,
+and CD.
+
+588
+00:28:10,579 --> 00:28:12,801
+But how do we figure out what else is available to us?
+
+589
+00:28:13,341 --> 00:28:13,841
+And in fact,
+
+590
+00:28:13,902 --> 00:28:17,665
+how does the shell even know when I type date which program to run?
+
+591
+00:28:18,045 --> 00:28:19,827
+Like where is date on my computer?
+
+592
+00:28:21,428 --> 00:28:26,091
+The reality is that when you type a command with a program name into your shell,
+
+593
+00:28:26,812 --> 00:28:32,096
+what it would actually do is it will take the name of the program and it will look it up in something called "path".
+
+594
+00:28:32,736 --> 00:28:35,478
+Path is an environment variable.
+
+595
+00:28:35,818 --> 00:28:41,502
+So it's a variable that's sort of set across my whole shell of variable to value mappings,
+
+596
+00:28:41,602 --> 00:28:43,404
+usually names to strings.
+
+597
+00:28:44,284 --> 00:28:49,268
+And those will describe a bunch of meta information that the shell can make use of like
+
+598
+00:28:49,468 --> 00:28:50,348
+What user am I?
+
+599
+00:28:50,408 --> 00:28:52,049
+What host is this?
+
+600
+00:28:52,309 --> 00:28:53,370
+What shell is being used?
+
+601
+00:28:53,390 --> 00:28:53,950
+That kind of stuff.
+
+602
+00:28:54,450 --> 00:28:55,051
+And path,
+
+603
+00:28:55,151 --> 00:28:56,511
+and here we can use the echo tool again.
+
+604
+00:28:56,831 --> 00:28:58,012
+If I echo my path,
+
+605
+00:28:58,532 --> 00:29:00,853
+it will list out a sequence of paths.
+
+606
+00:29:01,173 --> 00:29:02,474
+They're colon separated here.
+
+607
+00:29:03,214 --> 00:29:05,995
+And when you try to run a program in your shell,
+
+608
+00:29:06,516 --> 00:29:12,818
+it will walk through these folders one by one looking for a file by the name of the program.
+
+609
+00:29:13,459 --> 00:29:14,219
+And if it finds it,
+
+610
+00:29:14,299 --> 00:29:14,759
+run it.
+
+611
+00:29:14,759 --> 00:29:15,780
+Otherwise look in the next one.
+
+612
+00:29:16,788 --> 00:29:18,529
+And we can actually introspect this.
+
+613
+00:29:18,789 --> 00:29:20,210
+If I run which date,
+
+614
+00:29:20,531 --> 00:29:27,856
+so which is a program that will walk through the path list and print out the place where it first finds a given program,
+
+615
+00:29:28,356 --> 00:29:32,619
+it will say that the location of my date command is at this path.
+
+616
+00:29:33,399 --> 00:29:34,720
+So when I run date,
+
+617
+00:29:34,800 --> 00:29:43,066
+what actually happens is my shell discovers that path slash run slash current system slash sw bin date and then runs that program,
+
+618
+00:29:43,146 --> 00:29:44,207
+executes that program,
+
+619
+00:29:44,567 --> 00:29:46,028
+and that's what ends up in my terminal.
+
+620
+00:29:46,444 --> 00:29:49,347
+And this is so that we don't have to write the full paths every time.
+
+621
+00:29:49,688 --> 00:29:50,449
+So I could,
+
+622
+00:29:50,509 --> 00:29:51,250
+if I wanted to,
+
+623
+00:29:52,231 --> 00:29:55,555
+take this path and have that be my program name,
+
+624
+00:29:56,176 --> 00:29:57,337
+and that will run just the same.
+
+625
+00:29:57,797 --> 00:30:00,000
+But it's more convenient for the shell to be able to do that.
+
+626
+00:30:00,020 --> 00:30:01,162
+discover them in this way.
+
+627
+00:30:01,722 --> 00:30:02,864
+Which is also just a program,
+
+628
+00:30:02,884 --> 00:30:03,825
+so I can run which,
+
+629
+00:30:04,206 --> 00:30:04,706
+which,
+
+630
+00:30:04,827 --> 00:30:08,852
+and it tells me that the which program is located in the same folder as date was.
+
+631
+00:30:09,833 --> 00:30:11,616
+This path might be different on your host,
+
+632
+00:30:11,617 --> 00:30:15,181
+it just depends on where software is installed on your particular operating system.
+
+633
+00:30:16,062 --> 00:30:16,683
+Do you have a question?
+
+634
+00:30:18,245 --> 00:30:18,985
+Okay,
+
+635
+00:30:19,646 --> 00:30:25,310
+so when you type it non-completely,
+
+636
+00:30:26,110 --> 00:30:28,692
+it searches in folders that--it searches in the parents of your current directory?
+
+637
+00:30:29,293 --> 00:30:29,653
+No.
+
+638
+00:30:29,653 --> 00:30:32,555
+It searches in the folders listed in my path.
+
+639
+00:30:34,897 --> 00:30:44,223
+So the path variable is sort of a special variable that's known by my shell and it will search through these directories in order for the program by the name that I gave.
+
+640
+00:30:46,824 --> 00:30:54,589
+If you have multiple programs of the same name in more than one folder that's in the path,
+
+641
+00:30:54,590 --> 00:30:56,270
+how does it choose which one to use?
+
+642
+00:30:56,271 --> 00:31:00,432
+So if a particular program is present in multiple paths in my path,
+
+643
+00:31:00,592 --> 00:31:01,392
+like $PATH,
+
+644
+00:31:02,373 --> 00:31:06,275
+my shell will execute the first of them that it encounters in the path order.
+
+645
+00:31:07,436 --> 00:31:09,417
+And you can even ask which with the
+
+646
+00:31:09,757 --> 00:31:10,337
+-a flag,
+
+647
+00:31:10,357 --> 00:31:11,278
+which is for all,
+
+648
+00:31:12,118 --> 00:31:14,600
+I can ask which all the copies I have of echo.
+
+649
+00:31:15,116 --> 00:31:16,797
+And it will say there's only one echo for you.
+
+650
+00:31:17,597 --> 00:31:19,498
+If I try to do something else like rustc,
+
+651
+00:31:19,518 --> 00:31:20,418
+well,
+
+652
+00:31:20,419 --> 00:31:21,118
+there's also only one.
+
+653
+00:31:21,358 --> 00:31:22,899
+Do I have anything that would be multiple of?
+
+654
+00:31:23,499 --> 00:31:23,999
+Mmm,
+
+655
+00:31:27,820 --> 00:31:28,320
+SH.
+
+656
+00:31:29,401 --> 00:31:34,523
+You'll see that there are actually two places in my path where SH appears and it will show all of them.
+
+657
+00:31:35,243 --> 00:31:37,644
+But your shell will normally execute the first one only.
+
+658
+00:31:39,993 --> 00:31:41,013
+What's the minus a for?
+
+659
+00:31:41,014 --> 00:31:42,974
+It's an argument to which that lets it,
+
+660
+00:31:43,234 --> 00:31:46,456
+that makes it print all of the paths rather than just the one it would have selected.
+
+661
+00:31:46,876 --> 00:31:48,537
+And in fact if I tap man which,
+
+662
+00:31:49,638 --> 00:31:56,902
+you'll see that there's under options it says dash a or dash dash all prints all matching executables in path not just the first.
+
+663
+00:32:05,344 --> 00:32:10,528
+And this also gives us a clue for how we can figure out what all of the programs we have are.
+
+664
+00:32:10,989 --> 00:32:11,369
+Right?
+
+665
+00:32:11,369 --> 00:32:14,392
+Is that you could walk through all the directories in your path,
+
+666
+00:32:14,832 --> 00:32:17,915
+and then just list the contents of all of them.
+
+667
+00:32:18,115 --> 00:32:19,516
+And that is all of my programs.
+
+668
+00:32:19,836 --> 00:32:20,897
+You might not know what all of them do,
+
+669
+00:32:21,077 --> 00:32:23,679
+but you can do that by looking up the man pages and then explore.
+
+670
+00:32:23,700 --> 00:32:25,421
+So if you really want to go through this process...
+
+671
+00:32:25,681 --> 00:32:26,262
+So in my case,
+
+672
+00:32:26,263 --> 00:32:26,763
+for example,
+
+673
+00:32:27,202 --> 00:32:31,626
+I could take this directory and do ls and this path.
+
+674
+00:32:32,287 --> 00:32:33,528
+ls is another program
+
+675
+00:32:33,828 --> 00:32:35,009
+that is the list program.
+
+676
+00:32:35,069 --> 00:32:37,010
+It lists the contents of a directory.
+
+677
+00:32:37,610 --> 00:32:38,130
+So in this case,
+
+678
+00:32:38,150 --> 00:32:38,931
+I'm telling list,
+
+679
+00:32:39,211 --> 00:32:39,631
+"Hey,
+
+680
+00:32:39,631 --> 00:32:42,032
+can you go list the contents of that directory?"
+
+681
+00:32:42,372 --> 00:32:42,872
+And if I do,
+
+682
+00:32:43,133 --> 00:32:45,474
+it prints out a long list of all the file names written there.
+
+683
+00:32:45,954 --> 00:32:48,736
+And these are all programs that I could run on my command line.
+
+684
+00:32:49,956 --> 00:32:54,598
+One thing worth noting here is if I type ls and don't give it an argument,
+
+685
+00:32:54,999 --> 00:32:56,940
+then it will list the current directory.
+
+686
+00:32:58,124 --> 00:33:05,048
+And this is what I mean by the current working directory is the thing you change with cd is often the one you want to make use of.
+
+687
+00:33:05,588 --> 00:33:08,890
+Because that is where many commands will operate by default.
+
+688
+00:33:11,712 --> 00:33:14,895
+There are a bunch of other programs that are useful to know about like this.
+
+689
+00:33:14,935 --> 00:33:15,755
+So for example,
+
+690
+00:33:16,056 --> 00:33:17,617
+there is one called cat.
+
+691
+00:33:18,137 --> 00:33:20,819
+Cat will print out the contents of a file.
+
+692
+00:33:21,400 --> 00:33:22,861
+So if I do cat of
+
+693
+00:33:24,182 --> 00:33:27,305
+Stata.config, then when I cat that file,
+
+694
+00:33:27,485 --> 00:33:30,727
+it prints out the contents of that file and dumps them into my terminal.
+
+695
+00:33:32,533 --> 00:33:34,154
+There are other commands like sort.
+
+696
+00:33:34,854 --> 00:33:39,378
+Sort will take its input or the file that is referred to on its input,
+
+697
+00:33:40,058 --> 00:33:42,420
+and it will print out the lines in sorted order.
+
+698
+00:33:42,900 --> 00:33:54,569
+So if for example here I create a data file and I put in A3BX14 and I type "sort data",
+
+699
+00:33:55,149 --> 00:33:57,011
+then it will print those out in sorted order.
+
+700
+00:33:58,712 --> 00:33:59,212
+And in fact,
+
+701
+00:33:59,613 --> 00:34:00,934
+if I do here-- let's say
+
+702
+00:34:02,536 --> 00:34:05,398
+I add 31 as well to prove a point.
+
+703
+00:34:05,979 --> 00:34:09,162
+You'll see that it does lexiographical sorting by default.
+
+704
+00:34:09,542 --> 00:34:10,002
+So
+
+705
+00:34:10,002 --> 00:34:12,985
+3 is followed by 31 because alphabetically,
+
+706
+00:34:13,165 --> 00:34:13,806
+that is the order.
+
+707
+00:34:13,906 --> 00:34:15,267
+Even numerically,
+
+708
+00:34:15,407 --> 00:34:16,248
+that might not be correct.
+
+709
+00:34:16,488 --> 00:34:17,009
+For example,
+
+710
+00:34:17,269 --> 00:34:19,811
+if I wanted to add in now-- no.
+
+711
+00:34:21,233 --> 00:34:24,115
+If I wanted to add in 4 and I tried to sort data,
+
+712
+00:34:24,900 --> 00:34:25,960
+then you'll see that I get 3,
+
+713
+00:34:26,061 --> 00:34:26,521
+31,
+
+714
+00:34:26,521 --> 00:34:29,182
+4 because they're ordered lexicographically not numerically.
+
+715
+00:34:29,542 --> 00:34:31,923
+But there are arguments you can pass to sort to change this behavior.
+
+716
+00:34:32,983 --> 00:34:33,784
+Then we have unique.
+
+717
+00:34:34,704 --> 00:34:38,266
+So if I here added four a bunch of times,
+
+718
+00:34:39,886 --> 00:34:41,047
+then if I now run--
+
+719
+00:34:45,248 --> 00:34:46,809
+If I now run unique on data,
+
+720
+00:34:47,130 --> 00:34:50,032
+it will only print out lines that are unique in that file.
+
+721
+00:34:50,592 --> 00:34:53,255
+It only eliminates consecutive lines that are unique though.
+
+722
+00:34:53,635 --> 00:34:58,339
+So if I go into data and I put a 3 in here and type unique data,
+
+723
+00:34:58,439 --> 00:34:59,239
+you'll see that I get 4,
+
+724
+00:34:59,299 --> 00:35:00,040
+3,
+4.
+
+725
+00:35:00,576 --> 00:35:01,557
+So it's not very smart.
+
+726
+00:35:01,558 --> 00:35:03,198
+It doesn't remember every line it's ever seen.
+
+727
+00:35:03,578 --> 00:35:06,400
+It only eliminates duplicates that are consecutive.
+
+728
+00:35:06,921 --> 00:35:11,464
+But you can imagine combining sort and unique to get the functionality you want.
+
+729
+00:35:12,224 --> 00:35:12,724
+Or,
+
+730
+00:35:12,965 --> 00:35:14,286
+sort also has a flag,
+
+731
+00:35:14,566 --> 00:35:15,266
+sort-u,
+
+732
+00:35:15,747 --> 00:35:16,527
+which does this for you.
+
+733
+00:35:16,567 --> 00:35:18,349
+It sorts and eliminates duplicates.
+
+734
+00:35:20,190 --> 00:35:22,471
+But we'll show you how to combine commands a little bit later.
+
+735
+00:35:23,532 --> 00:35:24,873
+And then we have head and tail.
+
+736
+00:35:25,954 --> 00:35:28,676
+Head prints the first n lines of a file.
+
+737
+00:35:30,408 --> 00:35:31,650
+The default n here is 10,
+
+738
+00:35:31,810 --> 00:35:36,676
+but you can pass -n and then a numeric argument to say how many lines to include.
+
+739
+00:35:36,976 --> 00:35:38,958
+So head prints from the start of the file,
+
+740
+00:35:39,639 --> 00:35:42,663
+and then we also have tail which prints from the end of the file.
+
+741
+00:35:43,483 --> 00:35:46,587
+So these allow you to inspect just parts of a file rather than the full file.
+
+742
+00:35:49,253 --> 00:35:51,555
+And then we get into slightly more sophisticated tools.
+
+743
+00:35:51,735 --> 00:35:52,836
+So there for example,
+
+744
+00:35:53,037 --> 00:35:53,978
+there's a tool called grep.
+
+745
+00:35:54,678 --> 00:35:58,262
+Grep is a file searcher.
+
+746
+00:35:58,943 --> 00:36:00,324
+It doesn't search for files,
+
+747
+00:36:00,344 --> 00:36:04,729
+it searches in files and it searches for things that match a particular pattern.
+
+748
+00:36:05,129 --> 00:36:07,372
+So for example if I want to grep for
+
+749
+00:36:09,025 --> 00:36:10,766
+4 or 3 is maybe a better example.
+
+750
+00:36:11,006 --> 00:36:12,267
+grep for 3 in data.
+
+751
+00:36:12,547 --> 00:36:12,848
+So,
+
+752
+00:36:12,848 --> 00:36:13,768
+grep takes two arguments:
+
+753
+00:36:13,788 --> 00:36:17,791
+a pattern and a file or a list of files that you wanted to search in.
+
+754
+00:36:18,332 --> 00:36:21,874
+And it will print out all of the lines that match the pattern that you gave in.
+
+755
+00:36:22,294 --> 00:36:24,456
+So,
+in this case these lines all match 3,
+
+756
+00:36:25,197 --> 00:36:27,338
+the other lines do not and therefore do not get printed.
+
+757
+00:36:28,579 --> 00:36:35,344
+grep is actually much more powerful than it might look like here because the pattern that you supply is not just a standard text.
+
+758
+00:36:35,788 --> 00:36:38,070
+It actually was known as a regular expression.
+
+759
+00:36:38,570 --> 00:36:39,751
+And regular expressions,
+
+760
+00:36:39,931 --> 00:36:42,133
+we're going to touch on these later in the editor lecture,
+
+761
+00:36:42,453 --> 00:36:46,076
+but regular expressions allow you to express quite complicated things.
+
+762
+00:36:46,716 --> 00:36:59,406
+We'll see an example of that in a little bit that allows you to say I want to find anything where the first letter is not an A and the next thing is any numeric digit and then I want an arbitrary number of characters until a dash.
+
+763
+00:36:59,846 --> 00:37:01,207
+Like those kinds of things.
+
+764
+00:37:02,088 --> 00:37:02,508
+And again,
+
+765
+00:37:02,508 --> 00:37:03,589
+we'll get into the details later.
+
+766
+00:37:03,809 --> 00:37:11,534
+But you can use grep therefore to search for fairly sophisticated things inside of potentially large directories that you have.
+
+767
+00:37:12,194 --> 00:37:12,694
+In fact,
+
+768
+00:37:12,695 --> 00:37:15,997
+grep also in addition to searching files can search directories.
+
+769
+00:37:16,377 --> 00:37:24,782
+So if I cd for example into missing semester and then I want to grep for grep in this directory and I pass
+
+770
+00:37:25,403 --> 00:37:27,004
+-r, r for recursive so
+
+771
+00:37:27,284 --> 00:37:30,467
+go deeply into all the nested folders you find all the way down,
+
+772
+00:37:30,748 --> 00:37:33,851
+search all of those files for grep starting in the current directory.
+
+773
+00:37:34,312 --> 00:37:42,240
+Then this will now find me all of the files in the missing semester git repository that contain all the lines that contain the string grep.
+
+774
+00:37:43,722 --> 00:37:44,222
+You had a question?
+
+775
+00:37:47,346 --> 00:37:47,846
+Okay.
+
+776
+00:37:50,580 --> 00:37:53,981
+There are also other kinds of tools that allow you to edit files.
+
+777
+00:37:54,061 --> 00:37:56,222
+So grep only allows you to search files,
+
+778
+00:37:56,823 --> 00:37:58,143
+but there's a tool called sed,
+
+779
+00:37:58,583 --> 00:38:02,405
+which is a line editor that is intended to be programmed.
+
+780
+00:38:02,905 --> 00:38:06,366
+Sed is interesting in that sed actually has its own programming language,
+
+781
+00:38:06,406 --> 00:38:07,667
+the sed programming language,
+
+782
+00:38:07,967 --> 00:38:11,368
+that allows you to program the way that it will edit your file.
+
+783
+00:38:11,949 --> 00:38:12,569
+Usually though,
+
+784
+00:38:12,729 --> 00:38:15,670
+it's used for fairly simple tasks like search and replace.
+
+785
+00:38:16,070 --> 00:38:19,892
+So let's say I wanted to replace every instance of grep with john.
+
+786
+00:38:21,104 --> 00:38:23,586
+Well,
+I could do that by doing sed
+
+787
+00:38:24,046 --> 00:38:26,228
+-i for in place replacement.
+
+788
+00:38:26,528 --> 00:38:29,170
+So I don't want to create new files that have the replacement in them.
+
+789
+00:38:29,390 --> 00:38:30,891
+I want to replace the files where they are.
+
+790
+00:38:32,212 --> 00:38:34,474
+And this is where the sed program starts.
+
+791
+00:38:34,554 --> 00:38:36,035
+That's this first quoted string.
+
+792
+00:38:36,535 --> 00:38:43,800
+I want to substitute and then slash and then I give a pattern grep and then I want to substitute it with John.
+
+793
+00:38:44,981 --> 00:38:45,981
+And then I pass dash g.
+
+794
+00:38:46,522 --> 00:38:47,943
+The g here is for global.
+
+795
+00:38:48,843 --> 00:38:49,664
+Sed will
+
+796
+00:38:50,124 --> 00:38:52,365
+operate on every line one by one.
+
+797
+00:38:52,366 --> 00:38:53,525
+It's a line editor.
+
+798
+00:38:54,165 --> 00:38:55,246
+So when I say global,
+
+799
+00:38:55,326 --> 00:38:57,426
+it means across the entire line.
+
+800
+00:38:58,166 --> 00:39:02,908
+The reason this is needed is because otherwise if I substituted grep with John without the g,
+
+801
+00:39:03,428 --> 00:39:05,309
+if grep appeared twice in the line,
+
+802
+00:39:05,409 --> 00:39:07,049
+only the first one would be replaced.
+
+803
+00:39:07,509 --> 00:39:08,049
+With -g,
+
+804
+00:39:08,149 --> 00:39:10,190
+it's global so it replaces all the things in the line.
+
+805
+00:39:11,811 --> 00:39:12,431
+And then I can do
+
+806
+00:39:16,700 --> 00:39:17,420
+Star.md,
+
+807
+00:39:17,960 --> 00:39:20,741
+the path specifier here is what's known as a glob.
+
+808
+00:39:21,361 --> 00:39:22,842
+We'll talk about those in the next lecture,
+
+809
+00:39:23,082 --> 00:39:25,663
+but they basically allow you to give patterns for paths.
+
+810
+00:39:25,903 --> 00:39:30,044
+So in this case I'm saying in any directory look for any file that ends with
+
+811
+00:39:30,444 --> 00:39:33,185
+.md which is what all our course files do.
+
+812
+00:39:34,105 --> 00:39:41,967
+And when I run this and now run git diff you'll see that I now have a big git diff and the diff in all of them is that all instances of grep have been replaced with John.
+
+813
+00:39:45,008 --> 00:39:45,508
+Yeah?
+
+814
+00:39:46,508 --> 00:39:59,199
+What's the difference between like the wild cards and how to mess up the like hats in the shelf can use for command?
+
+815
+00:40:00,120 --> 00:40:05,902
+that and for the regular expressions that get passed to grep?
+
+816
+00:40:05,903 --> 00:40:10,043
+So regular expressions and glob expressions are both ways to express patterns.
+
+817
+00:40:10,723 --> 00:40:12,163
+But they're things that are supported,
+
+818
+00:40:12,524 --> 00:40:13,024
+like,
+
+819
+00:40:13,044 --> 00:40:17,285
+they're usually things that are supported by particular programs rather than the shell itself.
+
+820
+00:40:17,585 --> 00:40:18,865
+So for example in this,
+
+821
+00:40:19,125 --> 00:40:21,926
+in both the grep command that I showed and in sed,
+
+822
+00:40:22,747 --> 00:40:27,748
+the regular expression that you give is just a thing that's supported by grep or supported by sed.
+
+823
+00:40:28,428 --> 00:40:31,110
+Globs on the other hand here for specifying paths,
+
+824
+00:40:31,450 --> 00:40:33,431
+like this one you'll notice is not quoted.
+
+825
+00:40:34,431 --> 00:40:36,213
+Globs are expanded by your shell.
+
+826
+00:40:36,793 --> 00:40:44,337
+So it will look for anything any path that matches this glob and substitute that argument for all the paths that matched that argument.
+
+827
+00:40:45,158 --> 00:40:49,000
+But there will be programs too that allow you to give an argument that is a glob.
+
+828
+00:40:49,304 --> 00:40:51,305
+And then the program implements the glob internally.
+
+829
+00:40:51,865 --> 00:40:53,225
+That can be useful for other reasons,
+
+830
+00:40:53,285 --> 00:40:56,026
+like if you want to rewrite history in Git,
+
+831
+00:40:56,106 --> 00:40:56,706
+for example.
+
+832
+00:40:56,986 --> 00:40:59,727
+You can give Git a glob for the things you want to rewrite.
+
+833
+00:40:59,728 --> 00:41:06,849
+Yeah?
+Do you have regular expressions in the specification of the path?
+
+834
+00:41:06,850 --> 00:41:07,229
+No.
+
+835
+00:41:07,229 --> 00:41:10,510
+So shells usually don't support regular expressions over paths.
+
+836
+00:41:10,950 --> 00:41:11,770
+Usually over paths,
+
+837
+00:41:11,790 --> 00:41:12,990
+you can only use globs.
+
+838
+00:41:13,971 --> 00:41:16,912
+Although there might be shells that allow you to write regular expressions for paths,
+
+839
+00:41:16,952 --> 00:41:17,792
+but I don't know about them.
+
+840
+00:41:18,712 --> 00:41:21,775
+Usually regular expressions are kind of weird for paths anyway,
+
+841
+00:41:22,535 --> 00:41:28,120
+because usually you want to talk about things like directories and files.
+
+842
+00:41:28,500 --> 00:41:30,321
+And regular expression doesn't have a concept of that.
+
+843
+00:41:30,402 --> 00:41:33,164
+It's just matching a piece of text against a pattern.
+
+844
+00:41:33,644 --> 00:41:35,305
+Whereas Globs here,
+
+845
+00:41:35,686 --> 00:41:37,467
+the slash is actually meaningful.
+
+846
+00:41:37,727 --> 00:41:42,631
+The slash is saying the first star applies to the current directory set of paths.
+
+847
+00:41:42,972 --> 00:41:48,176
+And the thing after the slash is the pattern to use inside of that directory when looking for files.
+
+848
+00:41:49,792 --> 00:41:51,033
+Yeah?
+Wait,
+
+849
+00:41:51,034 --> 00:41:54,094
+so what does set do and what does glob do again?
+
+850
+00:41:54,095 --> 00:41:58,235
+So sed is a program that is a line editor that allows you to change the lines of a file.
+
+851
+00:41:58,836 --> 00:42:01,437
+Globs-- glob is a type of pattern,
+
+852
+00:42:01,877 --> 00:42:03,338
+like this pattern over here.
+
+853
+00:42:04,098 --> 00:42:05,739
+And it's similar to regular expressions.
+
+854
+00:42:05,779 --> 00:42:10,841
+It's just a way to write sort of an approximation or pattern of a path.
+
+855
+00:42:11,781 --> 00:42:13,122
+It is not a program in and of itself.
+
+856
+00:42:19,364 --> 00:42:20,645
+And in sed as well,
+
+857
+00:42:22,106 --> 00:42:22,746
+this grep thing,
+
+858
+00:42:22,826 --> 00:42:24,407
+this can also be a regular expression.
+
+859
+00:42:24,667 --> 00:42:29,390
+So here I could write things like anything that's not an A followed by any number of characters,
+
+860
+00:42:29,491 --> 00:42:30,091
+then a dash,
+
+861
+00:42:30,431 --> 00:42:32,252
+followed by any digit.
+
+862
+00:42:32,613 --> 00:42:34,974
+And I'm not expecting you to learn regular expressions right now,
+
+863
+00:42:35,194 --> 00:42:39,997
+but I can write fairly complicated things in here and they will all be replaced by John if I wanted to.
+
+864
+00:42:41,498 --> 00:42:42,239
+But I don't.
+
+865
+00:42:42,299 --> 00:42:44,420
+So it was anything that isn't a regular expression?
+
+866
+00:42:44,980 --> 00:42:51,104
+A glob is specifically a pattern that uses a particular language for patterns.
+
+867
+00:42:51,545 --> 00:42:54,126
+So the language for globs are stars,
+
+868
+00:42:54,467 --> 00:42:55,307
+question marks,
+
+869
+00:42:57,428 --> 00:42:58,229
+curly brackets,
+
+870
+00:42:58,529 --> 00:42:59,690
+and I think that's it.
+
+871
+00:43:00,090 --> 00:43:02,252
+So glob is a fairly simple pattern language.
+
+872
+00:43:02,572 --> 00:43:04,753
+Regular expressions are a much more complicated pattern language.
+
+873
+00:43:11,968 --> 00:43:14,370
+And the next program we want to talk about is Find.
+
+874
+00:43:15,071 --> 00:43:17,433
+Find is a program that finds files.
+
+875
+00:43:18,293 --> 00:43:19,454
+When you run Find,
+
+876
+00:43:21,316 --> 00:43:29,483
+you tell the Find program the kinds of files you're looking for and it will search wherever you tell it to for files that match that structure.
+
+877
+00:43:29,903 --> 00:43:30,584
+So for example,
+
+878
+00:43:30,864 --> 00:43:35,047
+I could look in my downloads directory for anything that is a file,
+
+879
+00:43:35,468 --> 00:43:40,532
+type F for type file as opposed to a directory whose name
+
+880
+00:43:41,340 --> 00:43:42,361
+Ends with zip.
+
+881
+00:43:43,302 --> 00:43:45,963
+I don't know if I have any zip files in my downloads folder,
+
+882
+00:43:45,983 --> 00:43:46,504
+we'll find out.
+
+883
+00:43:47,644 --> 00:43:50,326
+That was last modified at least 30 days ago.
+
+884
+00:43:51,286 --> 00:43:51,787
+In this case,
+
+885
+00:43:51,907 --> 00:43:52,427
+I don't have any.
+
+886
+00:43:52,847 --> 00:43:54,609
+What if I remove the mtime requirement?
+
+887
+00:43:55,149 --> 00:43:55,769
+I still don't have any.
+
+888
+00:43:56,250 --> 00:43:57,610
+What do I have in my downloads folder?
+
+889
+00:43:59,712 --> 00:44:00,212
+Cool.
+
+890
+00:44:00,332 --> 00:44:01,472
+So let's say
+
+891
+00:44:01,933 --> 00:44:06,074
+I here replace this with mtime plus 30.
+
+892
+00:44:06,394 --> 00:44:08,855
+So any file that's more than 30 days old,
+
+893
+00:44:09,555 --> 00:44:15,617
+then this file is the only one that is at least 30 days old in my downloads directory.
+
+894
+00:44:15,897 --> 00:44:16,397
+And again,
+
+895
+00:44:16,437 --> 00:44:19,998
+this is just an example of the kinds of arguments that you can provide to find.
+
+896
+00:44:20,458 --> 00:44:23,679
+Find has a huge language of arguments you can pass,
+
+897
+00:44:23,699 --> 00:44:25,460
+you can learn about by running man find.
+
+898
+00:44:25,940 --> 00:44:27,301
+But you can search for all sorts of things,
+
+899
+00:44:27,321 --> 00:44:29,261
+like files that are at least so large,
+
+900
+00:44:29,321 --> 00:44:31,742
+files that are at least this old or at least this recent,
+
+901
+00:44:32,062 --> 00:44:36,304
+files that have a particular pattern in their path,
+
+902
+00:44:36,624 --> 00:44:37,665
+files that are directories,
+
+903
+00:44:37,725 --> 00:44:38,625
+files that are links,
+
+904
+00:44:38,705 --> 00:44:39,325
+whatever it could be.
+
+905
+00:44:39,505 --> 00:44:41,966
+There's a whole host of things you can use Find4 here.
+
+906
+00:44:42,187 --> 00:44:54,151
+Yeah?
+
+907
+00:44:56,212 --> 00:44:59,699
+extension of like dot zip or a different
+
+908
+00:45:02,681 --> 00:45:03,702
+difference,
+
+909
+00:45:03,703 --> 00:45:04,282
+it takes such a like not-- Yeah.
+
+910
+00:45:04,283 --> 00:45:06,723
+So we'll talk about globs more in the next lecture.
+
+911
+00:45:07,263 --> 00:45:09,284
+That will go more into the actual pattern language.
+
+912
+00:45:09,484 --> 00:45:11,665
+But there are ways to write globs for those things.
+
+913
+00:45:11,905 --> 00:45:13,546
+But globs are fairly limited.
+
+914
+00:45:13,626 --> 00:45:17,508
+Like they can only express a fairly small set of operations,
+
+915
+00:45:17,548 --> 00:45:18,508
+but very common ones.
+
+916
+00:45:18,768 --> 00:45:20,209
+You'll find you write globs all the time,
+
+917
+00:45:20,210 --> 00:45:21,670
+but they tend to be pretty simple.
+
+918
+00:45:21,930 --> 00:45:23,270
+If you want something more advanced,
+
+919
+00:45:23,471 --> 00:45:25,992
+you tend to reach for a tool like Find or--
+
+920
+00:45:26,652 --> 00:45:31,034
+or some other file program that supports regular expressions for path matching.
+
+921
+00:45:33,615 --> 00:45:35,035
+Other cool things you could do with find,
+
+922
+00:45:35,115 --> 00:45:38,697
+so for example I can search for anything in my downloads directory,
+
+923
+00:45:39,097 --> 00:45:39,997
+also a type file,
+
+924
+00:45:40,358 --> 00:45:42,398
+whose size is at least 100 megabytes,
+
+925
+00:45:42,959 --> 00:45:45,540
+and for each such match
+
+926
+00:45:46,080 --> 00:45:47,220
+I want to ls
+
+927
+00:45:48,141 --> 00:45:48,641
+-lh.
+
+928
+00:45:50,442 --> 00:45:51,482
+So what does this do?
+
+929
+00:45:51,942 --> 00:45:52,583
+This is weird.
+
+930
+00:45:53,023 --> 00:45:53,723
+So this
+
+931
+00:45:54,203 --> 00:45:55,684
+-exec argument to find says
+
+932
+00:45:56,104 --> 00:45:59,866
+for each path that matches all the filters I gave,
+
+933
+00:45:59,867 --> 00:46:02,307
+so in this case it's a file and it's at least 100 megabytes long,
+
+934
+00:46:03,107 --> 00:46:04,548
+run the following program.
+
+935
+00:46:05,488 --> 00:46:07,049
+And I'm telling you to run ls,
+
+936
+00:46:07,989 --> 00:46:09,550
+which lists information about a file,
+
+937
+00:46:10,830 --> 00:46:11,330
+with the
+
+938
+00:46:11,951 --> 00:46:12,951
+-lh argument.
+
+939
+00:46:13,011 --> 00:46:14,572
+So I'll put this back down here at the bottom,
+
+940
+00:46:14,812 --> 00:46:15,312
+with the
+
+941
+00:46:15,432 --> 00:46:16,633
+-lh arguments.
+
+942
+00:46:16,913 --> 00:46:19,694
+-l means show me more information about the file.
+
+943
+00:46:20,214 --> 00:46:24,856
+-h mean print the size of the file with human readable notation.
+
+944
+00:46:25,188 --> 00:46:26,928
+So don't print the size and number of bytes,
+
+945
+00:46:27,149 --> 00:46:28,089
+print it with like gigabytes,
+
+946
+00:46:28,129 --> 00:46:28,529
+megabytes,
+
+947
+00:46:28,529 --> 00:46:29,209
+kilobytes and so on.
+
+948
+00:46:30,389 --> 00:46:35,531
+And then what find will do is it will do its find but instead of printing all the paths,
+
+949
+00:46:35,931 --> 00:46:45,554
+it will run that program with those arguments with the curly brackets replaced by the path that was found or all of the paths that were found.
+
+950
+00:46:46,894 --> 00:46:51,275
+And so in this case it will call ls with the path that is here,
+
+951
+00:46:52,195 --> 00:46:54,136
+then it will call ls with the path that's here.
+
+952
+00:46:54,476 --> 00:46:55,557
+each time passing the
+
+953
+00:46:55,957 --> 00:46:56,638
+-LH argument.
+
+954
+00:46:56,818 --> 00:46:59,119
+And so that's why we get these human readable sizes here.
+
+955
+00:47:01,301 --> 00:47:03,922
+The backslash semicolon at the end is because imagine,
+
+956
+00:47:03,963 --> 00:47:08,706
+I wanted to provide more arguments at the end here like mtime plus 30.
+
+957
+00:47:09,626 --> 00:47:16,871
+How does find know which arguments are for the command to exec and which arguments are for itself?
+
+958
+00:47:17,392 --> 00:47:17,952
+It doesn't.
+
+959
+00:47:18,452 --> 00:47:20,614
+So the backslash semicolon is to say,
+
+960
+00:47:20,914 --> 00:47:23,636
+this is the end of the list of arguments
+
+961
+00:47:23,896 --> 00:47:24,476
+for exec.
+
+962
+00:47:24,937 --> 00:47:26,718
+This is a thing that's special to FIND.
+
+963
+00:47:27,118 --> 00:47:28,559
+Not all programs do it this way,
+
+964
+00:47:28,819 --> 00:47:30,760
+there are other ways that are more common these days,
+
+965
+00:47:31,560 --> 00:47:36,063
+but that's why you will often see this kind of backslash semicolon in invocations of FIND.
+
+966
+00:47:36,823 --> 00:47:37,564
+But as you can imagine,
+
+967
+00:47:37,584 --> 00:47:38,644
+this is pretty powerful.
+
+968
+00:47:38,684 --> 00:47:41,386
+This lets us combine programs,
+
+969
+00:47:41,526 --> 00:47:45,728
+combine the programs of FIND with any other command line we might want to execute.
+
+970
+00:47:46,088 --> 00:47:47,929
+So instead of having this run ls,
+
+971
+00:47:48,890 --> 00:47:52,532
+maybe I want to rm those files instead.
+
+972
+00:47:53,560 --> 00:47:54,681
+So that would remove them.
+
+973
+00:47:54,841 --> 00:47:57,222
+RM is the program that removes all the paths that it's given.
+
+974
+00:47:57,622 --> 00:48:00,504
+And maybe I also add a mtime+30.
+
+975
+00:48:02,885 --> 00:48:04,186
+If I ran this command right now,
+
+976
+00:48:04,226 --> 00:48:06,907
+which I'm not going to do because I don't want to remove those files,
+
+977
+00:48:07,528 --> 00:48:15,372
+but it would delete any file in my downloads directory that's at least 100 megabytes long and has been there for at least 30 days.
+
+978
+00:48:16,853 --> 00:48:17,573
+All with one command.
+
+979
+00:48:21,075 --> 00:48:22,036
+You'll see sometimes that I
+
+980
+00:48:23,360 --> 00:48:25,562
+Skip a command like I don't execute it.
+
+981
+00:48:25,582 --> 00:48:26,643
+I just moved to the next line.
+
+982
+00:48:26,923 --> 00:48:27,744
+That's control C
+
+983
+00:48:28,504 --> 00:48:34,990
+Control C lets you say sort of cancel this can also apply to a program that's already running control C will terminate that program
+
+984
+00:48:37,772 --> 00:48:39,854
+Other things that are useful to programmers so for example,
+
+985
+00:48:39,914 --> 00:48:42,316
+I could say find in the current directory dot
+
+986
+00:48:43,296 --> 00:48:46,139
+I want to look for anything that is an MD file
+
+987
+00:48:47,500 --> 00:48:50,382
+And I want to exec grep
+
+988
+00:48:50,943 --> 00:48:51,663
+- L and
+
+989
+00:48:53,036 --> 00:48:56,025
+to do in that file
+
+990
+00:48:57,008 --> 00:48:57,649
+So what will this do?
+
+991
+00:48:58,009 --> 00:49:01,712
+This will search for all the markdown files in the current directory,
+
+992
+00:49:02,233 --> 00:49:04,174
+and for each one it will run grep.
+
+993
+00:49:04,915 --> 00:49:06,416
+And when we run grep,
+
+994
+00:49:06,517 --> 00:49:08,038
+we will search with a pattern todo.
+
+995
+00:49:08,939 --> 00:49:09,439
+And
+
+996
+00:49:09,499 --> 00:49:14,544
+-l means print the name of the file that matched rather than the line that matched.
+
+997
+00:49:15,384 --> 00:49:22,931
+So this will tell me all of the markdown files in the current directory where todo is written in the file somewhere.
+
+998
+00:49:24,644 --> 00:49:26,305
+So this can be useful if you're programming,
+
+999
+00:49:26,306 --> 00:49:26,726
+and you're like,
+
+1000
+00:49:26,726 --> 00:49:28,567
+oh,
+which things did I mean to get back to,
+
+1001
+00:49:28,568 --> 00:49:29,368
+but I never looked for them?
+
+1002
+00:49:31,649 --> 00:49:35,092
+This particular one might seem very similar to me doing this.
+
+1003
+00:49:35,832 --> 00:49:37,654
+There's grep for todo in the current directory,
+
+1004
+00:49:37,914 --> 00:49:39,595
+but the difference is here I got to say,
+
+1005
+00:49:40,055 --> 00:49:42,597
+find me only markdown files and only do it for those.
+
+1006
+00:49:43,438 --> 00:49:43,938
+But again,
+
+1007
+00:49:43,978 --> 00:49:46,120
+you can make these as complicated as you want to be.
+
+1008
+00:49:47,121 --> 00:49:47,641
+And with find,
+
+1009
+00:49:47,661 --> 00:49:50,863
+of course,
+you can add a bunch more pattern matching to this if you wish.
+
+1010
+00:49:53,406 --> 00:49:53,707
+Now,
+
+1011
+00:49:53,707 --> 00:49:55,871
+the syntax of find can be pretty weird.
+
+1012
+00:49:56,212 --> 00:49:59,299
+I'm not expecting you to learn find just from seeing these few examples.
+
+1013
+00:50:00,148 --> 00:50:01,169
+Find will tell you a lot.
+
+1014
+00:50:01,510 --> 00:50:13,844
+This is also the kind of thing that it's really helpful actually to ask LLMs because there's a lot of examples online of writing find command lines and LLMs can usually spit out a thing that will do roughly the thing you asked for pretty easily.
+
+1015
+00:50:14,345 --> 00:50:19,651
+There are also more modern tools that are more ergonomic and harder to misuse like FD that are linked in the lecture notes.
+
+1016
+00:50:19,991 --> 00:50:20,491
+You had a question?
+
+1017
+00:50:25,526 --> 00:50:26,987
+Find is recursive by default.
+
+1018
+00:50:27,627 --> 00:50:29,048
+So when you give it a path,
+
+1019
+00:50:29,148 --> 00:50:31,149
+it will search everywhere under that path.
+
+1020
+00:50:34,131 --> 00:50:34,571
+Yes,
+
+1021
+00:50:34,571 --> 00:50:38,834
+so find for example has an argument called max depth.
+
+1022
+00:50:39,354 --> 00:50:46,518
+That is the maximum depth to search down and if you say max depth one then it's only the current directory or zero,
+
+1023
+00:50:48,159 --> 00:50:48,659
+one.
+
+1024
+00:50:49,588 --> 00:50:50,148
+Oh,
+right.
+
+1025
+00:50:50,148 --> 00:50:51,709
+And it complains because I put it after.
+
+1026
+00:50:53,610 --> 00:50:55,230
+Find is a fickle beast.
+
+1027
+00:50:56,491 --> 00:51:04,674
+-maxdepth 0-- and it needs to go before the i name because it's-- yeah.
+
+1028
+00:51:05,695 --> 00:51:06,395
+Find is annoying.
+
+1029
+00:51:07,315 --> 00:51:08,496
+So if I do -maxdepth 0,
+
+1030
+00:51:08,596 --> 00:51:09,396
+then I get no results.
+
+1031
+00:51:09,936 --> 00:51:10,737
+If I do -maxdepth 1,
+
+1032
+00:51:10,877 --> 00:51:11,597
+I get no results.
+
+1033
+00:51:12,057 --> 00:51:12,898
+And if I do 2,
+
+1034
+00:51:13,798 --> 00:51:14,478
+then it'll find those.
+
+1035
+00:51:19,272 --> 00:51:21,073
+Next on the docket is a program called awk.
+
+1036
+00:51:21,834 --> 00:51:22,534
+A-W-K.
+
+1037
+00:51:23,975 --> 00:51:24,396
+Awk,
+
+1038
+00:51:24,396 --> 00:51:24,996
+like sed,
+
+1039
+00:51:25,136 --> 00:51:27,798
+is a program that has its own programming language built in.
+
+1040
+00:51:28,558 --> 00:51:30,840
+But where sed is for editing files,
+
+1041
+00:51:31,300 --> 00:51:33,482
+awk is for parsing files.
+
+1042
+00:51:34,242 --> 00:51:35,803
+Awk is a tool that will,
+
+1043
+00:51:36,204 --> 00:51:36,964
+by default,
+
+1044
+00:51:37,664 --> 00:51:40,446
+split a file by whitespace and by lines,
+
+1045
+00:51:41,167 --> 00:51:45,630
+and then let you write expressions over the result of parsing in that way.
+
+1046
+00:51:46,210 --> 00:51:48,612
+So if we go back to our home directory here,
+
+1047
+00:51:49,132 --> 00:51:50,512
+where we have our data file.
+
+1048
+00:51:50,513 --> 00:51:52,913
+Let's go back and clear out that file,
+
+1049
+00:51:53,193 --> 00:51:55,994
+and I will do A B C D E F G
+
+1050
+00:51:56,474 --> 00:51:57,514
+H I matrix,
+
+1051
+00:51:57,654 --> 00:51:58,155
+good old matrix.
+
+1052
+00:51:59,055 --> 00:52:02,296
+And then I write awk print two of data.
+
+1053
+00:52:03,876 --> 00:52:06,557
+So the thing again in the quoted string is an awk program.
+
+1054
+00:52:06,797 --> 00:52:09,678
+We're not gonna teach you the awk programming language here 'cause it's fairly extensive,
+
+1055
+00:52:09,898 --> 00:52:14,599
+but you can often do very simple things by just learning a couple of key bits about awk.
+
+1056
+00:52:15,259 --> 00:52:16,139
+So this is,
+
+1057
+00:52:16,680 --> 00:52:18,140
+the curly bracket here indicates
+
+1058
+00:52:18,616 --> 00:52:19,196
+run this,
+
+1059
+00:52:19,476 --> 00:52:23,298
+that's sort of the way to express a run and execute block in awk.
+
+1060
+00:52:23,878 --> 00:52:28,420
+And you can write a pattern before the curly brackets here to say
+
+1061
+00:52:28,760 --> 00:52:35,663
+I want to only run this expression on lines that have certain properties but in this case because I didn't specify a pattern it's all lines.
+
+1062
+00:52:36,984 --> 00:52:38,344
+And for every line
+
+1063
+00:52:38,684 --> 00:52:41,325
+I want to print the second field.
+
+1064
+00:52:42,086 --> 00:52:47,068
+So awk will parse the file into records so rows and fields which are columns
+
+1065
+00:52:47,408 --> 00:52:49,790
+And so in this case I say print out the second field,
+
+1066
+00:52:50,270 --> 00:52:52,472
+and the default field separator is whitespace.
+
+1067
+00:52:52,792 --> 00:52:56,234
+So if I do this it will print out only the second column of every row.
+
+1068
+00:52:58,396 --> 00:53:00,017
+But I can change what the field separator is.
+
+1069
+00:53:00,378 --> 00:53:02,159
+So let's say I switch this to be comma.
+
+1070
+00:53:02,559 --> 00:53:04,541
+Well this just became a CSV parser.
+
+1071
+00:53:04,542 --> 00:53:08,824
+Because now it splits lines by commas into columns,
+
+1072
+00:53:08,924 --> 00:53:11,225
+and the lines are records,
+
+1073
+00:53:11,506 --> 00:53:14,448
+and the columns are colon-separated columns.
+
+1074
+00:53:14,688 --> 00:53:15,469
+that you can then print out.
+
+1075
+00:53:15,709 --> 00:53:16,249
+If I do this,
+
+1076
+00:53:16,490 --> 00:53:17,951
+there is no second column anymore,
+
+1077
+00:53:18,231 --> 00:53:19,652
+because everything is in the first column,
+
+1078
+00:53:19,653 --> 00:53:22,034
+because there are no commas in this file.
+
+1079
+00:53:25,037 --> 00:53:26,899
+I can also do things like-- in fact,
+
+1080
+00:53:27,479 --> 00:53:31,483
+I'll show you a more complicated awk expression later for the kinds of things it can do.
+
+1081
+00:53:32,323 --> 00:53:36,647
+But awk is very useful tool for just pulling data out of semi-structured files very easily.
+
+1082
+00:53:38,869 --> 00:53:39,369
+Now,
+
+1083
+00:53:39,550 --> 00:53:40,671
+putting these all together,
+
+1084
+00:53:41,572 --> 00:53:42,954
+we get some pretty cool things.
+
+1085
+00:53:43,194 --> 00:53:44,596
+So let's see if I can...
+
+1086
+00:53:49,181 --> 00:53:50,843
+Okay,
+so here's a fun little command line.
+
+1087
+00:53:52,144 --> 00:53:53,846
+This command line will SSH,
+
+1088
+00:53:54,166 --> 00:53:56,309
+which is a remote connection tool we'll talk about later,
+
+1089
+00:53:56,729 --> 00:53:58,391
+into one of my servers in the Netherlands.
+
+1090
+00:53:59,272 --> 00:54:00,092
+On that server,
+
+1091
+00:54:00,452 --> 00:54:02,233
+it will run the command journalctl,
+
+1092
+00:54:02,273 --> 00:54:04,154
+which prints the logs for that server,
+
+1093
+00:54:04,794 --> 00:54:06,075
+for the ssh daemon,
+
+1094
+00:54:06,135 --> 00:54:08,455
+like the thing that you connect to when you remotely connect.
+
+1095
+00:54:09,076 --> 00:54:12,457
+It will search for-- it will only print the log files from the last boot.
+
+1096
+00:54:12,757 --> 00:54:13,537
+That's -b
+
+1097
+00:54:14,298 --> 00:54:14,798
+-1.
+
+1098
+00:54:15,698 --> 00:54:16,699
+And then it will grep,
+
+1099
+00:54:17,019 --> 00:54:17,819
+so search for,
+
+1100
+00:54:18,079 --> 00:54:19,580
+the string disconnected from.
+
+1101
+00:54:21,068 --> 00:54:23,130
+It will take that and it will parse it to sed.
+
+1102
+00:54:24,050 --> 00:54:27,773
+Sed is going to replace in all the lines,
+
+1103
+00:54:28,233 --> 00:54:32,896
+this regular expression with that backslash one which is a back reference,
+
+1104
+00:54:32,916 --> 00:54:34,518
+which is another thing you can do with regular expressions,
+
+1105
+00:54:35,358 --> 00:54:42,163
+which references the parentheses enclosed expression in the search string.
+
+1106
+00:54:42,843 --> 00:54:46,386
+So the backslash one here ends up referring to whatever this matched.
+
+1107
+00:54:46,926 --> 00:54:49,028
+This is the kind of cool search replace you can do with sed.
+
+1108
+00:54:50,025 --> 00:54:51,848
+So in this case it strips out,
+
+1109
+00:54:52,028 --> 00:54:58,898
+the way to read this expression is any number of characters followed by the string disconnected from followed by a space,
+
+1110
+00:54:59,179 --> 00:55:00,000
+followed by any number of
+
+1111
+00:55:00,060 --> 00:55:01,401
+characters and a space,
+
+1112
+00:55:01,541 --> 00:55:02,121
+then user,
+
+1113
+00:55:02,201 --> 00:55:02,781
+then a space,
+
+1114
+00:55:03,081 --> 00:55:04,142
+then any number of characters,
+
+1115
+00:55:04,182 --> 00:55:04,782
+then a space,
+
+1116
+00:55:05,202 --> 00:55:07,663
+then anything that's not a space,
+
+1117
+00:55:08,283 --> 00:55:08,924
+then space,
+
+1118
+00:55:09,144 --> 00:55:09,724
+then port,
+
+1119
+00:55:10,004 --> 00:55:10,504
+and so on.
+
+1120
+00:55:10,864 --> 00:55:12,705
+This one took me a while to get up with but you basically,
+
+1121
+00:55:13,105 --> 00:55:14,466
+as you get better at regular expressions,
+
+1122
+00:55:14,486 --> 00:55:16,427
+you learn how to write these patterns.
+
+1123
+00:55:17,087 --> 00:55:20,889
+What this will end up doing is taking all the logs from my SSH server,
+
+1124
+00:55:21,449 --> 00:55:28,712
+disconnected from is the line that gets printed when someone tries to log in but then either ended their session or failed to log in.
+
+1125
+00:55:29,484 --> 00:55:32,305
+and it will extract the username they tried to use,
+
+1126
+00:55:33,346 --> 00:55:34,426
+and print only that.
+
+1127
+00:55:34,926 --> 00:55:37,207
+Then I sort all of those results.
+
+1128
+00:55:37,708 --> 00:55:40,789
+Then I pick up the unique lines from that sorted result.
+
+1129
+00:55:41,329 --> 00:55:41,789
+The
+
+1130
+00:55:41,789 --> 00:55:46,211
+-c argument to unique prints the count of any that were duplicates.
+
+1131
+00:55:46,651 --> 00:55:49,713
+So if the word John appears three times in a row,
+
+1132
+00:55:49,973 --> 00:55:52,314
+it will print John 3 instead of John John John,
+
+1133
+00:55:52,554 --> 00:55:53,354
+or instead of just John.
+
+1134
+00:55:53,634 --> 00:55:54,535
+So it gives me the count.
+
+1135
+00:55:55,435 --> 00:55:57,096
+Then I sort that output
+
+1136
+00:55:57,712 --> 00:55:58,353
+numerically
+
+1137
+00:55:58,813 --> 00:56:02,015
+-n using the first column,
+
+1138
+00:56:02,016 --> 00:56:03,997
+so the column that contains the count.
+
+1139
+00:56:04,737 --> 00:56:14,204
+So now I have all of the usernames that we use to log in with their counts in sorted order such that the most common ones are at the bottom.
+
+1140
+00:56:15,545 --> 00:56:20,569
+And then I use tail-n 10 to get the last 10 which are the top 10.
+
+1141
+00:56:21,349 --> 00:56:24,671
+Then I use awk to print out only the username and not the count.
+
+1142
+00:56:25,880 --> 00:56:29,542
+And then I paste all those lines together into a single line,
+
+1143
+00:56:29,602 --> 00:56:30,102
+dash s,
+
+1144
+00:56:30,542 --> 00:56:31,663
+that are comma separated,
+
+1145
+00:56:31,923 --> 00:56:32,843
+which is the d comma.
+
+1146
+00:56:34,104 --> 00:56:35,604
+And so this command when I run it,
+
+1147
+00:56:35,945 --> 00:56:36,725
+if it works correctly,
+
+1148
+00:56:37,485 --> 00:56:41,287
+it will take a little while because the server has to parse all of the logs on my server,
+
+1149
+00:56:41,367 --> 00:56:42,727
+which takes a little bit.
+
+1150
+00:56:44,108 --> 00:56:45,829
+But eventually what I'll get back...
+
+1151
+00:56:48,470 --> 00:56:48,970
+Drumroll...
+
+1152
+00:56:51,491 --> 00:56:51,991
+Come on
+
+1153
+00:56:53,264 --> 00:56:54,526
+Come on.
+
+1154
+00:56:54,527 --> 00:56:56,168
+Come on.
+
+1155
+00:56:56,169 --> 00:56:58,231
+Really awkward if this is like connection failed.
+
+1156
+00:57:01,055 --> 00:57:04,940
+SSH is a way to run a command on a remote machine.
+
+1157
+00:57:07,744 --> 00:57:09,647
+So we'll talk about that more in the next lecture.
+
+1158
+00:57:12,553 --> 00:57:16,515
+Does awk get used for tensor manipulation?
+
+1159
+00:57:16,516 --> 00:57:16,976
+No,
+
+1160
+00:57:16,976 --> 00:57:18,357
+awk is not for tensor manipulation.
+
+1161
+00:57:18,937 --> 00:57:20,758
+Although you can kind of think of it that way,
+
+1162
+00:57:20,778 --> 00:57:22,539
+like a tensor is really rows and columns.
+
+1163
+00:57:23,580 --> 00:57:25,601
+But I would not say that that's what it's for.
+
+1164
+00:57:26,582 --> 00:57:28,483
+Like it doesn't understand binary files at all.
+
+1165
+00:57:30,204 --> 00:57:34,687
+Let me see if it's just failing for a different reason.
+
+1166
+00:57:44,765 --> 00:57:45,846
+Interesting.
+
+1167
+00:57:45,847 --> 00:57:46,346
+Live demos,
+
+1168
+00:57:46,346 --> 00:57:46,846
+right?
+
+1169
+00:57:50,547 --> 00:57:51,047
+Interesting.
+
+1170
+00:57:51,227 --> 00:57:52,288
+Let me try something else.
+
+1171
+00:57:52,328 --> 00:57:53,228
+Let me try it here.
+
+1172
+00:57:55,569 --> 00:57:56,069
+Oh,
+
+1173
+00:57:56,089 --> 00:57:57,989
+I think I know what fails.
+
+1174
+00:57:58,349 --> 00:58:00,730
+Let me just try something real quick.
+
+1175
+00:58:09,804 --> 00:58:10,925
+Well,
+maybe my server is down.
+
+1176
+00:58:11,545 --> 00:58:12,847
+That's the thing for me to fix another day.
+
+1177
+00:58:13,127 --> 00:58:19,812
+Well,
+just trust me that this would have printed the comma-separated list of the top 10 usernames used to try to sign into my server.
+
+1178
+00:58:20,433 --> 00:58:21,394
+None of which are my name.
+
+1179
+00:58:21,814 --> 00:58:23,055
+They're all spam connections.
+
+1180
+00:58:23,075 --> 00:58:33,463
+Yeah?
+I was going to ask if this would still work if it was called unique...
+
+1181
+00:58:34,532 --> 00:58:42,578
+Without dash C and then you didn't do the off.
+
+1182
+00:58:42,618 --> 00:58:43,599
+And then I realized that the counts are there.
+
+1183
+00:58:43,600 --> 00:58:45,481
+Yeah,
+if you did unique without the dash C,
+
+1184
+00:58:45,741 --> 00:58:48,943
+you would just end up with the unique names without knowledge of their counts.
+
+1185
+00:58:49,584 --> 00:58:50,084
+Yep.
+
+1186
+00:58:52,992 --> 00:58:53,492
+Cool.
+
+1187
+00:58:54,012 --> 00:58:56,893
+So this shows you the kind of thing that you can do with bash,
+
+1188
+00:58:56,894 --> 00:59:01,515
+is that you can write decently complex expressions to sort of tie all of this stuff together.
+
+1189
+00:59:02,175 --> 00:59:05,736
+Now one of the things you'll recognize here is that I introduced a new concept:
+
+1190
+00:59:06,056 --> 00:59:07,317
+this vertical bar,
+
+1191
+00:59:07,397 --> 00:59:08,437
+the pipe character.
+
+1192
+00:59:09,137 --> 00:59:17,580
+This is this is a construct of the bash programming language and what the pipe character does is it says run the left program and
+
+1193
+00:59:18,136 --> 00:59:22,937
+take its output and make that be the input of the program to the right of the pipe.
+
+1194
+00:59:23,758 --> 00:59:25,518
+So it's a way to connect programs,
+
+1195
+00:59:26,078 --> 00:59:30,279
+so that instead of the input being your keyboard and the output being your terminal,
+
+1196
+00:59:30,559 --> 00:59:33,460
+the input is some other program or the output is some other programs.
+
+1197
+00:59:34,901 --> 00:59:37,481
+There are a bunch of these kinds of operators in bash.
+
+1198
+00:59:37,821 --> 00:59:38,622
+So for example,
+
+1199
+00:59:39,242 --> 00:59:40,722
+you know I ran the date command.
+
+1200
+00:59:40,982 --> 00:59:41,682
+Well I can say
+
+1201
+00:59:42,423 --> 00:59:44,923
+I want to take the date and I want to write it into...
+
+1202
+00:59:48,120 --> 00:59:49,182
+the date.text.
+
+1203
+00:59:49,583 --> 00:59:55,553
+So the angle bracket here to the right is saying take the output of this command and write it into this file instead of to my terminal.
+
+1204
+00:59:56,274 --> 00:59:57,336
+And now if I cat,
+
+1205
+00:59:57,476 --> 00:59:58,778
+so print out the contents of this file,
+
+1206
+00:59:58,958 --> 00:59:59,940
+you'll see that that was the result.
+
+1207
+01:00:00,068 --> 01:00:01,710
+of date.
+
+1208
+01:00:01,711 --> 01:00:02,211
+Similarly,
+
+1209
+01:00:02,450 --> 01:00:07,595
+you can use the angle bracket in the other direction to say instead of taking input from my terminal,
+
+1210
+01:00:07,975 --> 01:00:10,437
+take the input from that location.
+
+1211
+01:00:10,898 --> 01:00:12,119
+So I can for cat,
+
+1212
+01:00:12,139 --> 01:00:12,639
+for example,
+
+1213
+01:00:12,699 --> 01:00:16,563
+say the input for cat is going to be the data text.
+
+1214
+01:00:19,786 --> 01:00:20,246
+Similarly,
+
+1215
+01:00:20,246 --> 01:00:21,307
+I could do for sort.
+
+1216
+01:00:22,444 --> 01:00:23,045
+The date.txt,
+
+1217
+01:00:23,105 --> 01:00:23,925
+although for sort,
+
+1218
+01:00:24,106 --> 01:00:24,726
+when there's one line,
+
+1219
+01:00:24,727 --> 01:00:25,587
+there's nothing that happens.
+
+1220
+01:00:25,987 --> 01:00:28,570
+But this allows me to redirect the input and output of programs.
+
+1221
+01:00:29,010 --> 01:00:29,550
+This can be useful,
+
+1222
+01:00:29,571 --> 01:00:29,991
+for example,
+
+1223
+01:00:29,991 --> 01:00:33,554
+to put something in a file so that you can look at it later.
+
+1224
+01:00:33,794 --> 01:00:35,035
+And you can walk away from your computer,
+
+1225
+01:00:35,075 --> 01:00:36,897
+and even if it scrolled far back,
+
+1226
+01:00:36,937 --> 01:00:37,978
+you still have it in a file.
+
+1227
+01:00:40,456 --> 01:00:45,980
+One thing to be aware of for the angle bracket to the right is that it overwrites the file.
+
+1228
+01:00:46,440 --> 01:00:48,081
+So if I now cap the date,
+
+1229
+01:00:48,121 --> 01:00:49,722
+you'll see it only has one date entry.
+
+1230
+01:00:49,882 --> 01:00:50,623
+If I run it again,
+
+1231
+01:00:50,663 --> 01:00:51,823
+it only has one date entry.
+
+1232
+01:00:52,924 --> 01:00:56,726
+You can use two of them to say append to the file instead of replacing it.
+
+1233
+01:00:57,547 --> 01:00:58,988
+And so now it has two lines instead of one.
+
+1234
+01:01:00,808 --> 01:01:02,330
+There's a whole programming language here.
+
+1235
+01:01:02,450 --> 01:01:05,372
+And going into all of what bash means,
+
+1236
+01:01:05,772 --> 01:01:06,673
+we're not gonna have time for.
+
+1237
+01:01:07,434 --> 01:01:08,514
+But let me give you very,
+
+1238
+01:01:08,634 --> 01:01:09,615
+very quick recap.
+
+1239
+01:01:10,576 --> 01:01:13,838
+So bash has conditionals.
+
+1240
+01:01:14,139 --> 01:01:16,500
+So you can write things like if grep
+
+1241
+01:01:18,462 --> 01:01:20,363
+2026, the date.txt,
+
+1242
+01:01:20,383 --> 01:01:25,587
+then echo its 2026 fee.
+
+1243
+01:01:26,900 --> 01:01:28,942
+So this will run the grep program,
+
+1244
+01:01:29,403 --> 01:01:32,206
+and if the grep program exited successfully,
+
+1245
+01:01:32,987 --> 01:01:36,370
+then and only then does it run the command that's after "then"
+
+1246
+01:01:36,490 --> 01:01:36,990
+here.
+
+1247
+01:01:37,071 --> 01:01:39,353
+And I could have multiple commands here if I wanted to.
+
+1248
+01:01:40,334 --> 01:01:40,834
+Hello
+
+1249
+01:01:42,316 --> 01:01:45,239
+And it will execute all the programs that are in the "then"
+
+1250
+01:01:45,720 --> 01:01:46,220
+branch,
+
+1251
+01:01:46,841 --> 01:01:48,823
+only if the program exited with a success.
+
+1252
+01:01:49,764 --> 01:01:52,186
+And you'll see the syntax here is kind of archaic,
+
+1253
+01:01:52,226 --> 01:01:53,487
+there's a bunch of semicolons and stuff.
+
+1254
+01:01:53,967 --> 01:01:56,369
+LLMs are very good at writing these kinds of commands if you want to.
+
+1255
+01:01:57,210 --> 01:01:59,992
+Humans less so unless you've done it a bunch of times.
+
+1256
+01:02:00,312 --> 01:02:02,053
+You'll see for example that the way to end an "if"
+
+1257
+01:02:02,153 --> 01:02:02,914
+is with "fi".
+
+1258
+01:02:03,294 --> 01:02:04,595
+Because why not?
+
+1259
+01:02:05,596 --> 01:02:10,519
+If you wonder how did I know that grep exits successfully when it finds something,
+
+1260
+01:02:10,820 --> 01:02:12,821
+this is something that's also in the grep manual.
+
+1261
+01:02:13,241 --> 01:02:14,963
+So usually in most of the grep manuals,
+
+1262
+01:02:15,263 --> 01:02:16,764
+if you search for exit status
+
+1263
+01:02:16,984 --> 01:02:19,586
+you'll find an entry that explains what this program exits with.
+
+1264
+01:02:20,047 --> 01:02:20,927
+So in the case of grep,
+
+1265
+01:02:21,228 --> 01:02:23,650
+it exits with zero if a line is selected,
+
+1266
+01:02:23,890 --> 01:02:24,750
+zero is success,
+
+1267
+01:02:25,211 --> 01:02:29,514
+and it exits with one if no lines were selected and two if an error occurred.
+
+1268
+01:02:30,175 --> 01:02:30,675
+And in general,
+
+1269
+01:02:30,715 --> 01:02:34,198
+zero is success and any non-zero exit status is not a success.
+
+1270
+01:02:36,080 --> 01:02:37,001
+Then there are while loops.
+
+1271
+01:02:37,241 --> 01:02:39,042
+So you can say while grep 2026,
+
+1272
+01:02:39,743 --> 01:02:41,925
+the date dot text,
+
+1273
+01:02:42,525 --> 01:02:43,025
+then echo,
+
+1274
+01:02:44,447 --> 01:02:45,528
+it's still 2026.
+
+1275
+01:02:46,776 --> 01:02:50,417
+and then write the date to the date.text,
+
+1276
+01:02:51,618 --> 01:02:52,758
+and then done.
+
+1277
+01:03:00,620 --> 01:03:01,921
+So this is a while loop.
+
+1278
+01:03:02,261 --> 01:03:05,962
+This will run this loop as long as this command remains true.
+
+1279
+01:03:06,922 --> 01:03:11,724
+So this would continue to print excessively into my terminal until it was no longer 2026.
+
+1280
+01:03:12,792 --> 01:03:13,453
+But I can inject,
+
+1281
+01:03:13,454 --> 01:03:13,893
+for example,
+
+1282
+01:03:13,893 --> 01:03:14,713
+here sleep 10,
+
+1283
+01:03:14,774 --> 01:03:15,994
+which is sleep for 10 seconds.
+
+1284
+01:03:16,255 --> 01:03:17,235
+And then it will run it once.
+
+1285
+01:03:17,616 --> 01:03:19,317
+And when it gets to running sleep,
+
+1286
+01:03:19,577 --> 01:03:20,538
+it will wait for 10 seconds.
+
+1287
+01:03:20,598 --> 01:03:21,839
+And then we'll run the command again,
+
+1288
+01:03:22,119 --> 01:03:22,980
+see if it remains true,
+
+1289
+01:03:23,220 --> 01:03:24,561
+and keep iterating through like this.
+
+1290
+01:03:24,821 --> 01:03:25,842
+So after about 10 seconds,
+
+1291
+01:03:25,843 --> 01:03:26,622
+we should see print again.
+
+1292
+01:03:26,642 --> 01:03:27,142
+There we go.
+
+1293
+01:03:28,744 --> 01:03:29,644
+There are also for loops.
+
+1294
+01:03:30,065 --> 01:03:34,688
+For loops are of the form for variable name in,
+
+1295
+01:03:35,189 --> 01:03:39,532
+and then a white space separated list of words.
+
+1296
+01:03:40,076 --> 01:03:42,598
+where the for loop will be executed once per word,
+
+1297
+01:03:45,440 --> 01:03:51,985
+and a variable will be set by the name that you specified in the for loop on each iteration.
+
+1298
+01:03:53,906 --> 01:03:57,128
+So in this case it will run once with var_name set to A,
+
+1299
+01:03:57,589 --> 01:03:58,610
+once with var_name set to B,
+
+1300
+01:03:58,850 --> 01:03:59,750
+once with var_name set to C,
+
+1301
+01:03:59,810 --> 01:04:00,310
+and so on.
+
+1302
+01:04:00,631 --> 01:04:04,113
+If you're wondering "well how do I turn this into one of the for loops that I know that iterate over numbers?"
+
+1303
+01:04:04,654 --> 01:04:05,154
+Well,
+
+1304
+01:04:05,274 --> 01:04:07,236
+you can use here a little trick.
+
+1305
+01:04:08,640 --> 01:04:15,045
+So if you use $ it's a way in Bash to say run the program inside the parentheses,
+
+1306
+01:04:15,525 --> 01:04:18,608
+then replace this whole thing with the output of that program.
+
+1307
+01:04:19,969 --> 01:04:20,629
+Why does this work?
+
+1308
+01:04:20,989 --> 01:04:21,489
+Well,
+
+1309
+01:04:21,670 --> 01:04:24,872
+the seek command prints out numbers.
+
+1310
+01:04:25,473 --> 01:04:26,354
+If I say 1-10,
+
+1311
+01:04:26,754 --> 01:04:29,576
+it will print all the numbers from 1-10 in increments of 1.
+
+1312
+01:04:30,517 --> 01:04:31,157
+I could also say
+
+1313
+01:04:31,558 --> 01:04:33,459
+2 to print them in increments of...
+
+1314
+01:04:35,116 --> 01:04:35,616
+2,
+
+1315
+01:04:35,757 --> 01:04:36,337
+if I wanted to.
+
+1316
+01:04:36,718 --> 01:04:39,160
+But normally you would do something like seek 110.
+
+1317
+01:04:39,520 --> 01:04:49,930
+This then gets substituted for the seek expression in this line and then gets whitespace separated into the tokens or the words 1,
+
+1318
+01:04:50,010 --> 01:04:50,551
+2,
+3,
+
+1319
+01:04:50,551 --> 01:04:50,972
+4,
+5,
+
+1320
+01:04:50,972 --> 01:04:51,472
+and so on.
+
+1321
+01:04:51,632 --> 01:04:55,155
+So var name gets set to each of those values on each iteration of the for loop.
+
+1322
+01:04:55,156 --> 01:04:55,676
+Yep?
+
+1323
+01:04:56,617 --> 01:04:58,338
+Does that mean you can replace the pipe operator with that?
+
+1324
+01:04:58,339 --> 01:04:59,339
+If you just nest them,
+
+1325
+01:04:59,359 --> 01:04:59,859
+nest two for loops?
+
+1326
+01:05:02,949 --> 01:05:05,370
+So you couldn't quite replace the pipe operator with this,
+
+1327
+01:05:05,630 --> 01:05:07,571
+because this turns it into an argument.
+
+1328
+01:05:08,391 --> 01:05:09,392
+Whereas the sort command,
+
+1329
+01:05:09,412 --> 01:05:09,972
+for example,
+
+1330
+01:05:10,252 --> 01:05:12,053
+takes its input on input,
+
+1331
+01:05:12,273 --> 01:05:13,814
+not as an argument.
+
+1332
+01:05:13,815 --> 01:05:15,314
+It doesn't sort its arguments,
+
+1333
+01:05:15,634 --> 01:05:17,435
+it sorts the contents of its argument.
+
+1334
+01:05:18,916 --> 01:05:20,997
+But there are ways to do that as well,
+
+1335
+01:05:21,757 --> 01:05:23,077
+but I'm not going to talk about them here,
+
+1336
+01:05:23,097 --> 01:05:24,038
+because we don't have the time.
+
+1337
+01:05:25,458 --> 01:05:29,400
+But some of the lecture exercises go into some of those kinds of things that you could do.
+
+1338
+01:05:31,861 --> 01:05:32,361
+Now,
+
+1339
+01:05:33,142 --> 01:05:35,104
+there are two last things I want to tell you about.
+
+1340
+01:05:36,345 --> 01:05:39,047
+One of them is when you write if expressions,
+
+1341
+01:05:40,468 --> 01:05:41,069
+you might wonder,
+
+1342
+01:05:41,149 --> 01:05:41,929
+well,
+okay,
+
+1343
+01:05:42,009 --> 01:05:43,270
+I can do things like grep and stuff,
+
+1344
+01:05:43,310 --> 01:05:45,412
+but what if I just want to compare variables?
+
+1345
+01:05:45,812 --> 01:05:46,613
+Like,
+what if I just want to do,
+
+1346
+01:05:46,693 --> 01:05:47,193
+like,
+
+1347
+01:05:47,254 --> 01:05:48,074
+numerical comparison,
+
+1348
+01:05:48,114 --> 01:05:51,357
+like,
+things that I normally do with ifs that are not related to command?
+
+1349
+01:05:51,897 --> 01:05:53,218
+Well,
+there's a program called test.
+
+1350
+01:05:53,739 --> 01:05:54,700
+The test program,
+
+1351
+01:05:54,980 --> 01:05:58,182
+which happens to also be called open square bracket,
+
+1352
+01:05:58,683 --> 01:05:59,804
+so I can actually run
+
+1353
+01:06:00,340 --> 01:06:00,840
+which test,
+
+1354
+01:06:01,180 --> 01:06:02,821
+and I can run which open square bracket.
+
+1355
+01:06:03,081 --> 01:06:04,161
+These are the same program.
+
+1356
+01:06:04,721 --> 01:06:06,802
+It's just a quicker way to refer to the same thing.
+
+1357
+01:06:07,182 --> 01:06:07,642
+Well,
+
+1358
+01:06:07,642 --> 01:06:10,223
+I can run that program as my conditional in the if,
+
+1359
+01:06:10,443 --> 01:06:14,084
+and its sort of contract is that it exits with a zero if the condition is true.
+
+1360
+01:06:14,724 --> 01:06:16,425
+So I can run if square bracket,
+
+1361
+01:06:16,505 --> 01:06:21,346
+and then I can for example do hello equals world,
+
+1362
+01:06:22,586 --> 01:06:27,188
+then echo equal else echo not equal.
+
+1363
+01:06:30,028 --> 01:06:31,129
+and this will print not equal.
+
+1364
+01:06:34,209 --> 01:06:38,291
+And so this way you can write actually fairly complex expressions to test,
+
+1365
+01:06:38,491 --> 01:06:40,211
+and the way you understand what you do with test is well,
+
+1366
+01:06:40,212 --> 01:06:40,911
+we run man test,
+
+1367
+01:06:40,912 --> 01:06:41,611
+it's just a program.
+
+1368
+01:06:42,472 --> 01:06:47,733
+And test explains that there's a bunch of things you could do this including things like file operations.
+
+1369
+01:06:48,313 --> 01:06:57,476
+So I can do things like if dash f the date dot text then echo the date exists.
+
+1370
+01:07:00,237 --> 01:07:08,980
+And the -f argument to test means that it tests whether a file by the name that you specify as the argument after
+
+1371
+01:07:09,361 --> 01:07:10,321
+-f exists.
+
+1372
+01:07:11,281 --> 01:07:11,723
+And so with this,
+
+1373
+01:07:11,723 --> 01:07:15,323
+you can start to construct fairly complicated things,
+
+1374
+01:07:15,603 --> 01:07:17,544
+automation around the programs you want to execute.
+
+1375
+01:07:17,764 --> 01:07:18,264
+Yep?
+
+1376
+01:07:19,085 --> 01:07:27,088
+So if this only works because there's a program that does these comparisons
+
+1377
+01:07:28,080 --> 01:07:31,082
+Is if also a program?
+
+1378
+01:07:31,083 --> 01:07:31,443
+Ah,
+
+1379
+01:07:31,443 --> 01:07:32,383
+it's a great question.
+
+1380
+01:07:32,764 --> 01:07:33,864
+Is if a program?
+
+1381
+01:07:35,506 --> 01:07:35,846
+Yeah,
+
+1382
+01:07:35,846 --> 01:07:37,047
+if is not a program.
+
+1383
+01:07:37,307 --> 01:07:38,348
+Pipe is not a program.
+
+1384
+01:07:38,788 --> 01:07:40,849
+cd is actually also not a program.
+
+1385
+01:07:41,470 --> 01:07:45,833
+They are built into your shell and they are part of the bash programming language.
+
+1386
+01:07:46,634 --> 01:07:51,597
+The reason why cd is not built into the shell is like a particularly interesting thing that we'll not get into,
+
+1387
+01:07:51,897 --> 01:07:54,459
+but the lecture notes go into that exercise a little bit.
+
+1388
+01:07:55,500 --> 01:07:55,980
+But no,
+
+1389
+01:07:55,980 --> 01:07:57,501
+if is a built-in into the language,
+
+1390
+01:07:57,561 --> 01:07:58,382
+same as while is.
+
+1391
+01:07:59,163 --> 01:07:59,663
+Yep?
+
+1392
+01:08:00,844 --> 01:08:06,107
+What does the caret C do?
+
+1393
+01:08:06,108 --> 01:08:11,931
+Oh,
+this is just the symbol that gets printed into my terminal when I press control C to exit the current command.
+
+1394
+01:08:12,552 --> 01:08:14,013
+It doesn't do anything in and of itself.
+
+1395
+01:08:15,694 --> 01:08:17,595
+It's just like a symbolism that I press that button.
+
+1396
+01:08:19,921 --> 01:08:20,922
+Cool.
+So that's the test program.
+
+1397
+01:08:20,962 --> 01:08:22,083
+There's a bunch of things you'll often,
+
+1398
+01:08:22,283 --> 01:08:23,724
+often if you read bash,
+
+1399
+01:08:23,964 --> 01:08:25,926
+you'll see double square brackets instead of single ones.
+
+1400
+01:08:26,386 --> 01:08:31,110
+Double square brackets are a built-in version of testing bash that is a little harder to misuse.
+
+1401
+01:08:32,171 --> 01:08:33,572
+But we're not going to get into that.
+
+1402
+01:08:33,612 --> 01:08:34,693
+Its syntax is very similar.
+
+1403
+01:08:36,234 --> 01:08:37,495
+The last thing then is,
+
+1404
+01:08:39,837 --> 01:08:42,480
+you could imagine that as you start writing these bash scripts,
+
+1405
+01:08:42,680 --> 01:08:44,141
+your command line gets really long.
+
+1406
+01:08:44,701 --> 01:08:47,284
+So the SSH example I gave for example,
+
+1407
+01:08:47,924 --> 01:08:51,765
+is like a command that spans three lines.
+
+1408
+01:08:51,925 --> 01:08:53,826
+So me going back and edit this gets pretty annoying.
+
+1409
+01:08:54,446 --> 01:08:58,607
+But what you can do is you can actually take these commands and stick them into a file,
+
+1410
+01:08:59,227 --> 01:09:02,068
+and that file is now a bash program that you can execute.
+
+1411
+01:09:02,588 --> 01:09:04,129
+So for example in the lecture notes,
+
+1412
+01:09:04,369 --> 01:09:06,109
+you'll see that there is this program right here.
+
+1413
+01:09:07,209 --> 01:09:09,850
+And this is a bunch of lines of bash,
+
+1414
+01:09:10,450 --> 01:09:16,112
+and when bash executes a program it will just run the lines top to bottom as if you have written them on
+
+1415
+01:09:16,512 --> 01:09:17,632
+your command line at the prompt.
+
+1416
+01:09:18,533 --> 01:09:22,714
+And the language is exactly the same as what you would have on your shell prompt.
+
+1417
+01:09:23,754 --> 01:09:33,737
+So this particular program that is shown in the lecture notes is one that will start a stress test of your CPUs so that they get really warm and then it will run a,
+
+1418
+01:09:34,737 --> 01:09:35,198
+in this case,
+
+1419
+01:09:35,198 --> 01:09:40,979
+this is a Rust program that I'm running the test suite for and I want to run a particular test until that test fails.
+
+1420
+01:09:41,779 --> 01:09:45,000
+And on each run I'm going to capture the log output and
+
+1421
+01:09:45,200 --> 01:09:48,344
+And only when the command no longer succeeds,
+
+1422
+01:09:48,345 --> 01:09:49,265
+so when the test failed,
+
+1423
+01:09:49,606 --> 01:09:53,331
+only then will I kill the stress test and print out the contents of the log.
+
+1424
+01:09:53,972 --> 01:09:57,837
+This is something I used in 6824 in the distributed systems class where
+
+1425
+01:09:58,238 --> 01:09:59,700
+I had a bug that only
+
+1426
+01:10:00,420 --> 01:10:01,941
+Test one in every 100 runs.
+
+1427
+01:10:02,561 --> 01:10:04,742
+So instead of me sitting there like arrow up,
+
+1428
+01:10:04,802 --> 01:10:05,122
+enter,
+
+1429
+01:10:05,122 --> 01:10:05,462
+arrow up,
+
+1430
+01:10:05,462 --> 01:10:06,103
+enter,
+arrow up,
+
+1431
+01:10:06,103 --> 01:10:06,503
+enter,
+
+1432
+01:10:06,503 --> 01:10:08,644
+I would just run this once and then walk and get coffee.
+
+1433
+01:10:09,864 --> 01:10:10,765
+And then when I come back,
+
+1434
+01:10:11,245 --> 01:10:13,826
+there's a file on my disk that has the output of the failed test.
+
+1435
+01:10:16,587 --> 01:10:17,087
+Now,
+
+1436
+01:10:17,508 --> 01:10:22,710
+the bit to know about here is at the very top of this line you'll see hash and an exclamation mark.
+
+1437
+01:10:22,750 --> 01:10:26,972
+This is called a shebang-- hash bang-- that is special.
+
+1438
+01:10:27,412 --> 01:10:31,173
+You'll see a lot of files start with this particular instruction if they are executables.
+
+1439
+01:10:32,493 --> 01:10:37,035
+This tells the shell when it runs this file,
+
+1440
+01:10:37,095 --> 01:10:38,935
+if someone asks it to run this file,
+
+1441
+01:10:39,535 --> 01:10:41,836
+to take this program,
+
+1442
+01:10:42,736 --> 01:10:44,537
+execute the program at that path,
+
+1443
+01:10:44,997 --> 01:10:49,118
+and give that program the contents of this file as input.
+
+1444
+01:10:51,299 --> 01:10:51,999
+So what does that mean?
+
+1445
+01:10:52,219 --> 01:10:52,659
+Well,
+
+1446
+01:10:52,659 --> 01:10:55,620
+it means that if I were to run this program,
+
+1447
+01:10:59,246 --> 01:11:00,527
+If I were to run this program,
+
+1448
+01:11:01,227 --> 01:11:03,970
+it is equivalent-- this won't work and I'll explain why in a second.
+
+1449
+01:11:04,190 --> 01:11:05,071
+I'll say permission denied.
+
+1450
+01:11:05,851 --> 01:11:07,152
+But this is equivalent to
+
+1451
+01:11:08,013 --> 01:11:11,856
+/bin/sh with the input being lecture.sh.
+
+1452
+01:11:13,618 --> 01:11:16,200
+Those two are equivalent because that is what that shebang line means.
+
+1453
+01:11:16,941 --> 01:11:20,564
+What's cool about the shebang line is that it doesn't have to be bash.
+
+1454
+01:11:20,964 --> 01:11:24,807
+Bin sh here is bash but I could just as easily have said user bin python.
+
+1455
+01:11:25,688 --> 01:11:27,390
+And now I can write Python code in this file.
+
+1456
+01:11:28,450 --> 01:11:30,172
+And if I try to run that file,
+
+1457
+01:11:30,472 --> 01:11:31,673
+it will run that Python program.
+
+1458
+01:11:31,913 --> 01:11:32,974
+It will start Python,
+
+1459
+01:11:33,435 --> 01:11:37,719
+take the contents of the file-- which is a valid Python program-- and give it as input to Python and then run it.
+
+1460
+01:11:38,739 --> 01:11:43,984
+So you could use this for any programming language that allows textual input to be executed directly like this.
+
+1461
+01:11:44,444 --> 01:11:45,385
+Also works with R,
+
+1462
+01:11:45,565 --> 01:11:46,326
+also works with
+
+1463
+01:11:47,007 --> 01:11:48,248
+Julia, also works with Ruby.
+
+1464
+01:11:48,908 --> 01:11:50,270
+There's a bunch of languages you could do this.
+
+1465
+01:11:50,310 --> 01:11:51,971
+Yeah?
+
+1466
+01:11:51,972 --> 01:11:53,092
+Does it work?
+
+1467
+01:11:54,089 --> 01:11:54,589
+Java.
+
+1468
+01:11:54,949 --> 01:11:56,751
+Java does not allow you to do this,
+
+1469
+01:11:56,811 --> 01:11:58,472
+because Java has a separate compile step.
+
+1470
+01:11:59,013 --> 01:12:01,915
+So there's no one program you can run and give Java input,
+
+1471
+01:12:02,195 --> 01:12:03,877
+and it will compile and run it for you.
+
+1472
+01:12:04,257 --> 01:12:04,938
+But if there were,
+
+1473
+01:12:04,939 --> 01:12:06,079
+and you could write such a wrapper,
+
+1474
+01:12:06,359 --> 01:12:06,720
+then yes,
+
+1475
+01:12:06,720 --> 01:12:07,760
+you could use it with the same thing.
+
+1476
+01:12:10,863 --> 01:12:15,066
+Now,
+the last bit before we terminate here is you'll see that I couldn't run the script.
+
+1477
+01:12:15,667 --> 01:12:16,687
+It said permission denied.
+
+1478
+01:12:17,288 --> 01:12:20,831
+This is because when you run executables,
+
+1479
+01:12:22,392 --> 01:12:24,814
+the shell will check that that file,
+
+1480
+01:12:24,834 --> 01:12:26,555
+that you have execute permissions on them.
+
+1481
+01:12:27,075 --> 01:12:32,838
+So if I run ls -l which emits more information about every file and I give lecture.sh,
+
+1482
+01:12:33,099 --> 01:12:35,240
+you'll see at the left hand side here I get some
+
+1483
+01:12:35,780 --> 01:12:36,961
+Rs and W's and stuff.
+
+1484
+01:12:37,241 --> 01:12:39,342
+This indicates the permissions I have on this file.
+
+1485
+01:12:39,743 --> 01:12:40,423
+R means read,
+
+1486
+01:12:41,083 --> 01:12:41,744
+W means write.
+
+1487
+01:12:42,388 --> 01:12:43,369
+And while there are multiple,
+
+1488
+01:12:43,569 --> 01:12:44,530
+there's an exercise on that.
+
+1489
+01:12:45,030 --> 01:12:47,032
+But the idea here is that because this is my file,
+
+1490
+01:12:47,052 --> 01:12:47,813
+I can read and write it.
+
+1491
+01:12:48,233 --> 01:12:51,716
+But I haven't told the operating system that this is fine to execute,
+
+1492
+01:12:51,717 --> 01:12:53,618
+that this is actually an executable program.
+
+1493
+01:12:54,158 --> 01:12:55,099
+If I want to do that,
+
+1494
+01:12:55,399 --> 01:12:56,881
+I have to chmod,
+
+1495
+01:12:56,921 --> 01:12:58,562
+which changes the permissions of a file,
+
+1496
+01:12:59,163 --> 01:13:02,205
+say that it's to become executable-- so plus x,
+
+1497
+01:13:02,206 --> 01:13:04,668
+I want to add execute permissions-- on this.
+
+1498
+01:13:05,728 --> 01:13:07,350
+Now if I ls it,
+
+1499
+01:13:07,450 --> 01:13:09,452
+you'll see it change color because ls will
+
+1500
+01:13:09,892 --> 01:13:11,153
+color things that are executables,
+
+1501
+01:13:11,373 --> 01:13:12,794
+and I now have the execute bit,
+
+1502
+01:13:12,834 --> 01:13:14,355
+the execute permission on this file.
+
+1503
+01:13:14,695 --> 01:13:16,616
+And now if I run lecture.sh,
+
+1504
+01:13:16,916 --> 01:13:22,720
+then well it'll run it and it will claim that it doesn't find my rust install and everything because this is an example script.
+
+1505
+01:13:23,340 --> 01:13:25,041
+But now it did actually run that program.
+
+1506
+01:13:28,003 --> 01:13:29,244
+You'll also notice that I had to do ./.
+
+1507
+01:13:30,485 --> 01:13:32,126
+If I do lecture.sh like this,
+
+1508
+01:13:32,826 --> 01:13:35,428
+it will not know that this is a program in the current directory.
+
+1509
+01:13:36,148 --> 01:13:41,152
+Instead it will search my path for a program by the name of lecture.sh and it will not find any.
+
+1510
+01:13:42,192 --> 01:13:43,773
+And so I have to specifically say,
+
+1511
+01:13:43,933 --> 01:13:45,895
+"I want to run the program in this directory."
+
+1512
+01:13:46,475 --> 01:13:47,716
+This is for safety reasons.
+
+1513
+01:13:48,036 --> 01:13:54,080
+You don't want the shell to automatically pick up whatever program happens to be in the directory you're in,
+
+1514
+01:13:54,541 --> 01:13:56,742
+just because it was named the same as a program you wanted to.
+
+1515
+01:13:57,142 --> 01:14:00,325
+Because it would mean that if I created a file called ls in my current directory,
+
+1516
+01:14:00,625 --> 01:14:05,068
+my ls would no longer work because it would pick up that ls instead of the one in my path.
+
+1517
+01:14:06,892 --> 01:14:07,392
+Cool.
+
+1518
+01:14:08,113 --> 01:14:10,034
+That's the end of what I have for you today.
+
+1519
+01:14:10,534 --> 01:14:12,876
+There are a bunch of exercises that I highly recommend you read through.
+
+1520
+01:14:13,056 --> 01:14:17,899
+The lecture notes also have more detail on some of these and some other programs you might find useful.
+
+1521
+01:14:18,160 --> 01:14:19,460
+I highly recommend you go take them,
+
+1522
+01:14:19,841 --> 01:14:20,381
+give a look to them.
+
+1523
+01:14:20,741 --> 01:14:21,622
+Give a look to them?
+
+1524
+01:14:22,322 --> 01:14:25,786
+I highly recommend you read through them and do the exercises,
+
+1525
+01:14:25,946 --> 01:14:35,014
+we'll see you here tomorrow where we'll talk more about the command line environment but less about the shell and more about the environment in which you're operating so Jose will give that lecture tomorrow,
+
+1526
+01:14:35,374 --> 01:14:37,176
+we'll see you all there thanks for coming

@@ -7,6 +7,7 @@
 - [官方课程目录](https://missing.csail.mit.edu/2026/)
 - [学习进度与问题记录](progress.md)
 - [第一讲视频时间索引与字幕校正](source/01-shell-video.md)
+- [第一讲英文字幕](source/01-shell.en.srt)：保留原始转写，用于核对讲解；术语和命令与官方讲义一起确认。
 
 ## 现在从这里开始
 
@@ -49,6 +50,7 @@ Missing-Semester/
 ├── exercises/
 │   └── 01-shell.md           # 第一讲分步练习与结果记录模板
 └── source/
+    ├── 01-shell.en.srt       # 用户提供的第一讲英文字幕
     └── 01-shell-video.md     # 字幕来源、时间索引与术语校正
 ```
 

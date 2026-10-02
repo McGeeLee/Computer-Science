@@ -160,4 +160,4 @@ done
 
 ## 来源与许可
 
-本笔记结合用户提供的第一讲中文字幕与 [2026 年官方第一讲](https://missing.csail.mit.edu/2026/course-shell/)，基于 **Anish Athalye、Jon Gjengset、Jose 团队**的 The Missing Semester 课程改写。术语与示例按学习需要重新组织，并校正了字幕转写及平台差异。本课程目录中的改写内容采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)；转载或改编时请保留署名、来源和相同许可，并遵守非商业使用条件。
+本笔记以用户提供的[第一讲英文字幕](../source/01-shell.en.srt)与 [2026 年官方第一讲](https://missing.csail.mit.edu/2026/course-shell/)核对，中文字幕用于辅助对照，基于 **Anish Athalye、Jon Gjengset、Jose 团队**的 The Missing Semester 课程改写。术语与示例按学习需要重新组织，并校正了字幕转写及平台差异；具体转写问题见[字幕校正记录](../source/01-shell-video.md)。本课程目录中的改写内容采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)；转载或改编时请保留署名、来源和相同许可，并遵守非商业使用条件。
