@@ -6,6 +6,7 @@
 
 - [官方课程目录](https://missing.csail.mit.edu/2026/)
 - [学习进度与问题记录](progress.md)
+- [常用符号英文名称速查](notes/symbols.md)：标点、括号、路径与运算符号、常见组合和易混字符。
 - [第一讲视频时间索引与字幕校正](source/01-shell-video.md)
 - [第一讲英文字幕](source/01-shell.en.srt)：保留原始转写，用于核对讲解；术语和命令与官方讲义一起确认。
 
@@ -48,7 +49,8 @@ Missing-Semester/
 ├── README.md                 # 课程入口与九讲路线
 ├── progress.md               # 已完成的小目标与待解决问题
 ├── notes/
-│   └── 01-shell.md           # 第一讲笔记，分四次学习
+│   ├── 01-shell.md           # 第一讲笔记，分四次学习
+│   └── symbols.md            # 常用符号的英文名称与使用提醒
 ├── exercises/
 │   └── 01-shell.md           # 第一讲分步练习与结果记录模板
 └── source/
