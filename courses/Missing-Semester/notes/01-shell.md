@@ -1,6 +1,24 @@
 # 第 1 讲：认识 Shell，从一条命令开始
 
-本讲按从零学习的节奏拆成四次。**当前只学习第 1 次**，完成末尾的两道小问题后，再根据实际情况继续；后面三节先作为路线图，不要求一次读完或执行全部示例。这里的命令和例子用于理解原理，不是官方练习的答案。
+本讲按从零学习的节奏拆成四次。**当前只学习第 1 次**，完成末尾的自检问题后，再根据实际情况继续；后面三节先作为路线图，不要求一次读完或执行全部示例。这里的命令和例子用于理解原理，不是官方练习的答案。
+
+## 课程背景：IAP 与前半段主线
+
+**IAP = Independent Activities Period，自主活动期。**MIT 在秋季和春季学期之间，留出一月约四周的时间，让师生参加短课、独立研究、项目和其他活动。校历常称为 **4–1–4**：秋季约四个月、一月自主活动期、春季约四个月。“自主”强调学习安排更灵活，活动可以有老师、课堂和练习，也有学分课程。[MIT 对 IAP 的介绍](https://elo.mit.edu/iap/)
+
+视频开头的“Missing Semester IAP 2026”表示：这是在 MIT 2026 年自主活动期中开设的 Missing Semester 课程。本课程包含九次约一小时的讲座，不计学分；课名中的“Missing Semester”呼应普通计算机课程常漏教的开发工具技能。[官方课程说明](https://missing.csail.mit.edu/2026/course-shell/)
+
+前半段约 0～37 分钟，在建立一个基本模型：**在终端输入“让哪个工具、用什么参数、处理哪个位置的内容”，由 Shell 解释并执行。**
+
+| 视频时间，约 | 主要内容 |
+| --- | --- |
+| 0～7 分钟 | 为什么学工具；用电脑自动化自己的重复工作 |
+| 7～15 分钟 | Terminal、Shell、Bash、Zsh 与提示符 |
+| 15～21 分钟 | 命令、参数、空格、引号、转义与 `man` |
+| 21～28 分钟 | `pwd`、`cd`、当前目录、路径与 Tab 补全 |
+| 28～37 分钟 | `PATH`、程序查找，以及查看和处理文本的基础工具 |
+
+具体回看位置见[双语时间索引](../source/01-shell-video.md)。
 
 ## 第 1 次：终端里究竟是谁在做事？
 
@@ -11,14 +29,76 @@
 | 角色 | 工作 | 例子 |
 |---|---|---|
 | Terminal（终端） | 接收按键、显示文本，提供交互窗口 | macOS 的 Terminal 应用 |
-| Shell | 解释输入的命令，执行内置功能或启动其他程序 | zsh、Bash |
+| Shell | 解释输入的命令，执行内置功能或启动其他程序 | Bash、Zsh、PowerShell |
 | 外部程序 | 接收参数或输入，完成具体任务 | `date`、`ls` |
 
 键盘输入先经过终端交给 Shell；Shell 处理命令，程序产生的文本再显示出来。Shell 自身也是一个程序，终端窗口则可以容纳不同的 Shell。
 
+### Shell 是类别，Bash、Zsh、PowerShell 是具体实现
+
+这几个名称要按角色理解：**Shell 是命令解释器这一类程序的统称；Bash、Zsh、PowerShell 是其中的具体成员，彼此并列。**它们不是从底层到上层依次叠起来的组件。[微软的概念说明](https://learn.microsoft.com/en-us/powershell/scripting/what-is-a-command-shell)
+
+```mermaid
+flowchart TD
+    S["Shell：命令解释器这一类程序"]
+    S --> B["Bash"]
+    S --> Z["Zsh"]
+    S --> P["PowerShell"]
+```
+
+**Bash = Bourne-Again SHell。**缩写取 `B` + `A` + `SH`。Bourne 是 Stephen Bourne 的姓，他编写了早期 Unix 的 Bourne Shell，通常称为 `sh`。Bourne 与英语 born 同音，born again 意为“再次诞生／重生”，名称借此双关表达与 Bourne Shell 的承接关系。正式名称写 Bourne；讲者说“Bourne-Again Shell, or Bash”时，意思是“Bourne-Again Shell，也叫／简称 Bash”。[GNU 对 Bash 的解释](https://www.gnu.org/software/bash/manual/html_node/What-is-Bash_003f.html)
+
+**Zsh = Z Shell。**它同样能解释交互命令、执行脚本，提供命令补全、历史记录、拼写纠正等功能，注重交互便利性。它与 Bash 的许多基础用法相似，但语法和默认行为不完全相同，Bash 脚本仍要明确交给 Bash。[Zsh 官方介绍](https://zsh.sourceforge.io/Doc/Release/Introduction.html)
+
+**PowerShell** 也是具体的 Shell，同时提供脚本语言与自动化功能。现代 PowerShell 可运行于 Windows、Linux 和 macOS；它的管道可以在命令之间传递结构化对象，Bash、Zsh 的普通管道主要传递字节流，常用于处理文本。这里先认识它的角色，具体差异在以后学习管道时再展开。[PowerShell 官方介绍](https://learn.microsoft.com/en-us/powershell/scripting/overview)
+
+### Terminal 提供交互窗口
+
+Terminal 是接收输入、显示文字的应用。它可以运行某个具体 Shell，例如 Zsh，也可以使用 Bash。以输入 `ls` 为例：
+
+```text
+你输入 ls
+  → Terminal 把输入交给当前 Shell，例如 Zsh
+  → Zsh 解释命令并启动 ls
+  → ls 的输出显示在 Terminal 中
+```
+
+箭头表示这次命令的交互过程。Terminal、Shell 和外部程序都运行在操作系统上；进一步谈底层，才会涉及管理进程、文件和硬件资源的操作系统内核。Shell 有时直接执行内置命令，如 `cd`，有时启动外部程序，如 `ls`。
+
 macOS 当前默认 Shell 是 **zsh**，课程主要用 **Bash** 讲解。本笔记的基础交互示例适用于两者，后面的脚本会明确使用 Bash，不需要现在改默认设置。[Apple 的说明](https://support.apple.com/guide/terminal/change-the-default-shell-trml113/mac)确认了这一默认值。
 
-窗口中等待你输入的那一行叫**提示符**，可能带用户名、目录、`%` 或 `$`。外观可以定制；复制示例时只复制命令，不复制提示符。逐条试试：
+### 读懂提示符：`~`、`$`、`#` 与 `%`
+
+窗口中等待你输入的那一行叫**提示符**。例如：
+
+```text
+mei@laptop:~$
+```
+
+| 部分 | 此示例中的含义 |
+| --- | --- |
+| `mei` | 用户名 |
+| `@laptop` | 所在机器的主机名 |
+| `:` 后面的 `~` | 当前目录显示为个人主目录 |
+| 末尾 `$` | 传统 sh / Bash 风格中，通常表示普通、非 root 用户 |
+
+**`~` 表示当前用户的主目录（home directory）。**例如用户 mei 的主目录在 macOS 上通常是 `/Users/mei`，在 Linux 上通常是 `/home/mei`。提示符显示 `~/Downloads` 时，表示主目录中的 Downloads 子目录。[Bash 的主目录与波浪线展开说明](https://www.gnu.org/software/bash/manual/html_node/Tilde-Expansion.html)
+
+命令里使用半角 ASCII `~`，不要换成外形相近的全角 `～`。`cd ~` 返回主目录；`cd '~'` 会把被引号保护的 `~` 当作普通目录名，具体路径操作留到第 2 次学习。
+
+**`$` 表示非 root、`#` 表示 root，是常见的提示符约定。**例如 Bash 的提示符转义 `\$` 会在有效用户 ID 为 0 时显示 `#`，其他情况显示 `$`。Zsh 则常用 `%` 表示普通用户，`#` 提示特权身份，常见情况为 root。[Bash 提示符说明](https://www.gnu.org/software/bash/manual/html_node/Controlling-the-Prompt.html)、[Zsh 提示符说明](https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html)
+
+提示符可以自定义，外观不能作为用户身份的可靠依据。可以运行 `id -u` 查看当前有效用户 ID：`0` 表示 root，其他数字表示其他用户。**root 用户是用户身份，`/` 根目录是文件系统位置**；执行 `cd /` 只改变目录，不会让你变成 root。
+
+还要区分 `$` 的使用场景：
+
+```text
+$ echo "$HOME"
+```
+
+这是一条带提示符的示例。行首 `$` 是提示符，不需要输入；`"$HOME"` 中的 `$` 则属于命令语法，用来取变量 HOME 的值。实际输入的是 `echo "$HOME"`。它输出主目录路径，不能据此判断当前用户是否为 root。
+
+复制示例时只复制命令，不复制用户名、目录或末尾提示符。逐条试试：
 
 ```sh
 pwd
@@ -41,10 +121,12 @@ echo study\ shell
 
 如果引号没有闭合，Shell 可能换行继续等待。此时可以按 `Ctrl + C` 取消这次输入，然后重新输入。
 
-**现在停在这里，先想两件事：**
+**现在停在这里，先想四件事：**
 
 1. 运行 `date` 时，终端、Shell、`date` 分别负责什么？
 2. `echo red blue` 和 `echo 'red blue'` 分别收到几个参数？为什么显示结果可能相同？
+3. Bash、Zsh 与 PowerShell 为什么是并列关系？Terminal 又负责什么？
+4. 在 `mei@laptop:~$` 中，`~` 与 `$` 各表示什么？为什么确认身份要查看 `id -u` 的结果？
 
 ## 第 2 次：我在哪里，命令又在哪里？
 
