@@ -11,13 +11,16 @@
 - [SSH 日志管道命令详解](notes/ssh-log-pipeline.md)：远程执行、正则提取、频次统计、前十名筛选与 macOS 示例。
 - [第一讲视频时间索引与字幕校正](source/01-shell-video.md)
 - [第一讲英文字幕](source/01-shell.en.srt)：保留原始转写，用于核对讲解；术语和命令与官方讲义一起确认。
+- [第二讲来源与字幕核对](source/02-command-line-source.md)：原始中英字幕、覆盖范围及转写误词说明。
 
 第一讲完整笔记汇总课程动机、Terminal 与 Shell、命令与路径、文本工具、管道与重定向，以及基础 Bash 脚本。符号、正则与通配符、SSH 日志管道的细节可结合上面的补充笔记查阅。
 
+第二讲的 [完整笔记](notes/02-command-line.md)与 [实践题](exercises/02-command-line.md)接着整理命令行接口、环境传递、退出码、信号、远程环境与配置；原始字幕见 [英文](source/02-command-line.en.srt)和 [中文](source/02-command-line.zh.srt)。
+
 ## 现在从这里开始
 
-1. 阅读 [第一讲完整笔记](notes/01-shell.md)，先了解整课主线，再回看不熟悉的概念与例子。
-2. 按需要选择 [第一讲练习](exercises/01-shell.md)：A 观察环境与命令，B 练路径与引号，C 练文本、管道与重定向，D 练 Bash 脚本。
+1. 阅读正在复习的完整笔记：[第一讲](notes/01-shell.md) · [第二讲](notes/02-command-line.md)，先了解整课主线，再回看不熟悉的概念与例子。
+2. 按需要选择对应练习：[第一讲](exercises/01-shell.md) · [第二讲](exercises/02-command-line.md)，先预测，再运行并解释。
 3. 在当前学习 chat 中贴出命令、输出和你的解释；根据实际掌握情况更新进度。
 
 完整笔记可作为整课复习和随时查阅的资料；练习按概念选择，不规定学习次数。材料已准备好，完成状态仍以实际练习与解释为准。
@@ -27,7 +30,7 @@
 | 顺序 | 2026 官方讲义 | 学习目标 | 当前资料 |
 | --- | --- | --- | --- |
 | 01 | [课程概览与 Shell 入门](https://missing.csail.mit.edu/2026/course-shell/) | 理解命令、路径、程序查找、文本工具、管道与简单脚本 | [笔记](notes/01-shell.md) · [练习](exercises/01-shell.md) |
-| 02 | [命令行环境](https://missing.csail.mit.edu/2026/command-line-environment/) | 理解命令行程序的输入输出、环境、退出码、信号与配置 | 学到本讲时整理 |
+| 02 | [命令行环境](https://missing.csail.mit.edu/2026/command-line-environment/) | 理解命令行程序的输入输出、环境、退出码、信号与配置 | [笔记](notes/02-command-line.md) · [练习](exercises/02-command-line.md) |
 | 03 | [开发环境与工具](https://missing.csail.mit.edu/2026/development-environment/) | 学习 Vim、语言服务、编辑器功能与 AI 辅助开发 | 学到本讲时整理 |
 | 04 | [调试与性能分析](https://missing.csail.mit.edu/2026/debugging-profiling/) | 定位错误、观察运行状态、识别性能瓶颈 | 学到本讲时整理 |
 | 05 | [版本控制与 Git](https://missing.csail.mit.edu/2026/version-control/) | 理解提交、分支、合并与协作 | 学到本讲时整理 |
@@ -52,14 +55,19 @@ Missing-Semester/
 ├── progress.md               # 已完成的小目标与待解决问题
 ├── notes/
 │   ├── 01-shell.md           # 第一讲完整笔记与命令示例
+│   ├── 02-command-line.md    # 第二讲完整笔记与命令示例
 │   ├── symbols.md            # 常用符号的英文名称与使用提醒
 │   ├── regex-and-globs.md    # 正则表达式与通配符的对照总结
 │   └── ssh-log-pipeline.md   # 截图中的 SSH 日志统计管道详解
 ├── exercises/
-│   └── 01-shell.md           # 第一讲分步练习与结果记录模板
+│   ├── 01-shell.md           # 第一讲分步练习与结果记录模板
+│   └── 02-command-line.md    # 第二讲实践与纸上拆解
 └── source/
     ├── 01-shell.en.srt       # 用户提供的第一讲英文字幕
-    └── 01-shell-video.md     # 字幕来源、时间索引与术语校正
+    ├── 01-shell-video.md     # 字幕来源、时间索引与术语校正
+    ├── 02-command-line.en.srt # 第二讲原始英文字幕
+    ├── 02-command-line.zh.srt # 第二讲原始中文字幕
+    └── 02-command-line-source.md # 第二讲来源与字幕核对
 ```
 
 ## 来源与许可

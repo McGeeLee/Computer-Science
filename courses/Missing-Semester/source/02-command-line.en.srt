@@ -1,0 +1,4370 @@
+1
+00:00:00,528 --> 00:00:01,168
+Okay,
+
+2
+00:00:01,169 --> 00:00:02,589
+I think we can start.
+
+3
+00:00:04,110 --> 00:00:08,131
+Welcome all to the second lecture of the Missing Semester 2026.
+
+4
+00:00:09,012 --> 00:00:12,893
+The topic for today's lectures is the command line environment.
+
+5
+00:00:13,553 --> 00:00:21,557
+And yesterday we covered the shell and we saw many programs that you probably didn't even know that were in your computer.
+
+6
+00:00:22,037 --> 00:00:25,919
+And that you could launch them and actually combine them through the shell.
+
+7
+00:00:26,479 --> 00:00:28,280
+I know there was a lot of information.
+
+8
+00:00:29,952 --> 00:00:33,613
+Unlike a lot of other concepts in programming,
+
+9
+00:00:33,693 --> 00:00:35,414
+the shell has its own quirks.
+
+10
+00:00:35,434 --> 00:00:37,814
+It also has historical concepts.
+
+11
+00:00:38,354 --> 00:00:46,377
+And today in the lecture we're going to cover a lot of the concepts that are specific to the shell environment,
+
+12
+00:00:46,517 --> 00:00:52,018
+and that you should get familiar with so that when you're going through these programs,
+
+13
+00:00:53,138 --> 00:00:54,719
+you understand exactly what is going on.
+
+14
+00:00:54,799 --> 00:00:58,640
+And then in the second part of the lecture we're going to see how to
+
+15
+00:00:59,528 --> 00:01:08,891
+operate more efficiently in remote machines and also how to change the behavior of your command line and your environment.
+
+16
+00:01:09,951 --> 00:01:11,592
+And as always,
+
+17
+00:01:11,792 --> 00:01:13,072
+if anything is unclear,
+
+18
+00:01:13,292 --> 00:01:15,413
+feel free to ask questions during the lecture.
+
+19
+00:01:16,673 --> 00:01:23,875
+So the first thing we're going to cover today is, if you've seen any other type of programming,
+
+20
+00:01:25,255 --> 00:01:27,076
+the inputs and the outputs of
+
+21
+00:01:27,156 --> 00:01:28,917
+programs are usually very clear,
+
+22
+00:01:29,117 --> 00:01:29,418
+right?
+
+23
+00:01:29,418 --> 00:01:31,898
+You have a function like this in Python.
+
+24
+00:01:31,899 --> 00:01:37,980
+You have your x and y arguments, and then you have your output which is another value.
+
+25
+00:01:39,041 --> 00:01:54,027
+And that makes it fairly easy to understand, but then as you start writing or reading other people's shell scripts it can become quite confusing, exactly what are the inputs and what are the outputs of this type of scripts.
+
+26
+00:01:54,127 --> 00:01:56,148
+So for example here we see that
+
+27
+00:01:56,648 --> 00:02:02,111
+We're getting some value in some way and if that doesn't exist,
+
+28
+00:02:02,251 --> 00:02:03,372
+we're exiting.
+
+29
+00:02:03,892 --> 00:02:08,534
+We're accessing maybe variables that are not defined within this script.
+
+30
+00:02:08,954 --> 00:02:10,615
+And just to be clear,
+
+31
+00:02:10,655 --> 00:02:17,899
+you should not understand what's happening here but this script has pretty much examples of all the concepts that we're going to cover today.
+
+32
+00:02:20,220 --> 00:02:25,843
+there are multiple types of input and multiple types of output in shell scripts,
+
+33
+00:02:26,104 --> 00:02:35,889
+and there are conventions that pretty much all programs follow because you're communicating between programs that maybe were created by very different people.
+
+34
+00:02:37,070 --> 00:02:39,751
+So the most simple type of input,
+
+35
+00:02:39,811 --> 00:02:40,992
+which we already saw yesterday,
+
+36
+00:02:41,492 --> 00:02:43,513
+is the notion of arguments.
+
+37
+00:02:43,913 --> 00:02:45,774
+So when we run the command
+
+38
+00:02:46,315 --> 00:02:47,775
+"ls" and then we give it like
+
+39
+00:02:48,536 --> 00:02:48,936
+"-l",
+
+40
+00:02:48,936 --> 00:02:49,697
+project one,
+
+41
+00:02:49,797 --> 00:02:52,639
+we're giving it input in the form of arguments.
+
+42
+00:02:53,019 --> 00:02:55,041
+And here arguments are nothing special,
+
+43
+00:02:55,221 --> 00:02:56,302
+just like strings.
+
+44
+00:02:56,742 --> 00:02:57,923
+And when we run this,
+
+45
+00:02:58,304 --> 00:03:01,166
+we're telling ls and ls is getting both
+
+46
+00:03:01,786 --> 00:03:06,330
+"-l" and it's getting "project1", and it's parsing them in order to decide what to do.
+
+47
+00:03:07,351 --> 00:03:15,097
+And actually most programming languages will have a way to get this information.
+
+48
+00:03:15,197 --> 00:03:18,280
+In Python this is the syntax and
+
+49
+00:03:18,640 --> 00:03:21,641
+So you can see there's nothing special going on.
+
+50
+00:03:21,761 --> 00:03:26,442
+We can just run Python with exactly the same inputs,
+
+51
+00:03:26,762 --> 00:03:31,203
+and we can see that when the shell calls our program with these inputs,
+
+52
+00:03:31,243 --> 00:03:35,385
+we're just getting literally the name of the input program and then the arguments.
+
+53
+00:03:35,845 --> 00:03:38,926
+And it's up to the program how to interpret these arguments.
+
+54
+00:03:39,666 --> 00:03:44,907
+Here we find the first convention that is pretty common in the shell,
+
+55
+00:03:45,007 --> 00:03:46,368
+which is the notion of flags.
+
+56
+00:03:46,688 --> 00:03:47,768
+Flags are like
+
+57
+00:03:49,540 --> 00:03:54,803
+when you have an argument and it has this single dash or double dash,
+
+58
+00:03:55,523 --> 00:03:59,385
+that tells to the program that this is an option.
+
+59
+00:03:59,405 --> 00:04:02,686
+That it should change its default behavior.
+
+60
+00:04:03,326 --> 00:04:04,887
+And when you go into the manual page,
+
+61
+00:04:05,067 --> 00:04:07,668
+you will often see many of these flags documented.
+
+62
+00:04:08,229 --> 00:04:08,729
+To be fair,
+
+63
+00:04:09,389 --> 00:04:15,552
+the shell doesn't require that you actually use this dash or double dash syntax.
+
+64
+00:04:16,292 --> 00:04:18,113
+Everyone kind of agreed upon this,
+
+65
+00:04:18,133 --> 00:04:20,054
+but you will find programs that don't do it.
+
+66
+00:04:21,114 --> 00:04:29,357
+So, further, the convention is that when you have a single dash it's usually like a single letter that follows.
+
+67
+00:04:29,758 --> 00:04:30,258
+For example,
+
+68
+00:04:30,738 --> 00:04:37,241
+-a means to also list the hidden files which are by convention as well the
+
+69
+00:04:37,261 --> 00:04:38,721
+ones that start with dot.
+
+70
+00:04:39,282 --> 00:04:45,104
+So if we touch a file called .a and we try to ls
+
+71
+00:04:45,548 --> 00:04:46,671
+that file is not there,
+
+72
+00:04:47,293 --> 00:04:47,894
+but when we do
+
+73
+00:04:48,416 --> 00:04:50,220
+-a it suddenly appears.
+
+74
+00:04:52,413 --> 00:04:55,314
+That flag is equivalent to doing
+
+75
+00:04:55,774 --> 00:04:57,835
+"--all". It's the same.
+
+76
+00:04:58,955 --> 00:04:59,555
+You can think of
+
+77
+00:05:00,255 --> 00:05:04,156
+"-a" as a shorthand to call the same option.
+
+78
+00:05:04,476 --> 00:05:08,898
+You can have multiple flags in different formats when you call programs.
+
+79
+00:05:09,678 --> 00:05:10,178
+Usually,
+
+80
+00:05:10,198 --> 00:05:11,958
+the order doesn't matter.
+
+81
+00:05:12,038 --> 00:05:13,939
+You can give them in any order.
+
+82
+00:05:15,099 --> 00:05:20,041
+And a lot of the time with these single character flags they can be combined.
+
+83
+00:05:20,061 --> 00:05:21,661
+So when I do this
+
+84
+00:05:22,077 --> 00:05:25,459
+is identical to all the commands that I've run previously.
+
+85
+00:05:26,680 --> 00:05:29,082
+One important thing to note here is:
+
+86
+00:05:29,502 --> 00:05:32,144
+the shell is not giving us these features.
+
+87
+00:05:33,064 --> 00:05:39,049
+All these features of parsing the flags to allow you to do the syntax,
+
+88
+00:05:39,429 --> 00:05:43,752
+is because the ls program is actually doing parsing to allow you to do this.
+
+89
+00:05:44,172 --> 00:05:46,834
+And that's why when you write shell programs,
+
+90
+00:05:47,194 --> 00:05:51,397
+you will most often use libraries that automate a lot of this parsing.
+
+91
+00:05:51,897 --> 00:05:52,397
+for you.
+
+92
+00:05:56,459 --> 00:05:58,180
+And there are conventions,
+
+93
+00:05:58,181 --> 00:05:59,540
+so it's really common for
+
+94
+00:06:00,401 --> 00:06:01,421
+-a to mean all,
+
+95
+00:06:01,821 --> 00:06:02,902
+it's pretty common to have
+
+96
+00:06:03,742 --> 00:06:04,763
+-h be help,
+
+97
+00:06:05,223 --> 00:06:15,788
+so you can most often rely on programs having help or version as their options and
+
+98
+00:06:18,229 --> 00:06:18,929
+I feel like that
+
+99
+00:06:19,149 --> 00:06:21,391
+covers most things about flags.
+
+100
+00:06:21,491 --> 00:06:27,735
+The other arguments that you usually get with programs are just strings.
+
+101
+00:06:28,395 --> 00:06:29,476
+And when,
+
+102
+00:06:29,696 --> 00:06:30,196
+for example,
+
+103
+00:06:30,197 --> 00:06:31,978
+when we do this program,
+
+104
+00:06:32,678 --> 00:06:35,880
+project1 is just like a string passed to
+
+105
+00:06:36,241 --> 00:06:38,902
+LS and then LS determines that this should,
+
+106
+00:06:39,243 --> 00:06:41,784
+it interprets that to be a file.
+
+107
+00:06:42,365 --> 00:06:48,409
+Another common convention when you're working in the shell is for programs
+
+108
+00:06:48,589 --> 00:06:53,894
+to accept the same type of argument an arbitrary amount of times.
+
+109
+00:06:54,514 --> 00:06:55,215
+So for example,
+
+110
+00:06:55,675 --> 00:07:11,569
+when we do mkdir we can use it to create multiple folders and we can for example create project3 and we can create project4 but instead of calling
+
+111
+00:07:11,609 --> 00:07:16,553
+it individually what we could have done is we could have just
+
+112
+00:07:18,217 --> 00:07:19,057
+done this.
+
+113
+00:07:19,858 --> 00:07:20,678
+And many,
+
+114
+00:07:20,758 --> 00:07:22,358
+many programs will expect you...
+
+115
+00:07:22,818 --> 00:07:28,240
+will accept an arbitrary number of arguments and they will do the same operation in each one of them.
+
+116
+00:07:28,860 --> 00:07:29,780
+It is not guaranteed,
+
+117
+00:07:29,781 --> 00:07:32,601
+it will depend on the specific program,
+
+118
+00:07:33,281 --> 00:07:41,683
+but the reason why you want to do this is even though for this example it might not be that convenient,
+
+119
+00:07:42,784 --> 00:07:45,925
+in a case where you want to say,
+
+120
+00:07:45,985 --> 00:07:46,645
+for example,
+
+121
+00:07:46,945 --> 00:07:47,445
+delete
+
+122
+00:07:47,893 --> 00:07:49,674
+or like touch for example,
+
+123
+00:07:49,854 --> 00:07:53,016
+touch is a command that just updates the modification time.
+
+124
+00:07:53,336 --> 00:08:00,520
+If we want to update all the python files in this folder,
+
+125
+00:08:01,161 --> 00:08:07,124
+we can do touch*.py which is a type of pattern matching that is called globbing.
+
+126
+00:08:07,244 --> 00:08:15,289
+We already saw some examples yesterday but the important thing here is when we do this the touch program is not getting
+
+127
+00:08:15,649 --> 00:08:16,149
+*.py
+
+128
+00:08:16,689 --> 00:08:17,549
+as its inputs,
+
+129
+00:08:18,470 --> 00:08:19,010
+the
+
+130
+00:08:19,430 --> 00:08:26,052
+*.py is getting expanded to try to match all the files in this folder that have this pattern.
+
+131
+00:08:26,812 --> 00:08:36,495
+And in fact if we go back to our very basic Python script that just repeated what was received,
+
+132
+00:08:36,655 --> 00:08:38,395
+we can verify that that's the case.
+
+133
+00:08:38,415 --> 00:08:39,155
+When we call it with
+
+134
+00:08:40,016 --> 00:08:45,297
+*.py, we're seeing that all of this is actually what the script is receiving.
+
+135
+00:08:48,097 --> 00:08:50,718
+globbing is kind of a very simple language.
+
+136
+00:08:50,758 --> 00:08:52,959
+It's not nearly as powerful as,
+
+137
+00:08:52,979 --> 00:08:54,159
+say,
+regular expressions,
+
+138
+00:08:54,299 --> 00:08:57,900
+but makes a lot of really common patterns fairly simple to do.
+
+139
+00:08:58,340 --> 00:08:58,960
+So for example,
+
+140
+00:08:59,421 --> 00:09:08,243
+if we want to create like a few files in this folder,
+
+141
+00:09:08,383 --> 00:09:12,664
+you can probably guess by the syntax used here what's going to happen.
+
+142
+00:09:13,124 --> 00:09:15,225
+And what the shell is going to do is
+
+143
+00:09:16,085 --> 00:09:21,569
+expand this by doing the common pattern that is in here.
+
+144
+00:09:22,029 --> 00:09:28,234
+And now this makes it really easy for us to specify more complex patterns and operations.
+
+145
+00:09:28,294 --> 00:09:40,582
+So we could also update all the Python files and shell scripts that we have in this folder,
+
+146
+00:09:40,962 --> 00:09:44,885
+and this will get expanded to every single file that matches this pattern.
+
+147
+00:09:49,186 --> 00:09:50,027
+In some shells,
+
+148
+00:09:50,127 --> 00:09:53,428
+like, yesterday we were seeing the Bourne-again shell,
+
+149
+00:09:54,148 --> 00:09:56,770
+here I'm using the Z shell,
+
+150
+00:09:57,190 --> 00:09:58,970
+which is a different one,
+
+151
+00:09:59,151 --> 00:10:00,871
+supports more complex globbing.
+
+152
+00:10:00,891 --> 00:10:01,492
+So for example,
+
+153
+00:10:01,532 --> 00:10:11,015
+we can list all the Python files and this will double asterisk match nested folders.
+
+154
+00:10:12,136 --> 00:10:14,517
+So we can see we are getting even
+
+155
+00:10:14,945 --> 00:10:16,927
+And we're navigating the whole structure.
+
+156
+00:10:17,347 --> 00:10:17,687
+And again,
+
+157
+00:10:17,687 --> 00:10:22,411
+this is useful because there's this convention that many programs will accept multiple arguments.
+
+158
+00:10:26,555 --> 00:10:31,839
+Then the next concept that we're going to cover is the notion of streams.
+
+159
+00:10:32,079 --> 00:10:34,941
+So yesterday we were seeing that when we launch programs,
+
+160
+00:10:35,042 --> 00:10:38,705
+we were giving them inputs and they were producing outputs.
+
+161
+00:10:39,305 --> 00:10:43,228
+So when we do something like
+
+162
+00:10:46,677 --> 00:10:47,338
+Something like this.
+
+163
+00:10:48,521 --> 00:10:51,167
+So we have this file with just a bunch of numbers,
+
+164
+00:10:51,669 --> 00:10:54,796
+and then when we concatenate all this
+
+165
+00:10:55,494 --> 00:10:55,994
+programs,
+
+166
+00:10:58,475 --> 00:10:58,975
+we can...
+
+167
+00:11:00,856 --> 00:11:04,758
+wait,
+why is it not...
+
+168
+00:11:04,778 --> 00:11:05,938
+I think it has to be quoted.
+
+169
+00:11:06,099 --> 00:11:07,239
+So for example in this case,
+
+170
+00:11:07,539 --> 00:11:11,721
+we have this grep which says only filter numbers with a single digit.
+
+171
+00:11:12,261 --> 00:11:19,444
+And one thing that I want to emphasize here is when we say inputs are getting connected to outputs,
+
+172
+00:11:19,644 --> 00:11:23,126
+that's because when we execute a pipeline in the shell,
+
+173
+00:11:23,562 --> 00:11:25,444
+It's not like we're running the first command,
+
+174
+00:11:25,684 --> 00:11:27,285
+and then we're running the second command,
+
+175
+00:11:27,305 --> 00:11:27,966
+and then we're run-- no,
+
+176
+00:11:28,006 --> 00:11:28,386
+no,
+no.
+
+177
+00:11:28,386 --> 00:11:28,807
+Like,
+
+178
+00:11:28,807 --> 00:11:31,809
+we're actually running all these programs in parallel.
+
+179
+00:11:32,450 --> 00:11:36,513
+And we're connecting the outputs of programs to the inputs of the following one,
+
+180
+00:11:36,933 --> 00:11:43,079
+and then as output is produced it's already consumed by the next process in there.
+
+181
+00:11:43,159 --> 00:11:43,659
+So,
+
+182
+00:11:44,079 --> 00:11:46,321
+we have this Python script,
+
+183
+00:11:46,361 --> 00:11:48,183
+which is a really simple script.
+
+184
+00:11:48,543 --> 00:11:51,706
+It will just produce numbers slowly.
+
+185
+00:11:52,546 --> 00:11:53,687
+from 0 to
+
+186
+00:11:54,247 --> 00:11:54,747
+10.
+
+187
+00:11:55,288 --> 00:12:01,834
+And if we were to run this and pipe it into grep,
+
+188
+00:12:02,554 --> 00:12:06,417
+so we can just check for all the odd numbers,
+
+189
+00:12:09,160 --> 00:12:09,800
+and we have to,
+
+190
+00:12:09,920 --> 00:12:10,420
+it's
+
+191
+00:12:12,643 --> 00:12:13,904
+Python by default buffers,
+
+192
+00:12:13,984 --> 00:12:16,546
+but we can see that
+
+193
+00:12:16,866 --> 00:12:19,208
+as numbers are getting produced,
+
+194
+00:12:19,988 --> 00:12:22,270
+both programs are running in parallel.
+
+195
+00:12:22,830 --> 00:12:24,312
+The first one is producing output,
+
+196
+00:12:24,313 --> 00:12:28,214
+the second one is consuming it and producing its own output.
+
+197
+00:12:28,955 --> 00:12:35,580
+And you can get fairly complex things like when you launch a pipeline like this,
+
+198
+00:12:36,240 --> 00:12:38,282
+here the first command is actually...
+
+199
+00:12:39,242 --> 00:12:43,926
+we'll see later what happens when we use the ampersand-ampersand command but
+
+200
+00:12:44,186 --> 00:12:44,866
+when we do this,
+
+201
+00:12:44,946 --> 00:12:46,487
+we're just launching this pipeline.
+
+202
+00:12:46,667 --> 00:12:49,248
+We're putting an ampersand on the end to put it in the background.
+
+203
+00:12:49,448 --> 00:12:51,209
+So because it was going to take a while.
+
+204
+00:12:51,729 --> 00:12:52,850
+But when we do this,
+
+205
+00:12:53,430 --> 00:12:55,911
+if we check what processes are running in this machine,
+
+206
+00:12:56,331 --> 00:12:58,392
+you can see that sleep is there,
+
+207
+00:12:58,892 --> 00:12:59,652
+grep is there,
+
+208
+00:13:00,112 --> 00:13:00,753
+sort is there,
+
+209
+00:13:00,953 --> 00:13:01,553
+unique is there.
+
+210
+00:13:01,833 --> 00:13:06,375
+Cat is not there and that's because cat will not start until sleep completes.
+
+211
+00:13:07,615 --> 00:13:09,616
+And once like now everything has completed,
+
+212
+00:13:09,617 --> 00:13:11,337
+then we get the output.
+
+213
+00:13:12,657 --> 00:13:13,157
+Now
+
+214
+00:13:14,910 --> 00:13:17,452
+Programs will have a standard input,
+
+215
+00:13:17,472 --> 00:13:19,853
+which is how they get their information.
+
+216
+00:13:19,913 --> 00:13:26,117
+Can you reorder what the computer is doing in terms of...
+
+217
+00:13:26,157 --> 00:13:28,518
+It's processing all these different things,
+
+218
+00:13:28,558 --> 00:13:30,699
+right?
+Can you change the order of which job it's doing?
+
+219
+00:13:31,660 --> 00:13:31,999
+Like say,
+
+220
+00:13:31,999 --> 00:13:37,323
+"No,
+I actually want cat to happen now before he does something else."
+
+221
+00:13:37,324 --> 00:13:38,184
+Does that make sense?
+
+222
+00:13:38,185 --> 00:13:39,264
+Like,
+like...
+
+223
+00:13:39,284 --> 00:13:39,784
+Yeah,
+
+224
+00:13:40,085 --> 00:13:40,825
+right here,
+
+225
+00:13:41,085 --> 00:13:42,166
+what was happening is
+
+226
+00:13:42,618 --> 00:13:42,998
+I mean,
+
+227
+00:13:42,998 --> 00:13:46,380
+cat is not running until sleep's complete because we put this ampersand.
+
+228
+00:13:46,680 --> 00:13:53,243
+The double ampersand is kind of the AND operator, like cat will only execute if this program executes successfully.
+
+229
+00:13:54,303 --> 00:14:03,867
+But in this case, yeah, we could just remove the sleep and then that would happen immediately. And then the pipes are just the flow, like they define the flow of information.
+
+230
+00:14:06,868 --> 00:14:08,609
+Then you will
+
+231
+00:14:11,566 --> 00:14:16,148
+Most programs expect input through the standard input.
+
+232
+00:14:16,588 --> 00:14:17,088
+For example,
+
+233
+00:14:17,489 --> 00:14:19,830
+grep usually that's how it grabs the information.
+
+234
+00:14:20,010 --> 00:14:23,071
+Grep can also get it from a file.
+
+235
+00:14:23,111 --> 00:14:24,352
+So for example when we do this,
+
+236
+00:14:24,732 --> 00:14:25,753
+just giving it a file.
+
+237
+00:14:26,153 --> 00:14:28,774
+It is convention that when you just do a single dash,
+
+238
+00:14:29,254 --> 00:14:31,115
+that means the standard input.
+
+239
+00:14:31,275 --> 00:14:35,217
+So if you ever see like this is not like a...
+
+240
+00:14:35,317 --> 00:14:36,878
+In this case this dash is not a flag.
+
+241
+00:14:37,946 --> 00:14:42,429
+it's convention for this to represent that you want to read from your input.
+
+242
+00:14:45,131 --> 00:14:45,812
+We have an input,
+
+243
+00:14:45,892 --> 00:14:47,573
+but we actually have two outputs.
+
+244
+00:14:47,633 --> 00:14:50,255
+When a program produces its output,
+
+245
+00:14:50,335 --> 00:14:55,698
+it can produce it to what we call the standard output stream or the standard error stream.
+
+246
+00:14:56,339 --> 00:14:58,400
+So when we do ls,
+
+247
+00:14:58,580 --> 00:14:59,161
+for example,
+
+248
+00:14:59,221 --> 00:15:00,281
+and we list,
+
+249
+00:15:00,802 --> 00:15:03,323
+this is by default going to the standard output.
+
+250
+00:15:03,964 --> 00:15:05,445
+And we can
+
+251
+00:15:07,718 --> 00:15:08,338
+Send this to...
+
+252
+00:15:09,058 --> 00:15:09,379
+actually,
+
+253
+00:15:09,379 --> 00:15:11,019
+let's delete the file first.
+
+254
+00:15:11,859 --> 00:15:20,942
+We can send that information to files.txt and then files.txt has now the value of whatever output this program produced.
+
+255
+00:15:21,602 --> 00:15:22,102
+However,
+
+256
+00:15:22,242 --> 00:15:25,743
+if we try to ls a folder that doesn't exist,
+
+257
+00:15:26,544 --> 00:15:28,624
+now we get this kind of error message.
+
+258
+00:15:29,044 --> 00:15:32,205
+And if we try to capture that error message,
+
+259
+00:15:33,166 --> 00:15:34,726
+we haven't captured it.
+
+260
+00:15:34,766 --> 00:15:37,869
+And that's because that didn't go to the standard output of the program,
+
+261
+00:15:38,029 --> 00:15:39,311
+that went into the standard error.
+
+262
+00:15:39,891 --> 00:15:44,977
+In order to capture the error we actually have to use different syntax.
+
+263
+00:15:45,717 --> 00:15:57,510
+But this is convenient because now programs have a way to communicate both of these types of information without them getting mixed into their output.
+
+264
+00:15:59,555 --> 00:16:05,539
+One common pattern that you might see is like sometimes you want to ignore the output,
+
+265
+00:16:05,959 --> 00:16:08,340
+and that's why you use this dev null.
+
+266
+00:16:08,440 --> 00:16:11,182
+So there's like this notion there are like some special files,
+
+267
+00:16:11,382 --> 00:16:12,263
+dev null for example,
+
+268
+00:16:12,303 --> 00:16:13,463
+whatever you write to it,
+
+269
+00:16:13,503 --> 00:16:14,684
+it just disappears.
+
+270
+00:16:14,764 --> 00:16:17,626
+It actually doesn't get written anywhere.
+
+271
+00:16:20,507 --> 00:16:27,031
+The next concept that you will very commonly see in the shell is the notion of environment variables.
+
+272
+00:16:28,247 --> 00:16:30,388
+To define a variable in bash,
+
+273
+00:16:30,588 --> 00:16:33,669
+you use this syntax, "foo=bar"
+
+274
+00:16:34,649 --> 00:16:38,790
+and to access it we use the "$foo" syntax.
+
+275
+00:16:40,170 --> 00:16:41,711
+It is quite important to know that
+
+276
+00:16:42,311 --> 00:16:43,831
+"foo var"
+
+277
+00:16:44,091 --> 00:16:45,832
+with spaces is not valid.
+
+278
+00:16:47,452 --> 00:16:48,533
+When we try to do this,
+
+279
+00:16:48,673 --> 00:16:56,355
+what we're actually telling to the program is run the program foo with arguments equals and argument var and then
+
+280
+00:16:56,915 --> 00:16:58,876
+tells us that program foo doesn't exist,
+
+281
+00:16:58,916 --> 00:17:01,919
+so we have not defined this variable.
+
+282
+00:17:02,519 --> 00:17:04,380
+We can put many things in variables.
+
+283
+00:17:04,381 --> 00:17:04,782
+For example,
+
+284
+00:17:04,782 --> 00:17:08,823
+we can capture the output of programs into variables.
+
+285
+00:17:09,404 --> 00:17:18,530
+And because there are conventions that usually programs will look at inputs by splitting by new lines,
+
+286
+00:17:18,990 --> 00:17:22,413
+if we echo this command,
+
+287
+00:17:22,473 --> 00:17:25,335
+we see everything split by new lines.
+
+288
+00:17:25,839 --> 00:17:32,325
+And then if we try to run grep on top of this,
+
+289
+00:17:33,827 --> 00:17:38,251
+we'll see that grep is operating line by line even though we put everything into a variable.
+
+290
+00:17:40,974 --> 00:17:50,443
+Now some variables are kind of special in that whenever you create a variable it goes into your current local session
+
+291
+00:17:51,011 --> 00:17:55,934
+But sometimes you want those variables to be passed into other programs that you define.
+
+292
+00:17:56,614 --> 00:17:57,835
+So here,
+
+293
+00:17:57,955 --> 00:17:59,876
+like we created foo equals var,
+
+294
+00:18:00,156 --> 00:18:07,761
+but if we try to create like a debug equals one,
+
+295
+00:18:08,361 --> 00:18:10,522
+and then we run this program,
+
+296
+00:18:10,642 --> 00:18:11,623
+which is just saying,
+
+297
+00:18:12,443 --> 00:18:15,305
+spawn a shell and check the value of debug,
+
+298
+00:18:15,845 --> 00:18:16,606
+it's not there.
+
+299
+00:18:17,146 --> 00:18:18,387
+And that's because by default,
+
+300
+00:18:18,467 --> 00:18:18,967
+the
+
+301
+00:18:19,067 --> 00:18:19,988
+when we did this,
+
+302
+00:18:20,048 --> 00:18:22,429
+it was only set for the local shell.
+
+303
+00:18:23,350 --> 00:18:25,211
+If we actually want to pass that,
+
+304
+00:18:25,852 --> 00:18:28,213
+we can call it directly,
+
+305
+00:18:28,253 --> 00:18:30,215
+we can prepend the command with that,
+
+306
+00:18:30,595 --> 00:18:33,977
+and now when this program gets launched in its environment,
+
+307
+00:18:33,997 --> 00:18:35,719
+it will have this variable.
+
+308
+00:18:36,599 --> 00:18:42,984
+The reason why environment variables are useful is because there are some conventions on things,
+
+309
+00:18:43,424 --> 00:18:47,567
+on some variables that are commonly used.
+
+310
+00:18:47,667 --> 00:18:48,207
+For example,
+
+311
+00:18:48,227 --> 00:18:50,609
+if a program wants to save configuration,
+
+312
+00:18:51,110 --> 00:18:55,433
+it might check the home environment variable.
+
+313
+00:18:55,834 --> 00:18:58,996
+So whenever you're running a program,
+
+314
+00:18:59,116 --> 00:19:02,719
+your operating system is setting this home environment variable that says like:
+
+315
+00:19:02,759 --> 00:19:03,120
+"Oh,
+
+316
+00:19:03,120 --> 00:19:04,901
+the home folder for this user is here."
+
+317
+00:19:05,381 --> 00:19:10,325
+So instead of having to run my command and always specifying whatever is my home folder,
+
+318
+00:19:11,106 --> 00:19:17,251
+the programs can almost often assume that this environment variable is defined and use that for their operation.
+
+319
+00:19:18,531 --> 00:19:19,731
+Another example is,
+
+320
+00:19:20,011 --> 00:19:24,713
+yesterday we saw the date command that just tells us what date it is right now.
+
+321
+00:19:25,413 --> 00:19:32,515
+But for example if we use the tz environment variable and we say actually we're now in Asia,
+
+322
+00:19:32,615 --> 00:19:33,115
+Tokyo,
+
+323
+00:19:33,175 --> 00:19:34,236
+and we run date,
+
+324
+00:19:34,636 --> 00:19:43,798
+we'll see that the output that we get is different because the date command is checking for this environment variable and changing its behavior based on that.
+
+325
+00:19:44,399 --> 00:19:45,899
+And that it's useful because
+
+326
+00:19:46,279 --> 00:19:46,779
+For example,
+
+327
+00:19:46,819 --> 00:19:48,160
+time zone is something many,
+
+328
+00:19:48,240 --> 00:19:55,706
+many programs need to know and it would be really annoying if you always had to do date and then specify the time zone manually.
+
+329
+00:19:55,707 --> 00:20:08,115
+So the local variables you create only exist for...
+
+330
+00:20:08,116 --> 00:20:09,255
+For the shell session.
+
+331
+00:20:09,256 --> 00:20:11,417
+So like if I do debug equals one and then I do l,
+
+332
+00:20:11,418 --> 00:20:14,139
+I do like less or whatever and I do like now
+
+333
+00:20:15,191 --> 00:20:15,732
+debug again,
+
+334
+00:20:15,752 --> 00:20:16,312
+it's still 1.
+
+335
+00:20:17,913 --> 00:20:24,038
+It will be set but child processes will not inherit it unless I do export.
+
+336
+00:20:24,199 --> 00:20:26,260
+Like if I do export debug
+
+337
+00:20:26,981 --> 00:20:33,486
+1, I'm telling now all the children that are processed that I create should also get this variable.
+
+338
+00:20:34,107 --> 00:20:37,670
+And now if we go back to this example,
+
+339
+00:20:38,591 --> 00:20:40,973
+before we were getting nothing here,
+
+340
+00:20:41,413 --> 00:20:43,695
+but now because we exported the variable
+
+341
+00:20:44,407 --> 00:20:44,868
+it will get it.
+
+342
+00:20:44,868 --> 00:20:48,530
+What does "bash -c" do?
+
+343
+00:20:48,531 --> 00:20:49,370
+"bash-c" says,
+
+344
+00:20:49,450 --> 00:20:49,790
+"OK,
+
+345
+00:20:49,790 --> 00:20:53,793
+run a bash shell running whatever I have on the right."
+
+346
+00:20:54,253 --> 00:20:56,254
+Just like a way of running...
+
+347
+00:20:57,907 --> 00:20:59,328
+Like if I do echo debug,
+
+348
+00:20:59,368 --> 00:21:01,869
+it will just execute exactly in my session.
+
+349
+00:21:01,909 --> 00:21:07,511
+This is a way of creating like a child shell.
+
+350
+00:21:09,752 --> 00:21:12,833
+The next concept is like we've seen that we can kind of...
+
+351
+00:21:12,834 --> 00:21:15,034
+We get inputs through environment variables,
+
+352
+00:21:15,234 --> 00:21:15,934
+arguments,
+
+353
+00:21:16,134 --> 00:21:17,315
+and the standard input.
+
+354
+00:21:17,415 --> 00:21:19,056
+We produce output through the standard output.
+
+355
+00:21:19,336 --> 00:21:24,758
+But there's another output that we also produce which is the return code.
+
+356
+00:21:25,458 --> 00:21:27,199
+Usually the standard output is just like
+
+357
+00:21:27,931 --> 00:21:30,293
+bunch of strings you can think of.
+
+358
+00:21:31,293 --> 00:21:37,437
+But in many cases it's useful to signal whether the command that we ran was successful or not.
+
+359
+00:21:38,398 --> 00:21:38,898
+So,
+
+360
+00:21:39,899 --> 00:21:44,542
+the idea here is when we run ls and everything went well,
+
+361
+00:21:44,943 --> 00:21:46,824
+we can actually check,
+
+362
+00:21:47,384 --> 00:21:47,704
+okay,
+
+363
+00:21:47,704 --> 00:21:48,985
+what is the return code?
+
+364
+00:21:48,986 --> 00:21:52,347
+And the return code is just another string that is a number.
+
+365
+00:21:53,028 --> 00:21:54,369
+And in this case it's zero.
+
+366
+00:21:54,629 --> 00:21:57,351
+And then convention is zero means everything went well.
+
+367
+00:21:57,775 --> 00:21:59,456
+None zero is there was an error.
+
+368
+00:22:14,167 --> 00:22:14,787
+It will have,
+
+369
+00:22:14,867 --> 00:22:15,628
+when you prepend,
+
+370
+00:22:15,888 --> 00:22:16,448
+that has,
+
+371
+00:22:16,909 --> 00:22:22,012
+sorry,
+so the question is what happens if you export and then you use the prefix?
+
+372
+00:22:32,847 --> 00:22:43,854
+yeah for i project equal to oh debug i see i see in that case i think it should be one because
+
+373
+00:22:43,855 --> 00:22:52,340
+you i mean i export like like what like negative shares or the like
+
+374
+00:23:01,400 --> 00:23:01,900
+Yeah,
+
+375
+00:23:05,182 --> 00:23:12,766
+the idea of export is you want to export it to all the child processes that this shell will create.
+
+376
+00:23:20,689 --> 00:23:24,531
+So if we delete debug,
+
+377
+00:23:25,131 --> 00:23:27,392
+and we try to access it in the child process,
+
+378
+00:23:27,472 --> 00:23:27,972
+it's not there.
+
+379
+00:23:28,592 --> 00:23:30,913
+If we just set it here,
+
+380
+00:23:31,534 --> 00:23:33,154
+and we try to access it in the child process,
+
+381
+00:23:33,314 --> 00:23:33,815
+it's not there.
+
+382
+00:23:33,895 --> 00:23:36,156
+When we run export,
+
+383
+00:23:36,696 --> 00:23:38,416
+and we try to access it in the child process,
+
+384
+00:23:38,577 --> 00:23:39,357
+it is accessed.
+
+385
+00:23:39,358 --> 00:23:40,637
+It's like the value is set.
+
+386
+00:23:40,638 --> 00:23:45,779
+The question is perhaps if you now modify debug,
+
+387
+00:23:46,460 --> 00:23:51,162
+is the modified debug also modified in the subshelf?
+
+388
+00:23:51,163 --> 00:23:54,303
+Yeah,
+I think so because you already have declared that it's exported.
+
+389
+00:23:54,675 --> 00:23:55,175
+Right?
+
+390
+00:23:57,797 --> 00:23:58,297
+Yeah.
+
+391
+00:24:00,398 --> 00:24:03,120
+Yeah,
+sorry I was not understanding the question.
+
+392
+00:24:03,860 --> 00:24:06,021
+So going back to what we're covering,
+
+393
+00:24:06,061 --> 00:24:11,884
+so when we run ls if it goes well we have this notion of return code.
+
+394
+00:24:12,885 --> 00:24:17,888
+If we try to ls something that doesn't exist and we check the return code it's actually true.
+
+395
+00:24:18,108 --> 00:24:19,208
+It's like something went wrong.
+
+396
+00:24:19,469 --> 00:24:20,029
+What went wrong,
+
+397
+00:24:20,209 --> 00:24:23,811
+this was not like a folder we could actually list.
+
+398
+00:24:26,164 --> 00:24:32,149
+Most of the operators in the shell language will rely on return code.
+
+399
+00:24:32,150 --> 00:24:32,650
+So,
+
+400
+00:24:32,949 --> 00:24:33,430
+for example,
+
+401
+00:24:33,430 --> 00:24:36,292
+what we saw yesterday of using ifs and whiles,
+
+402
+00:24:36,692 --> 00:24:37,773
+almost any control flow,
+
+403
+00:24:38,193 --> 00:24:40,055
+they will not look at the output of the program.
+
+404
+00:24:40,075 --> 00:24:42,577
+They will look at whatever return code they produce.
+
+405
+00:24:43,258 --> 00:24:46,720
+And in many cases it can be fairly useful because,
+
+406
+00:24:46,880 --> 00:24:47,380
+for example,
+
+407
+00:24:47,461 --> 00:24:52,985
+grep will produce zero if it finds the pattern and it produces
+
+408
+00:24:55,147 --> 00:24:56,948
+non-serial if the parent is not found.
+
+409
+00:24:57,348 --> 00:25:02,129
+So we can use the...
+
+410
+00:25:03,749 --> 00:25:04,350
+So we...
+
+411
+00:25:06,070 --> 00:25:06,530
+Yeah,
+
+412
+00:25:06,530 --> 00:25:10,471
+so if we use the which is kind of like the & operator,
+
+413
+00:25:10,611 --> 00:25:14,813
+the second program will only run if the first one runs successfully.
+
+414
+00:25:16,033 --> 00:25:22,255
+And the opposite version of that is if we run the
+
+415
+00:25:22,795 --> 00:25:23,175
+PyPy
+
+416
+00:25:23,175 --> 00:25:24,275
+pipe which is OR,
+
+417
+00:25:24,356 --> 00:25:28,357
+the second command will only run if the previous one fails.
+
+418
+00:25:31,819 --> 00:25:38,161
+I think that covers most of like return code logic.
+
+419
+00:25:38,602 --> 00:25:40,082
+Yeah.
+
+420
+00:25:40,242 --> 00:25:41,783
+Oh -q is by default grep.
+
+421
+00:25:42,263 --> 00:25:43,184
+If we just run it,
+
+422
+00:25:43,864 --> 00:25:47,805
+we'll output whatever it's doing.
+
+423
+00:25:49,086 --> 00:25:49,586
+The
+
+424
+00:25:49,746 --> 00:25:51,227
+-q is equivalent to saying quiet.
+
+425
+00:25:52,607 --> 00:25:53,107
+Like run,
+
+426
+00:25:53,390 --> 00:25:55,578
+try to match but don't give any output.
+
+427
+00:25:57,057 --> 00:26:01,961
+And the reason why it is helpful is because we might be using the return code of grep.
+
+428
+00:26:05,284 --> 00:26:10,048
+The last kind of shell-specific concept is the notion of signals.
+
+429
+00:26:10,548 --> 00:26:11,048
+So,
+
+430
+00:26:11,269 --> 00:26:11,589
+again,
+
+431
+00:26:11,589 --> 00:26:20,236
+yesterday we saw this idea that you can have a command that is running for a while and then you can do Ctrl+C and it suddenly stops.
+
+432
+00:26:20,916 --> 00:26:26,221
+But what is happening behind the scenes for you to send this Ctrl+C and then
+
+433
+00:26:27,637 --> 00:26:30,298
+the program actually knowing that it has to stop.
+
+434
+00:26:31,219 --> 00:26:36,461
+So this is happening because we're sending what are called signals.
+
+435
+00:26:37,541 --> 00:26:46,105
+Signals are a type of software interrupts and what's happening is the shell is sending a signal to the program with a specific code,
+
+436
+00:26:46,125 --> 00:26:47,385
+and the program is receiving it.
+
+437
+00:26:48,226 --> 00:26:49,686
+If it has a way to deal with it,
+
+438
+00:26:49,766 --> 00:26:51,147
+it will run that code.
+
+439
+00:26:51,687 --> 00:26:52,207
+Otherwise,
+
+440
+00:26:52,227 --> 00:26:53,328
+it will probably just exit.
+
+441
+00:26:57,069 --> 00:26:58,010
+we do this,
+
+442
+00:26:58,571 --> 00:27:07,939
+what's happening is we're sending the second signal and we can actually write programs that do different behaviors based on this.
+
+443
+00:27:08,179 --> 00:27:08,780
+So for example,
+
+444
+00:27:08,880 --> 00:27:11,563
+this is a Python program and
+
+445
+00:27:12,363 --> 00:27:17,328
+Python has the signal library and we can define a handler that says like,
+
+446
+00:27:17,368 --> 00:27:17,688
+okay,
+
+447
+00:27:17,688 --> 00:27:18,409
+I got a second,
+
+448
+00:27:18,549 --> 00:27:20,611
+but I'm actually not going to stop.
+
+449
+00:27:21,572 --> 00:27:22,392
+And when
+
+450
+00:27:23,413 --> 00:27:24,053
+When we do this,
+
+451
+00:27:24,213 --> 00:27:24,954
+we're just saying,
+
+452
+00:27:24,994 --> 00:27:26,575
+"Okay,
+whenever we get a SIGINT,
+
+453
+00:27:26,755 --> 00:27:29,016
+we're going to execute this function."
+
+454
+00:27:29,556 --> 00:27:30,337
+And then by default,
+
+455
+00:27:30,377 --> 00:27:32,178
+this is just going to count numbers.
+
+456
+00:27:32,978 --> 00:27:34,959
+So if we run this command,
+
+457
+00:27:35,199 --> 00:27:36,500
+we see that we're counting numbers.
+
+458
+00:27:36,620 --> 00:27:44,004
+We try to control C and it's not stopping because we have a way to process what's happening and we are deciding to ignore it.
+
+459
+00:27:44,364 --> 00:27:46,005
+There are many more signals.
+
+460
+00:27:46,045 --> 00:27:46,466
+For example,
+
+461
+00:27:46,466 --> 00:27:47,886
+if we do control backslash,
+
+462
+00:27:48,006 --> 00:27:49,087
+we're sending SIGQUIT,
+
+463
+00:27:49,267 --> 00:27:50,648
+which is like a more aggressive,
+
+464
+00:27:50,768 --> 00:27:52,869
+like you should really exit.
+
+465
+00:27:53,493 --> 00:27:58,657
+And there are even more aggressive ones that can't be handled like SIGKILL.
+
+466
+00:27:59,337 --> 00:28:00,938
+There's documentation online,
+
+467
+00:28:01,438 --> 00:28:03,840
+there are many different options that are defined,
+
+468
+00:28:04,200 --> 00:28:08,063
+but actually in practice you'll only be using a few of them.
+
+469
+00:28:09,504 --> 00:28:17,669
+One of the reasons why this might be helpful is say for example you have a script that uses some temporary files
+
+470
+00:28:18,049 --> 00:28:22,291
+and you want to guarantee that even if something goes wrong and someone interrupts you,
+
+471
+00:28:22,371 --> 00:28:25,933
+you actually clean up those files so they are not lingering.
+
+472
+00:28:26,634 --> 00:28:27,954
+This is what we're doing here.
+
+473
+00:28:28,075 --> 00:28:35,399
+This is the same idea of we have a bus function that says like "okay let's clean up the temporary files"
+
+474
+00:28:35,539 --> 00:28:41,362
+and in case we get like a second or like a SIGTERM then actually call this function.
+
+475
+00:28:42,002 --> 00:28:44,324
+And in here we're just creating the file,
+
+476
+00:28:44,424 --> 00:28:44,924
+sleeping,
+
+477
+00:28:45,004 --> 00:28:45,804
+and then deleting it.
+
+478
+00:28:46,585 --> 00:28:47,085
+So
+
+479
+00:28:49,958 --> 00:28:56,181
+If we run this command and then we control C,
+
+480
+00:28:56,341 --> 00:29:01,923
+we see that we actually run that piece of code that handles the signal.
+
+481
+00:29:02,844 --> 00:29:06,585
+There are signals that don't just interrupt the program.
+
+482
+00:29:06,805 --> 00:29:08,826
+Another common one is control Z.
+
+483
+00:29:09,526 --> 00:29:11,407
+So when we send control Z,
+
+484
+00:29:12,268 --> 00:29:15,269
+what the shell does is sends like a SIGTSTP
+
+485
+00:29:15,785 --> 00:29:16,485
+signal that says,
+
+486
+00:29:16,705 --> 00:29:18,346
+"Okay,
+the terminal told you to stop."
+
+487
+00:29:18,826 --> 00:29:20,407
+So the program gets suspended.
+
+488
+00:29:20,467 --> 00:29:22,248
+It gets paused.
+
+489
+00:29:22,788 --> 00:29:25,869
+And now if we check what processes we have,
+
+490
+00:29:25,870 --> 00:29:29,771
+we can see that there is this process that was suspended.
+
+491
+00:29:29,791 --> 00:29:32,412
+We can recover it.
+
+492
+00:29:32,872 --> 00:29:35,393
+We can send it back.
+
+493
+00:29:35,954 --> 00:29:39,915
+We can also send signals to that process using the kill command.
+
+494
+00:29:40,636 --> 00:29:42,957
+You might maybe have seen kill.
+
+495
+00:29:43,097 --> 00:29:43,797
+Kill is
+
+496
+00:29:44,513 --> 00:29:46,914
+just like a way of sending any type of signal,
+
+497
+00:29:46,994 --> 00:29:49,034
+not just one to stop the program.
+
+498
+00:29:49,295 --> 00:29:55,416
+So for example here we can send the continuation signal to this suspended process.
+
+499
+00:29:55,977 --> 00:29:59,518
+And this is the process ID which is how the OS identifies it.
+
+500
+00:30:00,238 --> 00:30:01,938
+And if we now check,
+
+501
+00:30:02,039 --> 00:30:04,699
+now we see it went from suspended to running.
+
+502
+00:30:05,300 --> 00:30:07,960
+But if we wanted to still interrupt it,
+
+503
+00:30:08,601 --> 00:30:09,281
+I think actually
+
+504
+00:30:10,889 --> 00:30:11,349
+It's left,
+
+505
+00:30:11,349 --> 00:30:14,731
+but now we have another process that is suspended.
+
+506
+00:30:15,211 --> 00:30:19,973
+And we can interrupt or continue.
+
+507
+00:30:22,054 --> 00:30:24,695
+And then instead of doing Ctrl+C,
+
+508
+00:30:24,956 --> 00:30:27,577
+which we can't because it's suspended,
+
+509
+00:30:28,097 --> 00:30:31,579
+we can just interrupt it.
+
+510
+00:30:32,359 --> 00:30:36,201
+We interrupted it by sending the signal explicitly through K.
+
+511
+00:30:47,225 --> 00:30:49,787
+And I think this covers a lot of the abstractions.
+
+512
+00:30:51,888 --> 00:30:53,849
+There are a lot of conventions that you will see,
+
+513
+00:30:54,169 --> 00:30:55,610
+like having flags,
+
+514
+00:30:56,030 --> 00:30:57,331
+reading from standard input,
+
+515
+00:30:57,651 --> 00:30:58,772
+taking arguments,
+
+516
+00:30:59,512 --> 00:31:00,233
+having arguments...
+
+517
+00:31:02,794 --> 00:31:03,294
+All of them,
+
+518
+00:31:03,755 --> 00:31:07,937
+having taken an arbitrary number of arguments and operating in all of them.
+
+519
+00:31:08,317 --> 00:31:12,480
+And as you use more of the shell on your everyday,
+
+520
+00:31:13,540 --> 00:31:14,561
+you will find that
+
+521
+00:31:15,005 --> 00:31:21,411
+A lot of it just makes easier to use new programs because a lot of them are just abiding by the same rules.
+
+522
+00:31:23,072 --> 00:31:24,774
+The next topic we're going...
+
+523
+00:31:24,974 --> 00:31:25,354
+Oh,
+
+524
+00:31:25,354 --> 00:31:35,664
+yeah.
+Is it generating data or does it clear its cache?
+
+525
+00:31:35,665 --> 00:31:36,885
+Depends on what the process is doing.
+
+526
+00:31:36,985 --> 00:31:40,548
+Like for example in the one script we wrote,
+
+527
+00:31:41,749 --> 00:31:42,970
+they had some intermediate files,
+
+528
+00:31:43,030 --> 00:31:47,491
+but because the program had a way to deal with the interruption,
+
+529
+00:31:48,192 --> 00:31:49,472
+it had a way to clean things up.
+
+530
+00:31:49,772 --> 00:31:50,293
+By default,
+
+531
+00:31:50,393 --> 00:31:50,873
+it won't.
+
+532
+00:31:50,873 --> 00:31:51,413
+By default,
+
+533
+00:31:51,673 --> 00:31:55,115
+if you just try a program and don't consider that possibility,
+
+534
+00:31:55,495 --> 00:31:57,916
+you actually might have half-written files.
+
+535
+00:32:00,137 --> 00:32:06,379
+The next topic we're going to cover is the idea of working in cells that are not in your own computer,
+
+536
+00:32:06,459 --> 00:32:08,220
+but actually running in a remote server.
+
+537
+00:32:08,700 --> 00:32:09,200
+For this,
+
+538
+00:32:09,240 --> 00:32:10,681
+we use the secure shell
+
+539
+00:32:11,217 --> 00:32:11,717
+which is
+
+540
+00:32:12,018 --> 00:32:12,518
+SSH.
+
+541
+00:32:13,218 --> 00:32:16,561
+And syntax can look something like this,
+
+542
+00:32:16,801 --> 00:32:22,084
+where we are calling SSH and saying we want to authenticate as user jjgo,
+
+543
+00:32:22,645 --> 00:32:24,266
+and this is an IP address.
+
+544
+00:32:24,267 --> 00:32:26,607
+IP address is the more low-level way.
+
+545
+00:32:26,707 --> 00:32:30,330
+You might have seen something that looks more like this.
+
+546
+00:32:31,150 --> 00:32:31,731
+In practice,
+
+547
+00:32:31,771 --> 00:32:33,952
+that kind of server.mit.edu,
+
+548
+00:32:34,313 --> 00:32:39,436
+it's looking online at someone to tell it that it's actually this number.
+
+549
+00:32:41,197 --> 00:32:45,761
+And I have to delete this.
+
+550
+00:32:47,863 --> 00:32:51,005
+So usually when you SSH it will prompt you for the password.
+
+551
+00:32:51,006 --> 00:32:57,550
+You need to show that you are authorized to access this server.
+
+552
+00:32:57,691 --> 00:33:03,075
+So we type the password and we are now in this machine and we can LS,
+
+553
+00:33:03,615 --> 00:33:05,757
+we can create files,
+
+554
+00:33:05,997 --> 00:33:08,279
+we can do pretty much the same thing.
+
+555
+00:33:09,580 --> 00:33:10,101
+One of the
+
+556
+00:33:10,641 --> 00:33:12,503
+Annoying thing is whenever you exit,
+
+557
+00:33:12,523 --> 00:33:15,345
+you don't want to keep re-authenticating.
+
+558
+00:33:15,825 --> 00:33:19,749
+So for that we rely on SSH keys.
+
+559
+00:33:19,949 --> 00:33:26,114
+SSH keys use a thing called public key cryptography which is like a private key and a public key.
+
+560
+00:33:26,634 --> 00:33:32,139
+And with that you can show that you're authorized without having to type your password.
+
+561
+00:33:33,019 --> 00:33:35,541
+In order to generate a key,
+
+562
+00:33:35,782 --> 00:33:37,463
+you will run a command like this.
+
+563
+00:33:38,164 --> 00:33:39,685
+Here's asking me to override.
+
+564
+00:33:40,681 --> 00:33:43,564
+Now we have produced two files in the file system.
+
+565
+00:33:44,264 --> 00:33:44,764
+The,
+
+566
+00:33:44,785 --> 00:33:45,605
+you can kind of,
+
+567
+00:33:45,906 --> 00:33:49,549
+ls ssh and we can see we have a private key and a public key.
+
+568
+00:33:50,049 --> 00:33:52,251
+This public key is,
+
+569
+00:33:52,331 --> 00:33:52,831
+let's,
+
+570
+00:33:55,754 --> 00:34:03,600
+this public key is a piece of information that you can give people so that they can verify that you are who you say you are.
+
+571
+00:34:04,041 --> 00:34:09,185
+So if we put this in the remote server then they can verify that we actually are
+
+572
+00:34:09,385 --> 00:34:10,665
+own the private key.
+
+573
+00:34:10,925 --> 00:34:11,425
+When you,
+
+574
+00:34:11,526 --> 00:34:12,026
+for example,
+
+575
+00:34:12,066 --> 00:34:13,886
+want to upload code to GitHub,
+
+576
+00:34:14,226 --> 00:34:16,587
+for GitHub to know that you are who you are,
+
+577
+00:34:16,607 --> 00:34:21,048
+you're probably going to give them your public key and they will use that to verify.
+
+578
+00:34:21,688 --> 00:34:22,709
+The private key,
+
+579
+00:34:22,710 --> 00:34:23,269
+in contrast,
+
+580
+00:34:23,789 --> 00:34:25,530
+you should never give to anyone.
+
+581
+00:34:25,570 --> 00:34:27,270
+This will not leave your computer.
+
+582
+00:34:28,050 --> 00:34:29,751
+This is equivalent to your password.
+
+583
+00:34:29,752 --> 00:34:31,111
+You should never copy-paste this.
+
+584
+00:34:31,151 --> 00:34:35,652
+It's fine for me to put it because this is just a temporary key I'm creating for the class.
+
+585
+00:34:36,373 --> 00:34:37,613
+Just never paste your...
+
+586
+00:34:38,513 --> 00:34:39,593
+private keys anywhere.
+
+587
+00:34:40,374 --> 00:34:43,454
+So in order for the server to know about our private key,
+
+588
+00:34:43,614 --> 00:34:45,435
+we just run this command.
+
+589
+00:34:46,195 --> 00:34:50,256
+It will ask us for the password and now whenever we try to
+
+590
+00:34:51,557 --> 00:34:52,617
+SSH again,
+
+591
+00:34:53,157 --> 00:34:59,939
+we didn't have to type a password because it actually used this SSH key to verify that we were actually authorized here.
+
+592
+00:35:00,119 --> 00:35:03,800
+And if we check the SSH authorized key,
+
+593
+00:35:04,080 --> 00:35:07,321
+that kind of magical SSH copy ID command,
+
+594
+00:35:07,661 --> 00:35:15,006
+The only thing that it did is just copied out one string that allows the server to verify that we have the private key.
+
+595
+00:35:18,169 --> 00:35:18,669
+Then
+
+596
+00:35:19,650 --> 00:35:22,071
+SSH is useful for interactive sessions,
+
+597
+00:35:22,152 --> 00:35:24,914
+but you can also use SSH to execute commands.
+
+598
+00:35:25,234 --> 00:35:26,255
+So if we do that,
+
+599
+00:35:26,875 --> 00:35:28,556
+it will just execute "ls",
+
+600
+00:35:28,676 --> 00:35:29,877
+but it will execute "ls"
+
+601
+00:35:30,237 --> 00:35:34,861
+in the remote machine and then whatever output it produces gets forwarded to the
+
+602
+00:35:35,437 --> 00:35:36,518
+output of SSH.
+
+603
+00:35:36,678 --> 00:35:38,739
+Like,
+SSH is not a magical command,
+
+604
+00:35:38,820 --> 00:35:40,761
+it's equivalent to almost every command,
+
+605
+00:35:41,041 --> 00:35:43,363
+so you can take input and you can produce output.
+
+606
+00:35:43,983 --> 00:35:44,604
+So for example,
+
+607
+00:35:45,144 --> 00:35:50,308
+if we do this where wc.l just counts lines,
+
+608
+00:35:51,569 --> 00:35:55,571
+what's happening is we're running this through SSH,
+
+609
+00:35:55,652 --> 00:35:59,714
+we're getting the output of whatever ls produced in the remote server,
+
+610
+00:36:00,195 --> 00:36:03,237
+and then we're counting the lines locally.
+
+611
+00:36:03,437 --> 00:36:05,959
+like the WC is running in the local computer,
+
+612
+00:36:06,019 --> 00:36:06,879
+not in the remote one.
+
+613
+00:36:07,620 --> 00:36:10,782
+If we wanted both of them to run in the remote computer,
+
+614
+00:36:10,862 --> 00:36:14,445
+we would do that and then now the entire pipeline executes there.
+
+615
+00:36:17,498 --> 00:36:26,862
+One challenge when dealing with remote machines is sometimes it can be challenging having like many things running in parallel.
+
+616
+00:36:26,863 --> 00:36:32,584
+Because you have to like SSH and now you have like a shell and say that I actually wanted to...
+
+617
+00:36:34,525 --> 00:36:37,546
+oh,
+actually we should first cover copying files.
+
+618
+00:36:38,226 --> 00:36:44,509
+So for if you want to actually copy files from your local folder to your
+
+619
+00:36:44,829 --> 00:36:46,930
+remote machine.
+
+620
+00:36:47,531 --> 00:36:48,671
+There are many programs,
+
+621
+00:36:48,771 --> 00:36:51,673
+but almost all of them are just using SSH under the hood,
+
+622
+00:36:51,733 --> 00:36:54,254
+which is good because you already configured your
+
+623
+00:36:54,955 --> 00:36:55,495
+SSH key.
+
+624
+00:36:56,175 --> 00:37:02,719
+So for example if we want to copy the ignore.py file and then we say okay,
+
+625
+00:37:03,039 --> 00:37:05,520
+it will be copied to this server under this path.
+
+626
+00:37:05,660 --> 00:37:11,904
+This is like this specific syntax that SCP takes and we need to go to demo.
+
+627
+00:37:15,397 --> 00:37:16,037
+And it just says,
+
+628
+00:37:16,097 --> 00:37:16,597
+"Okay,
+
+629
+00:37:16,698 --> 00:37:19,119
+I successfully copied this file there."
+
+630
+00:37:19,719 --> 00:37:22,400
+And then now when we go there,
+
+631
+00:37:22,520 --> 00:37:23,400
+we can see that
+
+632
+00:37:24,141 --> 00:37:25,461
+IgnorePY is here.
+
+633
+00:37:26,622 --> 00:37:29,363
+The issue is the moment we try to run IgnorePY...
+
+634
+00:37:29,523 --> 00:37:30,604
+Actually,
+
+635
+00:37:30,624 --> 00:37:31,124
+I have two,
+
+636
+00:37:32,044 --> 00:37:32,544
+three here.
+
+637
+00:37:33,225 --> 00:37:35,846
+We cannot do anything else in this remote machine.
+
+638
+00:37:36,366 --> 00:37:39,387
+And this is where terminal multiplexers,
+
+639
+00:37:39,807 --> 00:37:42,128
+where the most famous one is tmux,
+
+640
+00:37:42,709 --> 00:37:43,329
+come into play.
+
+641
+00:37:43,509 --> 00:37:51,935
+Terminal multiplexers are just programs that make easy to run many other programs within the same environment.
+
+642
+00:37:52,015 --> 00:37:53,236
+So when we run tmux,
+
+643
+00:37:53,876 --> 00:37:58,219
+you'll see that now we have the same problem but now we have this bar here.
+
+644
+00:37:58,780 --> 00:38:12,269
+This is running in the remote machine and we can for example run our process and giving it the right keystrokes we can create more
+
+645
+00:38:12,869 --> 00:38:14,690
+pains for us to keep working.
+
+646
+00:38:14,691 --> 00:38:14,911
+So,
+like,
+
+647
+00:38:14,911 --> 00:38:15,390
+for example,
+
+648
+00:38:15,390 --> 00:38:20,613
+we can start editing the file while the process is running in a different one.
+
+649
+00:38:20,934 --> 00:38:23,915
+We can create more windows.
+
+650
+00:38:23,995 --> 00:38:28,198
+So,
+windows here is just the nomenclature that tmux uses,
+
+651
+00:38:28,858 --> 00:38:31,800
+but you can think of it as browser tabs.
+
+652
+00:38:31,820 --> 00:38:32,380
+So,
+for example,
+
+653
+00:38:32,380 --> 00:38:35,342
+here we can see that there's zero and there's one,
+
+654
+00:38:35,802 --> 00:38:37,523
+and then we can switch between them.
+
+655
+00:38:38,203 --> 00:38:41,025
+The nodes have a lot of the
+
+656
+00:38:41,385 --> 00:38:43,406
+keyboard shortcuts that tmux uses.
+
+657
+00:38:44,147 --> 00:38:48,250
+tmux uses a type of keyboard shortcut that is not that common,
+
+658
+00:38:48,350 --> 00:38:53,253
+which is prefix-based keyboard shortcuts where you usually always run control B,
+
+659
+00:38:53,814 --> 00:38:56,435
+then release that and then you type some other key.
+
+660
+00:38:56,936 --> 00:39:04,461
+So for example in order to create a new window you do control B and then you do C and that tells that we want to create a window.
+
+661
+00:39:04,681 --> 00:39:05,622
+If we do control B
+
+662
+00:39:06,242 --> 00:39:08,904
+0 it does have to go to window number 0.
+
+663
+00:39:09,885 --> 00:39:10,385
+And there are
+
+664
+00:39:10,961 --> 00:39:12,082
+many things that you can do.
+
+665
+00:39:12,222 --> 00:39:12,823
+Like for example,
+
+666
+00:39:12,863 --> 00:39:15,925
+we can now leave all of this session running.
+
+667
+00:39:16,266 --> 00:39:24,332
+So we can do Ctrl+B+D for detouch and we can reattach again.
+
+668
+00:39:25,433 --> 00:39:32,999
+One of the advantages of this is if we just had this program run in and we disconnected from the remote server,
+
+669
+00:39:33,219 --> 00:39:34,721
+we will have lost it.
+
+670
+00:39:34,761 --> 00:39:39,685
+And because when you actually disconnect from a remote session,
+
+671
+00:39:40,701 --> 00:39:46,785
+What the shell does is it detects that and it sends a special type of signal called the hangup signal.
+
+672
+00:39:46,865 --> 00:39:47,766
+So it's like "SIGHUP"
+
+673
+00:39:48,427 --> 00:39:51,028
+and that will kill all the processes that were running.
+
+674
+00:39:51,829 --> 00:39:55,572
+tmux decides to capture that signal and actually doesn't propagate it.
+
+675
+00:39:55,752 --> 00:40:03,017
+So now if we connect to the server again and we do tmax attach,
+
+676
+00:40:03,077 --> 00:40:04,738
+we can see that everything is still running.
+
+677
+00:40:05,479 --> 00:40:08,201
+And this is quite convenient because now our
+
+678
+00:40:09,065 --> 00:40:14,267
+The remote session is not tied to the connection between the two servers.
+
+679
+00:40:14,268 --> 00:40:28,653
+"Will you make it SSH?"
+
+680
+00:40:28,654 --> 00:40:29,213
+That's a great question.
+
+681
+00:40:29,794 --> 00:40:31,154
+You should definitely do it because...
+
+682
+00:40:32,435 --> 00:40:32,775
+Oh yeah,
+
+683
+00:40:32,775 --> 00:40:33,575
+sorry.
+The question is:
+
+684
+00:40:33,715 --> 00:40:35,296
+when you create an SSH key,
+
+685
+00:40:35,436 --> 00:40:36,576
+should you add a passphrase?
+
+686
+00:40:38,457 --> 00:40:40,539
+I'm saying that's a good question.
+
+687
+00:40:40,899 --> 00:40:41,640
+You should definitely do it.
+
+688
+00:40:41,720 --> 00:40:42,380
+If you don't,
+
+689
+00:40:42,881 --> 00:40:50,607
+what you're effectively doing is you're putting in your file system the password to effectively SSH into these servers.
+
+690
+00:40:51,448 --> 00:41:01,016
+Any program that has the ability to read your file system will probably be able to read that file as-is if you don't add a passphrase.
+
+691
+00:41:01,056 --> 00:41:02,056
+When you add a passphrase,
+
+692
+00:41:02,057 --> 00:41:07,261
+you are effectively encrypting it with your password and whenever you want to SSH
+
+693
+00:41:07,789 --> 00:41:08,569
+into a server,
+
+694
+00:41:08,689 --> 00:41:10,950
+you will get prompted to decode the key.
+
+695
+00:41:11,271 --> 00:41:11,771
+And then
+
+696
+00:41:12,151 --> 00:41:14,072
+I think the nodes have some examples.
+
+697
+00:41:14,492 --> 00:41:18,354
+There are programs that actually make that a bit more convenient.
+
+698
+00:41:18,694 --> 00:41:19,014
+But yeah,
+
+699
+00:41:19,014 --> 00:41:21,595
+you should put passphrases in your SSH keys.
+
+700
+00:41:27,195 --> 00:41:31,178
+Next topic that we're going to cover is actually customizing your shell.
+
+701
+00:41:31,318 --> 00:41:33,079
+So by default,
+
+702
+00:41:33,499 --> 00:41:38,363
+your shell will come with many programs that are installed in your operating system.
+
+703
+00:41:38,443 --> 00:41:39,343
+But for instance,
+
+704
+00:41:39,944 --> 00:41:43,866
+maybe when you try to repeat whatever we're doing here and you run tmux,
+
+705
+00:41:44,006 --> 00:41:45,207
+tmux is not available.
+
+706
+00:41:45,988 --> 00:41:48,109
+And that's because in some distributions,
+
+707
+00:41:48,149 --> 00:41:49,590
+tmux doesn't come pre-installed.
+
+708
+00:41:50,171 --> 00:41:53,072
+And in order for that program to be available,
+
+709
+00:41:53,073 --> 00:41:55,314
+you have to install it.
+
+710
+00:41:55,334 --> 00:41:56,615
+So for that,
+
+711
+00:41:57,203 --> 00:42:04,646
+The unfortunate news is different operating systems have different ways of installing programs.
+
+712
+00:42:05,206 --> 00:42:06,807
+So if you're on Mac OS,
+
+713
+00:42:06,987 --> 00:42:12,169
+the de facto package manager is brew and
+
+714
+00:42:12,550 --> 00:42:14,610
+Debian and Ubuntu is APT.
+
+715
+00:42:15,431 --> 00:42:18,832
+And if we wanted to ensure that tmux installs,
+
+716
+00:42:18,972 --> 00:42:21,413
+we would look something like this.
+
+717
+00:42:22,134 --> 00:42:24,995
+And as you try to run
+
+718
+00:42:25,315 --> 00:42:26,976
+kind of more and more programs,
+
+719
+00:42:27,496 --> 00:42:31,338
+you will find that a lot of the time you have to figure out a way of installing them.
+
+720
+00:42:32,699 --> 00:42:36,561
+The programs can...
+
+721
+00:42:36,801 --> 00:42:42,344
+there are many programs out there that actually make interacting with the shell easier.
+
+722
+00:42:42,424 --> 00:42:43,065
+So for example,
+
+723
+00:42:43,445 --> 00:42:44,405
+there's like ripgrep,
+
+724
+00:42:44,826 --> 00:42:48,167
+that is like a kind of more versatile version of grep,
+
+725
+00:42:48,367 --> 00:42:49,388
+just makes your life easier.
+
+726
+00:42:49,848 --> 00:42:54,811
+And we can try saying "Okay I want to find all the Python files that have import in them."
+
+727
+00:42:55,995 --> 00:43:01,398
+but it's not installed and what this is telling us to do is like,
+
+728
+00:43:01,399 --> 00:43:03,039
+okay you should install ripgrep.
+
+729
+00:43:03,639 --> 00:43:14,565
+And once we do that process now that program that wasn't available before is now available and we can actually search for all the files that have imports in them.
+
+730
+00:43:15,686 --> 00:43:25,351
+It might not be obvious why if we were trying to do RG we had to do ripgrep or like why ripgrep is like RG like that mismatch
+
+731
+00:43:26,027 --> 00:43:27,608
+can sometimes be frustrating.
+
+732
+00:43:28,209 --> 00:43:31,371
+There is this fantastic website that is called Command Not Found.
+
+733
+00:43:32,051 --> 00:43:39,656
+You type the program that you don't know how to install and it pretty much tells you in a bunch of different operating systems how to install it.
+
+734
+00:43:41,758 --> 00:43:44,640
+Your first instinct should always try to go to your package manager.
+
+735
+00:43:46,281 --> 00:43:55,167
+The next thing that we're going to cover is modifying how your shell behaves
+
+736
+00:43:55,743 --> 00:44:02,566
+So yesterday we saw that there's this kind of path environment variable,
+
+737
+00:44:03,126 --> 00:44:03,626
+right?
+
+738
+00:44:03,726 --> 00:44:09,449
+And that the path environment variable has this list of folders that contain all the programs in your operating system.
+
+739
+00:44:10,169 --> 00:44:17,132
+Now with what we've seen about the different properties of the shell,
+
+740
+00:44:17,172 --> 00:44:19,233
+we know that the way to
+
+741
+00:44:24,975 --> 00:44:28,117
+modify the path so it has more entries than it has,
+
+742
+00:44:28,458 --> 00:44:30,699
+is just doing variable assignment.
+
+743
+00:44:30,700 --> 00:44:31,279
+You can say okay,
+
+744
+00:44:31,380 --> 00:44:33,361
+path is whatever it was before,
+
+745
+00:44:33,741 --> 00:44:35,843
+plus this new path that we're trying to append.
+
+746
+00:44:36,423 --> 00:44:43,088
+And we probably want to set export because otherwise any child processes will not inherit this.
+
+747
+00:44:48,972 --> 00:44:50,213
+Is our current location the thing I connected with?
+
+748
+00:44:51,013 --> 00:44:51,513
+No.
+
+749
+00:44:51,614 --> 00:44:53,355
+The path is a variable that has
+
+750
+00:44:53,947 --> 00:44:54,447
+Like,
+
+751
+00:44:54,547 --> 00:44:56,228
+if we echo path,
+
+752
+00:44:57,009 --> 00:44:57,449
+right?
+
+753
+00:44:57,449 --> 00:44:59,390
+It's a variable that has the contents...
+
+754
+00:44:59,870 --> 00:45:01,411
+that had exactly these contents.
+
+755
+00:45:01,872 --> 00:45:02,372
+And then,
+
+756
+00:45:02,912 --> 00:45:06,114
+if we make a folder and then we move into that folder,
+
+757
+00:45:06,734 --> 00:45:09,196
+the path variable hasn't changed.
+
+758
+00:45:09,197 --> 00:45:09,697
+It's the same.
+
+759
+00:45:12,658 --> 00:45:15,539
+Does that make sense?
+
+760
+00:45:15,960 --> 00:45:16,600
+By default,
+
+761
+00:45:17,060 --> 00:45:21,563
+the shell will not try to use your current folder to find programs.
+
+762
+00:45:24,727 --> 00:45:29,251
+And that's why yesterday we saw that if you create a script,
+
+763
+00:45:31,293 --> 00:45:36,557
+you had to prepend with like ./ to tell it to actually search in the current path.
+
+764
+00:45:37,638 --> 00:45:40,360
+If we try to do a script.sh,
+
+765
+00:45:40,501 --> 00:45:44,424
+it will tell us this is not a command I can find in any of these folders.
+
+766
+00:45:45,044 --> 00:45:47,206
+But if we run the
+
+767
+00:45:49,527 --> 00:45:51,268
+if we run the export,
+
+768
+00:45:51,728 --> 00:45:52,228
+right?
+
+769
+00:45:52,668 --> 00:45:56,149
+And now the value of path is different.
+
+770
+00:45:56,150 --> 00:45:59,150
+It has that extra entry that it didn't have before.
+
+771
+00:46:00,330 --> 00:46:02,871
+And it will search in that path.
+
+772
+00:46:03,131 --> 00:46:07,792
+The challenge is now if we disconnect and reconnect and we have a new session,
+
+773
+00:46:08,553 --> 00:46:10,093
+if we echo path now,
+
+774
+00:46:10,513 --> 00:46:12,334
+we have lost that modification.
+
+775
+00:46:12,534 --> 00:46:13,334
+That modification,
+
+776
+00:46:13,994 --> 00:46:17,035
+even though we exported it for child processes,
+
+777
+00:46:17,571 --> 00:46:18,772
+it's not getting persisted,
+
+778
+00:46:18,872 --> 00:46:22,815
+like new sessions do not know about that export.
+
+779
+00:46:23,476 --> 00:46:29,801
+The way to actually persist that configuration is to add it to the shell configuration file.
+
+780
+00:46:30,282 --> 00:46:33,384
+That will depend exactly on which shell you're running.
+
+781
+00:46:33,484 --> 00:46:45,394
+In the remote server we're running bash so if we look at the bash configuration file which is bashrc or bash_profile depending on
+
+782
+00:46:46,463 --> 00:46:49,164
+the shell you're running.
+
+783
+00:46:50,304 --> 00:46:51,424
+Here it's pretty basic,
+
+784
+00:46:51,585 --> 00:46:58,226
+but the main idea is if we include the export path in here.
+
+785
+00:46:58,727 --> 00:47:01,687
+Now whenever a shell process is created,
+
+786
+00:47:02,068 --> 00:47:03,988
+it's going to read this file,
+
+787
+00:47:04,248 --> 00:47:06,449
+it's going to evaluate this line,
+
+788
+00:47:06,729 --> 00:47:09,030
+and then path will have this entry.
+
+789
+00:47:09,810 --> 00:47:12,671
+So we can verify this by disconnecting.
+
+790
+00:47:12,831 --> 00:47:14,051
+We can connect again.
+
+791
+00:47:15,023 --> 00:47:16,503
+And then if we echo path,
+
+792
+00:47:16,743 --> 00:47:20,845
+we can verify that it has that extra entry that otherwise it wouldn't have.
+
+793
+00:47:21,865 --> 00:47:24,726
+And the path is a special variable.
+
+794
+00:47:25,026 --> 00:47:30,827
+There are variables that modify other parts of the behavior of your shell.
+
+795
+00:47:31,608 --> 00:47:34,848
+So for example here we have ps1.
+
+796
+00:47:35,569 --> 00:47:39,750
+Ps1 tells the shell how to render that left prompt.
+
+797
+00:47:40,230 --> 00:47:44,131
+So right now it's getting rendered in this way but
+
+798
+00:47:44,715 --> 00:47:46,916
+If we over-roll that,
+
+799
+00:47:47,016 --> 00:47:47,736
+saying "PS1"
+
+800
+00:47:48,096 --> 00:47:50,297
+is just this plain symbol,
+
+801
+00:47:51,517 --> 00:47:54,438
+if we now spawn a new shell,
+
+802
+00:47:54,498 --> 00:47:57,599
+you see that now it's just that symbol.
+
+803
+00:47:57,659 --> 00:47:58,419
+There's nothing else.
+
+804
+00:47:59,199 --> 00:48:06,421
+And in order to have that nice behavior,
+
+805
+00:48:06,901 --> 00:48:11,782
+we have to use a specific syntax that the shell understands.
+
+806
+00:48:14,391 --> 00:48:18,573
+when you're trying to find commands,
+
+807
+00:48:18,633 --> 00:48:21,574
+you might try to use the history.
+
+808
+00:48:21,714 --> 00:48:22,314
+So for example,
+
+809
+00:48:22,355 --> 00:48:24,716
+I know at some point I've run a vim command.
+
+810
+00:48:25,136 --> 00:48:31,859
+I can do a backwards search through my history to find different things I've vimped.
+
+811
+00:48:32,999 --> 00:48:37,021
+But the shell also allows you to override that behavior.
+
+812
+00:48:37,461 --> 00:48:41,683
+So in this case what we can do is we can
+
+813
+00:48:42,423 --> 00:48:43,704
+load another tool,
+
+814
+00:48:43,764 --> 00:48:45,424
+which in this case is fzf,
+
+815
+00:48:45,625 --> 00:48:47,005
+which is a Fuzzy Finder.
+
+816
+00:48:47,465 --> 00:48:53,608
+And this tool will hook into the shell and will override the control R behavior.
+
+817
+00:48:54,288 --> 00:48:54,788
+So,
+
+818
+00:48:54,948 --> 00:48:55,869
+well actually we can...
+
+819
+00:48:57,169 --> 00:48:59,971
+The way to do it without exiting is doing source,
+
+820
+00:49:00,311 --> 00:49:05,293
+which means evaluate line by line that file.
+
+821
+00:49:05,333 --> 00:49:07,074
+And now if we try to control R,
+
+822
+00:49:09,175 --> 00:49:10,015
+we get that
+
+823
+00:49:11,503 --> 00:49:18,246
+We get a Fuzzy Finder with all the Vim commands that we have run.
+
+824
+00:49:18,947 --> 00:49:19,827
+And there are many,
+
+825
+00:49:19,947 --> 00:49:23,749
+many things that you can customize about your shell.
+
+826
+00:49:24,809 --> 00:49:30,232
+And there are entire plugin systems of things that you can do.
+
+827
+00:49:32,512 --> 00:49:33,153
+In practice,
+
+828
+00:49:33,193 --> 00:49:38,195
+a lot of people will document online how their setup is configured
+
+829
+00:49:38,523 --> 00:49:40,464
+And that's usually called dot files.
+
+830
+00:49:40,944 --> 00:49:44,927
+That's because most of these files would start with a dot to make them hidden,
+
+831
+00:49:44,947 --> 00:49:45,447
+so it's like
+
+832
+00:49:46,087 --> 00:49:46,587
+.basterc,
+
+833
+00:49:47,668 --> 00:49:52,951
+.cshrc and people will have many of them kind of committed for
+
+834
+00:49:53,495 --> 00:49:57,657
+just for them to keep track of,
+
+835
+00:49:57,777 --> 00:50:03,320
+but it can actually be really useful to read through them and understand what they're doing.
+
+836
+00:50:03,380 --> 00:50:04,081
+So,
+for example,
+
+837
+00:50:04,661 --> 00:50:14,386
+in this case we can see that this user didn't want globbing to take whether a letter was uppercase or lowercase into account.
+
+838
+00:50:14,967 --> 00:50:22,551
+And there is this command that you can use to tell the shell not to pay attention to being case-insensitive.
+
+839
+00:50:23,071 --> 00:50:24,732
+And there are many,
+
+840
+00:50:24,852 --> 00:50:29,893
+many options that you can give and people have documented a lot of them online.
+
+841
+00:50:31,494 --> 00:50:38,316
+One extra detail is in order for you not to lose your configuration when you go to a different machine,
+
+842
+00:50:38,556 --> 00:50:48,098
+it actually pays off to put it into a single place and then install that into your current environment.
+
+843
+00:50:48,859 --> 00:50:49,919
+To elaborate on that,
+
+844
+00:50:50,467 --> 00:50:53,409
+If we now do ls -la of this folder,
+
+845
+00:50:53,449 --> 00:50:55,651
+actually let's grab the bus.
+
+846
+00:50:56,331 --> 00:51:01,034
+We can see that my bashrc file is actually not a file.
+
+847
+00:51:01,555 --> 00:51:05,998
+This is how ls illustrates having symlinks.
+
+848
+00:51:06,338 --> 00:51:17,146
+Symlinks are a notion in many operating systems which is whenever anyone tries to read this file just go somewhere else,
+
+849
+00:51:17,166 --> 00:51:18,907
+like read this other file instead.
+
+850
+00:51:19,239 --> 00:51:20,199
+So this is saying,
+
+851
+00:51:20,219 --> 00:51:20,520
+like,
+
+852
+00:51:20,520 --> 00:51:21,880
+whenever you want to read
+
+853
+00:51:22,600 --> 00:51:24,221
+.bashrc, you should actually go into
+
+854
+00:51:24,581 --> 00:51:26,282
+.dotfiles/bash/bashrc.
+
+855
+00:51:27,482 --> 00:51:31,284
+And this lets me put all my dot files under,
+
+856
+00:51:31,344 --> 00:51:31,844
+like,
+
+857
+00:51:31,864 --> 00:51:32,484
+.dotfiles,
+
+858
+00:51:33,145 --> 00:51:33,785
+version them.
+
+859
+00:51:33,925 --> 00:51:35,986
+I have them on GitHub.
+
+860
+00:51:36,406 --> 00:51:43,309
+And then whenever I want to configure another computer to have all the options that I'm used to,
+
+861
+00:51:43,989 --> 00:51:48,331
+I just have a script that actually creates all these symbolic links
+
+862
+00:51:48,783 --> 00:51:52,346
+so that the programs can find the configuration files.
+
+863
+00:51:56,850 --> 00:51:57,431
+And yeah,
+
+864
+00:51:57,471 --> 00:52:04,997
+like the dot files for all the three structures of the course are online and you can check them,
+
+865
+00:52:05,117 --> 00:52:06,578
+try to understand.
+
+866
+00:52:07,059 --> 00:52:16,307
+I recommend not blindly copy-pasting an entire bashrc from someone without understanding what it's doing because it might get really confusing.
+
+867
+00:52:18,148 --> 00:52:20,829
+what the default state shows is actually more useful,
+
+868
+00:52:20,909 --> 00:52:23,430
+kind of going line by line and understanding.
+
+869
+00:52:29,353 --> 00:52:29,713
+Yeah,
+
+870
+00:52:29,713 --> 00:52:39,637
+so there's actually a very useful link in the lecture notes that elaborates on why there are multiple files and which ones are read when.
+
+871
+00:52:40,077 --> 00:52:40,577
+So
+
+872
+00:52:40,918 --> 00:52:43,719
+bash has different files depending on
+
+873
+00:52:44,259 --> 00:52:46,840
+whether the terminal was interactive or not.
+
+874
+00:52:47,060 --> 00:52:49,781
+And that's why you have bashrc and bash_profile.
+
+875
+00:52:50,021 --> 00:52:50,522
+So,
+for example,
+
+876
+00:52:50,522 --> 00:52:53,382
+if it's an interactive session like the one we're seeing here,
+
+877
+00:52:53,862 --> 00:52:54,962
+bashrc will be read.
+
+878
+00:52:55,382 --> 00:52:58,503
+When you actually launch bash not interactively,
+
+879
+00:52:59,023 --> 00:53:01,544
+then it will not load that part of the configuration.
+
+880
+00:53:02,124 --> 00:53:02,624
+For
+
+881
+00:53:03,064 --> 00:53:05,425
+zsh, it's like a different shell,
+
+882
+00:53:06,065 --> 00:53:07,346
+and it has a different file.
+
+883
+00:53:07,446 --> 00:53:12,447
+So you can configure the two of them completely independently because they are going to check
+
+884
+00:53:12,923 --> 00:53:14,103
+completely different files.
+
+885
+00:53:14,104 --> 00:53:16,224
+So if we check for here...
+
+886
+00:53:18,084 --> 00:53:18,545
+Oh,
+
+887
+00:53:18,545 --> 00:53:20,305
+I have to go up one level.
+
+888
+00:53:20,665 --> 00:53:23,506
+There are .cshrc or .zshrc.
+
+889
+00:53:23,507 --> 00:53:25,726
+They're like different files that are related to
+
+890
+00:53:27,007 --> 00:53:27,507
+zsh.
+
+891
+00:53:29,968 --> 00:53:38,630
+The next notion is the notion that there are many things that you can configure and there are things that are not built into the shell but it can be convenient.
+
+892
+00:53:38,650 --> 00:53:42,251
+And people build entire packages to support some features.
+
+893
+00:53:42,679 --> 00:53:43,179
+So,
+
+894
+00:53:43,239 --> 00:53:43,759
+for instance,
+
+895
+00:53:43,760 --> 00:53:48,341
+you probably have seen that throughout like in this terminal,
+
+896
+00:53:48,741 --> 00:53:49,981
+whenever I type things,
+
+897
+00:53:50,041 --> 00:53:56,363
+it tries to give me a way to autocomplete based on previous commands I've run in the past.
+
+898
+00:53:57,483 --> 00:53:58,924
+This is not the default behavior.
+
+899
+00:53:59,004 --> 00:53:59,664
+This is because
+
+900
+00:54:00,224 --> 00:54:00,844
+I told
+
+901
+00:54:01,724 --> 00:54:11,047
+zsh to load like a bunch of files that enable this behavior and the lecture notes have links to plugins that do these things and
+
+902
+00:54:11,583 --> 00:54:13,405
+they can make your experience more convenient.
+
+903
+00:54:13,425 --> 00:54:14,646
+So for example here as well,
+
+904
+00:54:15,627 --> 00:54:16,588
+when I type "ls"
+
+905
+00:54:16,888 --> 00:54:18,389
+it's getting highlighted in green.
+
+906
+00:54:18,810 --> 00:54:22,253
+And that's no coincidence because the ls command actually exists.
+
+907
+00:54:22,713 --> 00:54:24,695
+If I do "ls x",
+
+908
+00:54:25,036 --> 00:54:27,278
+it's red because that command doesn't exist.
+
+909
+00:54:27,279 --> 00:54:32,623
+And I don't even need to run the command to see that it's not going to work because it's not available.
+
+910
+00:54:33,203 --> 00:54:36,826
+And if I type the name of
+
+911
+00:54:38,320 --> 00:54:39,641
+Oh,
+it's demo.
+
+912
+00:54:39,761 --> 00:54:40,902
+Well,
+that was a good example.
+
+913
+00:54:40,922 --> 00:54:42,083
+When we did demo,
+
+914
+00:54:42,503 --> 00:54:45,385
+because demo was a folder that existed,
+
+915
+00:54:45,605 --> 00:54:47,526
+then that immediately got highlighted.
+
+916
+00:54:47,987 --> 00:54:53,651
+And it's not worth covering every single of these plugins,
+
+917
+00:54:54,211 --> 00:55:04,598
+but you should be aware that they exist and that they can make your terminal experience way more convenient than the stock configuration can do.
+
+918
+00:55:04,718 --> 00:55:06,760
+And we have links on a few
+
+919
+00:55:07,660 --> 00:55:08,420
+of these plugins.
+
+920
+00:55:08,860 --> 00:55:13,802
+Some of them will also configure how your prompt looks like.
+
+921
+00:55:13,862 --> 00:55:14,362
+For example,
+
+922
+00:55:14,402 --> 00:55:16,723
+here it's telling me that
+
+923
+00:55:17,523 --> 00:55:34,447
+I'm this user in this machine and if I go into the .files folder it's going to tell me things that are only relevant in this folder such as in this git repo we're in the master branch and there are five changes that we haven't run or
+
+924
+00:55:34,448 --> 00:55:35,928
+for example if we
+
+925
+00:55:36,608 --> 00:55:39,209
+try to alas like a non-existent thing,
+
+926
+00:55:40,030 --> 00:55:45,413
+the cursor changed to red because the return code of the previous command was non-zero.
+
+927
+00:55:45,673 --> 00:55:53,017
+So like every quick way for me to get information that I probably could get as well by doing it manually,
+
+928
+00:55:53,457 --> 00:55:56,219
+but it's just much lower effort.
+
+929
+00:55:56,220 --> 00:56:03,843
+Do those plugin pointers work in with which drive you're in and whether you...
+
+930
+00:56:08,000 --> 00:56:12,742
+It works whenever you're on your machine.
+
+931
+00:56:12,743 --> 00:56:15,503
+Okay,
+so the question is A whether this will work in WSL?
+
+932
+00:56:15,904 --> 00:56:28,809
+The answer is yes, because WSL for the most part... you can just think it's like a Linux machine running in your computer. And then the other is about, will this affect all shells or like all folders?
+
+933
+00:56:29,069 --> 00:56:34,611
+I feel like folders, yes, because as you navigate you're still using the same shell session,
+
+934
+00:56:34,751 --> 00:56:36,192
+like you're using the same
+
+935
+00:56:36,592 --> 00:56:39,474
+program that is running in your computer with this configuration,
+
+936
+00:56:39,935 --> 00:56:46,740
+but if you're for example using zsh that has some configuration, and then you start a bash session,
+
+937
+00:56:46,840 --> 00:56:48,141
+that will have a different configuration.
+
+938
+00:56:48,242 --> 00:56:49,503
+Actually I think I can...
+
+939
+00:56:49,843 --> 00:56:51,284
+yeah. If I run bash,
+
+940
+00:56:51,644 --> 00:56:57,629
+you can see that the prompt is different because the configuration that I have for bash is different from the one I have for zsh.
+
+941
+00:56:57,649 --> 00:57:03,054
+And it helps it to load in these plugins?
+
+942
+00:57:03,074 --> 00:57:03,775
+Yeah
+
+943
+00:57:04,395 --> 00:57:05,696
+The zsh shell is reading
+
+944
+00:57:06,200 --> 00:57:13,723
+completely different files in order to set up things like the... the plugin system that I described that enables
+
+945
+00:57:14,223 --> 00:57:22,547
+that thing, and bash in this case I actually haven't modified because I like it as a fallback if anything breaks and it's just using pretty basic configuration
+
+946
+00:57:25,888 --> 00:57:27,709
+So if we go to
+
+947
+00:57:29,389 --> 00:57:34,011
+The zsh RC there will be this actually yeah,
+
+948
+00:57:34,031 --> 00:57:34,572
+for example.
+
+949
+00:57:34,872 --> 00:57:35,652
+There is this like a
+
+950
+00:57:36,036 --> 00:57:36,656
+power level
+
+951
+00:57:37,057 --> 00:57:38,338
+10k prompt plugin.
+
+952
+00:57:38,998 --> 00:57:43,581
+That it's the one that is actually coloring like kind of like the left prompt and the right prompt,
+
+953
+00:57:44,162 --> 00:57:59,432
+and what this line is doing is saying okay if this file exists all right which is the condition in bash and then we're using the operator that we saw earlier that will only run if
+
+954
+00:57:59,472 --> 00:58:05,096
+the previous one um succeed wait what oh it's using okay there's negating i don't know
+
+955
+00:58:05,376 --> 00:58:05,917
+Why did...
+
+956
+00:58:06,437 --> 00:58:08,358
+this is weird that they're doing it that way,
+
+957
+00:58:08,418 --> 00:58:08,879
+yeah.
+
+958
+00:58:08,879 --> 00:58:12,301
+But like if this doesn't exist,
+
+959
+00:58:13,542 --> 00:58:15,383
+this will fail and then this is run.
+
+960
+00:58:15,443 --> 00:58:22,068
+And then source is this command that will just evaluate line by line whatever this file contains.
+
+961
+00:58:22,088 --> 00:58:27,811
+And then this file that we can actually just look as well,
+
+962
+00:58:28,372 --> 00:58:33,735
+it's an entire plugin done in zsh that
+
+963
+00:58:34,828 --> 00:58:36,729
+enables a lot of these behaviors.
+
+964
+00:58:38,370 --> 00:58:38,731
+Basically,
+
+965
+00:58:38,731 --> 00:58:41,992
+a giant bash program is the plugin.
+
+966
+00:58:41,993 --> 00:58:42,792
+And how do we get that bash plugin?
+
+967
+00:58:42,793 --> 00:58:45,334
+Do we just copy it from somewhere else?
+
+968
+00:58:45,335 --> 00:58:46,174
+Or is it on a machine?
+
+969
+00:58:46,175 --> 00:58:50,157
+I'm kind of slow.
+
+970
+00:58:52,158 --> 00:58:54,139
+In that particular case,
+
+971
+00:58:54,759 --> 00:59:03,484
+a lot of these plugins will live in GitHub and there will be an installation section that it
+
+972
+00:59:03,604 --> 00:59:05,826
+tells you exactly how to install it.
+
+973
+00:59:06,366 --> 00:59:10,490
+Here the most simple setup is you literally git clone,
+
+974
+00:59:10,590 --> 00:59:17,375
+which is download that repository of files to your local machine under this specific path,
+
+975
+00:59:17,655 --> 00:59:23,861
+just like your home folder and then add this line that enables this to run.
+
+976
+00:59:26,803 --> 00:59:30,546
+Yeah look what this is doing is you will write this line in your
+
+977
+00:59:31,046 --> 00:59:32,728
+zshrc but if you
+
+978
+00:59:33,453 --> 00:59:34,795
+look at what's happening here.
+
+979
+00:59:34,936 --> 00:59:37,241
+It's saying append that to your .zshrc.
+
+980
+00:59:37,501 --> 00:59:39,445
+So you don't actually have to do it with Vim.
+
+981
+00:59:39,465 --> 00:59:42,952
+You can literally just run this and it will append that to your
+
+982
+00:59:43,894 --> 00:59:44,416
+.zshrc.
+
+983
+00:59:48,546 --> 00:59:49,046
+Thanks.
+
+984
+00:59:51,547 --> 00:59:53,427
+Oh,
+and one very quick note:
+
+985
+00:59:53,507 --> 00:59:56,448
+you might see entire frameworks that load many,
+
+986
+00:59:56,508 --> 00:59:57,268
+many plugins.
+
+987
+00:59:57,288 --> 01:00:02,090
+I feel like the kind of most known framework is Oh My Zsh.
+
+988
+01:00:03,050 --> 01:00:04,631
+Those frameworks can be good,
+
+989
+01:00:04,811 --> 01:00:10,252
+but they can also slow down your shell because they're trying to do a lot of things for you.
+
+990
+01:00:10,253 --> 01:00:12,213
+They're enabling a lot of behaviors.
+
+991
+01:00:12,877 --> 01:00:16,539
+So I actually recommend just installing one plugin at a time,
+
+992
+01:00:16,599 --> 01:00:19,200
+seeing if you actually use it and it's actually worth for you.
+
+993
+01:00:19,820 --> 01:00:20,881
+And if not,
+
+994
+01:00:20,921 --> 01:00:21,821
+you just remove it.
+
+995
+01:00:21,822 --> 01:00:27,183
+I feel like having that fine-grained control prevents bloating your shell experience.
+
+996
+01:00:28,664 --> 01:00:31,005
+And as a last topic,
+
+997
+01:00:31,065 --> 01:00:36,748
+I want to quickly touch on how we can actually use AI tools in the shell.
+
+998
+01:00:36,848 --> 01:00:38,048
+You can always go to
+
+999
+01:00:39,909 --> 01:00:43,390
+chat GPT on the website and ask it questions about the shell,
+
+1000
+01:00:43,570 --> 01:00:45,250
+and they will definitely work.
+
+1001
+01:00:45,631 --> 01:00:49,092
+But you can actually interact with these models using CLI tools.
+
+1002
+01:00:49,532 --> 01:00:52,413
+And that might be more useful and more convenient.
+
+1003
+01:00:53,113 --> 01:00:58,494
+So one tool that you can install is this LLM tool.
+
+1004
+01:00:58,734 --> 01:01:00,095
+It's linked in ElectroNode.
+
+1005
+01:01:00,595 --> 01:01:02,115
+And here we're pretty much saying,
+
+1006
+01:01:02,375 --> 01:01:02,875
+okay,
+
+1007
+01:01:03,476 --> 01:01:08,397
+I want a command that just finds all the Python files that were modified in the last day.
+
+1008
+01:01:08,985 --> 01:01:14,026
+I know there is some syntax with the find program that will achieve this,
+
+1009
+01:01:14,086 --> 01:01:16,647
+but as we were seeing with John yesterday,
+
+1010
+01:01:16,687 --> 01:01:20,568
+sometimes it's hard to get all the right flags for find.
+
+1011
+01:01:21,108 --> 01:01:26,190
+And this will ask an LLM that will have a really hard time not to give us the right answer,
+
+1012
+01:01:26,710 --> 01:01:29,971
+and it just prompts us whether we're fine running this command.
+
+1013
+01:01:30,511 --> 01:01:32,492
+And we can quickly inspect it,
+
+1014
+01:01:32,912 --> 01:01:34,572
+and it makes roughly logical sense.
+
+1015
+01:01:34,592 --> 01:01:36,413
+Like its name is *py.
+
+1016
+01:01:37,613 --> 01:01:40,714
+the things have to be files and they have to be modified in the last day.
+
+1017
+01:01:41,215 --> 01:01:41,855
+And we run it,
+
+1018
+01:01:41,895 --> 01:01:43,916
+they're kind of all listed.
+
+1019
+01:01:44,936 --> 01:01:45,476
+Beyond that,
+
+1020
+01:01:45,496 --> 01:01:46,456
+we can also use
+
+1021
+01:01:47,137 --> 01:01:51,739
+LLMs as part of our processes.
+
+1022
+01:01:52,179 --> 01:01:57,861
+So for example here we have a file where we
+
+1023
+01:01:58,793 --> 01:02:04,037
+We have many different usernames in widely different formats,
+
+1024
+01:02:04,117 --> 01:02:07,779
+and I'm sure there exists a regex to extract them here.
+
+1025
+01:02:08,280 --> 01:02:12,503
+But it's just much simpler to define a variable that is
+
+1026
+01:02:13,063 --> 01:02:16,425
+"just give me the username for this line and nothing else."
+
+1027
+01:02:17,806 --> 01:02:22,109
+And then we can give that to the LLM.
+
+1028
+01:02:22,469 --> 01:02:27,393
+Again,
+this is like a good example of the LLM program getting the instructions through an argument
+
+1029
+01:02:27,893 --> 01:02:30,134
+but the input through the pipe,
+
+1030
+01:02:30,574 --> 01:02:32,634
+and then we output it and give it to sort.
+
+1031
+01:02:36,055 --> 01:02:37,676
+And as you can see here,
+
+1032
+01:02:37,796 --> 01:02:42,557
+it's extracting the relevant piece of information for every one of the lines,
+
+1033
+01:02:42,877 --> 01:02:47,639
+that otherwise unstructured parsing could have been quite challenging.
+
+1034
+01:02:48,719 --> 01:02:54,061
+The last tool that I want to cover is
+
+1035
+01:02:54,601 --> 01:02:55,101
+Claude.
+
+1036
+01:02:55,665 --> 01:03:11,697
+Claude Code goes like step beyond that where you can give it instructions in English and it will translate a lot of them into shell operations or operations in your file system.
+
+1037
+01:03:12,217 --> 01:03:18,662
+So,
+you can think of it as like a meta shell program except the programming language is English.
+
+1038
+01:03:19,603 --> 01:03:20,103
+So,
+
+1039
+01:03:20,964 --> 01:03:22,045
+I don't remember what the...
+
+1040
+01:03:24,937 --> 01:03:25,437
+Let's see,
+
+1041
+01:03:25,438 --> 01:03:25,938
+yeah.
+
+1042
+01:03:27,398 --> 01:03:39,542
+So we can give it instructions something like use find again to find it to get the most recently modified shell scripts and then change this shebang line to use csh.
+
+1043
+01:03:40,422 --> 01:03:50,645
+Something probably you could do but again find has a tricky syntax and what the LLM is doing here is taking all instructions,
+
+1044
+01:03:50,905 --> 01:03:51,625
+is producing
+
+1045
+01:03:52,173 --> 01:03:53,254
+this bash command,
+
+1046
+01:03:53,634 --> 01:03:59,437
+which probably looks extremely alien and full of unclear things,
+
+1047
+01:03:59,537 --> 01:04:00,818
+but if you unpack it,
+
+1048
+01:04:00,918 --> 01:04:02,379
+it actually looks fine.
+
+1049
+01:04:02,479 --> 01:04:03,539
+Just searching for
+
+1050
+01:04:03,960 --> 01:04:06,761
+.sh files that are acceptable,
+
+1051
+01:04:07,302 --> 01:04:12,024
+and it's trying to extract which one was most recently modified.
+
+1052
+01:04:12,745 --> 01:04:13,285
+Runs that,
+
+1053
+01:04:13,325 --> 01:04:18,808
+and instead of us getting that output and having to figure out how to feed that output into the next command,
+
+1054
+01:04:19,128 --> 01:04:20,469
+it's actually determined that
+
+1055
+01:04:20,853 --> 01:04:31,680
+It was actually cleanup.sh that was the most recently modified file and is proposing that it would change the shebang line to go from bash to csh.
+
+1056
+01:04:32,761 --> 01:04:36,784
+And it can be a really powerful tool when you're doing,
+
+1057
+01:04:37,244 --> 01:04:38,965
+when you actually don't know to,
+
+1058
+01:04:39,365 --> 01:04:50,433
+do you need to know some of the intermediate specifics or like avoiding having to kind of take the output of one of the commands only to figure out how to fit it to the next
+
+1059
+01:04:53,756 --> 01:04:55,037
+and then we can accept it.
+
+1060
+01:04:56,858 --> 01:05:00,321
+The very last thing to cover is,
+
+1061
+01:05:01,082 --> 01:05:06,926
+so far we've defined the shell and we have been running it through some program,
+
+1062
+01:05:07,627 --> 01:05:08,247
+in this case,
+
+1063
+01:05:08,428 --> 01:05:10,489
+that will depend on the operating system.
+
+1064
+01:05:11,110 --> 01:05:14,713
+Here we're using what's called a terminal emulator.
+
+1065
+01:05:14,773 --> 01:05:19,937
+It's like a GUI program that is running the shell and just presenting it in our computer.
+
+1066
+01:05:20,425 --> 01:05:21,966
+And there are different options.
+
+1067
+01:05:22,146 --> 01:05:22,646
+And again,
+
+1068
+01:05:22,746 --> 01:05:24,207
+as with dot files,
+
+1069
+01:05:24,807 --> 01:05:28,289
+you should look into which terminal emulator you can run.
+
+1070
+01:05:29,610 --> 01:05:31,511
+The one I'm using here is Alacrity.
+
+1071
+01:05:32,011 --> 01:05:35,633
+And it's like a similar thing where there are options that you can configure.
+
+1072
+01:05:35,753 --> 01:05:36,253
+For example,
+
+1073
+01:05:36,274 --> 01:05:37,434
+today for this lecture,
+
+1074
+01:05:37,494 --> 01:05:43,598
+what I had to do was change the font size from 16 to 32.
+
+1075
+01:05:44,818 --> 01:05:45,899
+And if I write that,
+
+1076
+01:05:45,939 --> 01:05:49,621
+it goes back to the size that I usually have.
+
+1077
+01:05:49,921 --> 01:05:50,421
+So it's,
+
+1078
+01:05:50,701 --> 01:05:51,102
+again,
+
+1079
+01:05:51,102 --> 01:05:52,562
+worth it to kind of,
+
+1080
+01:05:53,262 --> 01:05:57,224
+when you're trying to improve and customize your shell environment,
+
+1081
+01:05:57,544 --> 01:05:59,745
+don't forget about what terminal emulator you're using.
+
+1082
+01:06:01,226 --> 01:06:03,327
+And I feel that concludes the lecture for today.
+
+1083
+01:06:03,467 --> 01:06:04,827
+If anyone has any questions,
+
+1084
+01:06:05,307 --> 01:06:06,128
+happy to answer them.
+
+1085
+01:06:06,468 --> 01:06:08,709
+Also happy to answer questions individually.
+
+1086
+01:06:18,153 --> 01:06:18,774
+Thanks.
+Thank you.
