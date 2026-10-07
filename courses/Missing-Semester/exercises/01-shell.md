@@ -1,6 +1,6 @@
 # 第 1 讲实践：从零认识 Shell
 
-状态：未开始。先完成 A；B、C 在理解相应概念后做，D 留到学完基础脚本后。不要一次复制整页，先预测，再逐条运行。适用于 macOS 的 Zsh 与 Linux 的 Bash；D 明确使用 Bash。
+状态：未开始。结合 [第一讲完整笔记](../notes/01-shell.md)，按需要选择 A～D 组，遇到不熟悉的概念先回看对应说明。B～D 沿用 B 组准备的临时目录与自建材料。不要一次复制整页，先预测，再逐条运行。适用于 macOS 的 Zsh 与 Linux 的 Bash；D 明确使用 Bash。
 
 题目依据 [2026 年官方第一讲](https://missing.csail.mit.edu/2026/course-shell/)自拟，未提供完整答案。课程由 Anish Athalye、Jon Gjengset 和 Jose 团队教授，原课程材料采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)；本练习也采用该许可。
 
@@ -15,7 +15,7 @@
 
 ## B. 路径、参数与引号
 
-先做一次只读观察：运行 `ps -p "$$" -o pid=,comm=` 查看当前 Shell 进程，再运行 `printf '%s\n' "$SHELL"` 查看登录 Shell 的配置值；两者可能不同。运行 `type cd`、`type echo`、`type date` 与 `printf '%s\n' "$PATH"`，结合笔记第 2 次学习辨认内置命令、外部程序和搜索目录。
+先做一次只读观察：运行 `ps -p "$$" -o pid=,comm=` 查看当前 Shell 进程，再运行 `printf '%s\n' "$SHELL"` 查看登录 Shell 的配置值；两者可能不同。运行 `type cd`、`type echo`、`type date` 与 `printf '%s\n' "$PATH"`，结合完整笔记中 Shell 环境与命令查找的说明，辨认内置命令、外部程序和搜索目录。
 
 从本组起，只在新建的临时目录里创建或修改练习文件。执行下面的准备命令；任一步报错就停下来记录，成功后确认 `pwd` 的输出是新目录：
 
@@ -49,6 +49,7 @@ printf '%s\n' pear apple pear banana apple > data/fruits.txt
 2. 分别观察 `uniq data/fruits.txt`、`sort data/fruits.txt` 的输出。组合 `sort` 和 `uniq -c` 统计每种水果；逐段说明数据如何流动，解释为什么顺序重要。
 3. 把统计结果写入临时目录内的新文件 `data/counts.txt`。用另一份自建文件比较 `>` 与 `>>`，每次写入前先预测内容；再用 `<` 给 `wc -l` 提供输入。
 4. 运行 `ls data/fruits.txt data/no-such-file`，尝试将正常输出和错误分别保存为 `data/out.txt`、`data/err.txt`。提示：流编号为 1 与 2。说明普通管道默认连接哪条流。
+5. 比较 `wc -l data/fruits.txt`、`wc -l < data/fruits.txt` 与 `cat data/fruits.txt | wc -l`。观察输出差异，说明每次是谁打开文件、文件名是否作为参数传给 `wc`，以及标准输入来自哪里。
 
 **过关：**能画出一条管道的输入输出，说明覆盖、追加和错误输出的区别。所有输出文件都位于本次临时目录。
 
