@@ -8,6 +8,7 @@
 - [学习进度与问题记录](progress.md)
 - [常用符号英文名称速查](notes/symbols.md)：标点、括号、路径与运算符号、常见组合和易混字符。
 - [正则表达式与通配符](notes/regex-and-globs.md)：glob / regex 的区别、基础语法、引号与 grep 用法。
+- [SSH 日志管道命令详解](notes/ssh-log-pipeline.md)：远程执行、正则提取、频次统计、前十名筛选与 macOS 示例。
 - [第一讲视频时间索引与字幕校正](source/01-shell-video.md)
 - [第一讲英文字幕](source/01-shell.en.srt)：保留原始转写，用于核对讲解；术语和命令与官方讲义一起确认。
 
@@ -52,7 +53,8 @@ Missing-Semester/
 ├── notes/
 │   ├── 01-shell.md           # 第一讲笔记，分四次学习
 │   ├── symbols.md            # 常用符号的英文名称与使用提醒
-│   └── regex-and-globs.md    # 正则表达式与通配符的对照总结
+│   ├── regex-and-globs.md    # 正则表达式与通配符的对照总结
+│   └── ssh-log-pipeline.md   # 截图中的 SSH 日志统计管道详解
 ├── exercises/
 │   └── 01-shell.md           # 第一讲分步练习与结果记录模板
 └── source/
